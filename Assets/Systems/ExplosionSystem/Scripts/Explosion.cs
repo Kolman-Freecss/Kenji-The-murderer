@@ -7,6 +7,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float force = 1000f;
     [SerializeField] private float upwardsModifier = 1000f;
     [SerializeField] private LayerMask layerMask = Physics.DefaultRaycastLayers;
+    [SerializeField] private GameObject visualExplosionPrefab;
     
     void Start()
     {
@@ -21,7 +22,9 @@ public class Explosion : MonoBehaviour
             {
                 rb.AddExplosionForce(force, transform.position, range, upwardsModifier);
             }
-        }        
+        }
+        Instantiate(visualExplosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
     
     private void OnDrawGizmos()

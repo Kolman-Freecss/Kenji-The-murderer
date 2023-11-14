@@ -50,3 +50,5 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 51
+  visualExplosionPrefab: {fileID: 1293539085626319713, guid: 43567513ecba57d459b8dd2d1d8b527d,
+    type: 3}
