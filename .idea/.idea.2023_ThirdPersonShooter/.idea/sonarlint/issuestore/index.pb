@@ -11,3 +11,7 @@ l
 -Assets/Systems/WeaponSystem/Scripts/Barrel.cs,a\4\a463bf0d9388dc86896d1d682176c8e3ffb3c12d
 f
 6Assets/Systems/WeaponSystem/Scripts/BarrelByRaycast.cs,a\4\a4a104730fb54a7721e62bb5365b1474a0efadca
+h
+8Assets/Systems/ExplosionSystem/Scripts/ExplodeOnEvent.cs,c\b\cb4dfb9a5710473878138c9f051ed17c91b33703
+c
+3Assets/Systems/ExplosionSystem/Scripts/Explosion.cs,3\0\30f2c16366c8d2c10677c263cfdbcd269f01373e

@@ -10,6 +10,7 @@ public class HurtBox : MonoBehaviour
     [SerializeField] private UnityEvent <Transform> onHitNotifiedWithOffender;
     [SerializeField] private UnityEvent <HitBox> onHitNotifiedWithHitBox;
     [SerializeField] private UnityEvent <Barrel> onHitNotifiedWithBarrel;
+    [SerializeField] private UnityEvent <Explosion> onHitNotifiedWithExplosion;
     
     internal virtual void NotifyHit(HitBox hitBox)
     {
@@ -24,5 +25,11 @@ public class HurtBox : MonoBehaviour
         onHitNotifiedWithOffender?.Invoke(barrelByRaycast.transform);
         onHitNotifiedWithBarrel?.Invoke(barrelByRaycast);
     }
-    
+
+    internal void NotifyHit(Explosion barrelByRaycast)
+    {
+        onHitNotified?.Invoke();
+        onHitNotifiedWithOffender?.Invoke(barrelByRaycast.transform);
+        onHitNotifiedWithExplosion?.Invoke(barrelByRaycast);
+    }
 }
