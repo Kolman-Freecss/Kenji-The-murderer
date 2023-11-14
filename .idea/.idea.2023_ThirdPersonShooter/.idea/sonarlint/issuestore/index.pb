@@ -1,12 +1,6 @@
 
 X
 (Assets/Player/Script/PlayerController.cs,9\0\90a7fb9d5ebd55dc67b51bd12867da4d91b459e3
-d
-4Assets/WeaponSystem/Scripts/BarrelByInstantiation.cs,3\4\34a989d1e08e19c55823f36e6253635b6be0ba5b
-U
-%Assets/WeaponSystem/Scripts/Barrel.cs,0\2\02a16b42750736beed358f71baeb397c17bceaf5
-t
-DAssets/WeaponSystem/!Projectiles/TestProjectiles/SetStartVelocity.cs,8\6\8636658d7f671c5980c0e5b8c062ab0228276264
 ^
 .Assets/Systems/HitHurtSystem/Scripts/HitBox.cs,1\d\1d0d0eb02de1758696d79ce9391fe26505a5958e
 _
