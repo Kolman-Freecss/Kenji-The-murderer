@@ -16,5 +16,7 @@ public abstract class Barrel : MonoBehaviour
         }
     }
     
-    public abstract void Shot();
+    public virtual void Shot() { }
+    public virtual void StartShooting() { }
+    public virtual void StopShooting() { }
 }

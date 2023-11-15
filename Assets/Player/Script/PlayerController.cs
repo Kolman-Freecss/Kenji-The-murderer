@@ -31,11 +31,17 @@ public class PlayerController : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private float transitionVelocity = 1f;
 
-    [Header("Inputs")] [SerializeField] private InputActionReference move;
+    [Header("Movement Inputs")] [SerializeField] private InputActionReference move;
     [SerializeField] private InputActionReference jump;
+    
+    [Header("Weapon Inputs")] [SerializeField] private InputActionReference changeWeapon;
+    [SerializeField] private InputActionReference[] selectWeaponInputs;
+    [SerializeField] private InputActionReference shotInput;
+    [SerializeField] private InputActionReference continuousShot;
 
     CharacterController _characterController;
     private Animator animator;
+    EntityWeapons entityWeapons;
     private float verticalVelocity = 0f;
     private Vector3 velocityToApply = Vector3.zero; // World
 
@@ -43,12 +49,20 @@ public class PlayerController : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+        entityWeapons = GetComponent<EntityWeapons>();
     }
 
     private void OnEnable()
     {
         move.action.Enable();
         jump.action.Enable();
+        changeWeapon.action.Enable();
+        foreach (InputActionReference selectWeaponInput in selectWeaponInputs)
+        {
+            selectWeaponInput.action.Enable();
+        }
+        shotInput.action.Enable();
+        continuousShot.action.Enable();
     }
 
     void Start()
@@ -63,6 +77,41 @@ public class PlayerController : MonoBehaviour
         _characterController.Move(velocityToApply * Time.deltaTime);
         UpdateOrientation();
         UpdateAnimation(velocityToApply);
+        UpdateWeapons();
+    }
+    
+    private void UpdateWeapons()
+    {
+        float changeWeaponValue = changeWeapon.action.ReadValue<float>();
+        if (changeWeaponValue > 0f)
+        {
+            entityWeapons.SelectNextWeapon();
+        } 
+        if (changeWeaponValue < 0f)
+        {
+            entityWeapons.SelectPreviousWeapon();
+        }
+        for (int i = 0; i < selectWeaponInputs.Length; i++)
+        {
+            if (selectWeaponInputs[i].action.WasPerformedThisFrame())
+            {
+                entityWeapons.SetCurrentWeapon(i);
+            }
+        }
+        if (shotInput.action.WasPerformedThisFrame())
+        {
+            entityWeapons.Shot();
+        }
+        
+        if (continuousShot.action.WasPressedThisFrame())
+        {
+            entityWeapons.StartShooting();
+        }
+        
+        if (continuousShot.action.WasReleasedThisFrame())
+        {
+            entityWeapons.StopShooting();
+        }
     }
 
 
@@ -166,5 +215,12 @@ public class PlayerController : MonoBehaviour
     {
         move.action.Disable();
         jump.action.Disable();
+        changeWeapon.action.Disable();
+        foreach (InputActionReference selectWeaponInput in selectWeaponInputs)
+        {
+            selectWeaponInput.action.Disable();
+        }
+        shotInput.action.Disable();
+        continuousShot.action.Disable();
     }
 }

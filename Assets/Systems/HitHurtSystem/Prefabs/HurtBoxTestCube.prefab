@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3628721810373630513}
   - component: {fileID: 2097645559714346815}
   - component: {fileID: 4593411915021295576}
-  - component: {fileID: 6282534008493534546}
   m_Layer: 0
   m_Name: HurtBoxTestCube
   m_TagString: Untagged
@@ -143,27 +142,9 @@ MonoBehaviour:
   onHitNotifiedWithBarrel:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6282534008493534546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116866900928585177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2dcf5cada278874a94b3b65c65143ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onHitNotified:
+  onHitNotifiedWithExplosion:
     m_PersistentCalls:
       m_Calls: []
-  onHitNotifiedWithOffender:
-    m_PersistentCalls:
-      m_Calls: []
-  onHitNotifiedWithHitBox:
-    m_PersistentCalls:
-      m_Calls: []
-  onHitNotifiedWithBarrel:
+  onHitNotifiedWithParticleHit:
     m_PersistentCalls:
       m_Calls: []

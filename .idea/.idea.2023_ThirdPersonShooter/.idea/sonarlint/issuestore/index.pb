@@ -15,3 +15,11 @@ h
 8Assets/Systems/ExplosionSystem/Scripts/ExplodeOnEvent.cs,c\b\cb4dfb9a5710473878138c9f051ed17c91b33703
 c
 3Assets/Systems/ExplosionSystem/Scripts/Explosion.cs,3\0\30f2c16366c8d2c10677c263cfdbcd269f01373e
+V
+&Assets/Entity/Scripts/EntityWeapons.cs,2\b\2bd8d9b5f2ad9a39d5e05a96ee205e1fee286e79
+]
+-Assets/Systems/WeaponSystem/Scripts/Weapon.cs,4\d\4d83171ad2d3d4bdf50f004f54a760822d524a47
+h
+8Assets/Systems/WeaponSystem/Scripts/BarrelByParticles.cs,e\4\e4ff233f21a7f47433e0573a7e86d94b474fd99e
+c
+3Assets/Systems/HitHurtSystem/Scripts/ParticleHit.cs,8\0\8069d2efaddff5f35c4fe1ff057dddf0fe2c94c3
