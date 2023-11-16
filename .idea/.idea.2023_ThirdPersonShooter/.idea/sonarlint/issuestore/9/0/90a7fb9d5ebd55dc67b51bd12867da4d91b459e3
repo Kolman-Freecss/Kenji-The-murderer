@@ -1,3 +1,4 @@
 
+vcsharpsquid:S3776X"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(êØÝ”8ßªüË½1
 Qcsharpsquid:S3903"/Move 'PlayerController' into a named namespace.(â „¦øÿÿÿÿ
-›csharpsquid:S1186D"yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.(ûàîºûÿÿÿÿ
+›csharpsquid:S1186I"yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.(ûàîºûÿÿÿÿ

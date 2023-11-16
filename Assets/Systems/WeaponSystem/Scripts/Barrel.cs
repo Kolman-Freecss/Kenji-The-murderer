@@ -6,6 +6,8 @@ public abstract class Barrel : MonoBehaviour
     
     [SerializeField] private bool debugShot;
     
+    [Header("Debug")]
+    [SerializeField] private bool debugContinuousShot;
     
     void OnValidate()
     {
@@ -13,6 +15,14 @@ public abstract class Barrel : MonoBehaviour
         {
             debugShot = false;
             Shot();
+        }
+        
+        if (debugContinuousShot)
+        {
+            StartShooting();
+        } else 
+        {
+            StopShooting();
         }
     }
     

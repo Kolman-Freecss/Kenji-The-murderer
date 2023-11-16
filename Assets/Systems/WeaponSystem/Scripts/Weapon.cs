@@ -5,13 +5,21 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public enum ShotMode
+    {
+        ShotByShot,
+        Continuous
+    };
+
+    public ShotMode shotMode;
+
     Barrel[] barrels;
 
     private void Awake()
     {
         barrels = GetComponentsInChildren<Barrel>();
     }
-    
+
     public void Shot()
     {
         foreach (Barrel barrel in barrels)
@@ -34,7 +42,5 @@ public class Weapon : MonoBehaviour
         {
             barrel.StopShooting();
         }
-        
     }
-    
 }

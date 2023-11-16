@@ -2,24 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BarrelByParticles : Barrel
 {
     ParticleSystem.EmissionModule emission;
-
-    [Header("Debug")]
-    [SerializeField] private bool debugEmit;
-
-    private void OnValidate()
-    {
-        if (debugEmit)
-        {
-            StartShooting();
-        } else 
-        {
-            StopShooting();
-        }
-    }
 
     private void Awake()
     {

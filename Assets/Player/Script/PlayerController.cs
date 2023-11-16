@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
         RelativeToCharacter,
         RelativeToCamera
     };
-    
+
     public enum OrientationMode
     {
         OrientateToCameraForward,
@@ -18,23 +18,27 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement Settings")] [SerializeField]
     private float planeSpeed = 3f; // m/s
+
     [SerializeField] private MovementMode movementMode = MovementMode.RelativeToCamera;
     [SerializeField] private float gravity = -9.8f; // m/s^2
     [SerializeField] private float jumpSpeed = 5f; // m/s
-    
-    [Header("Orientation Settings")] 
-    [SerializeField] float angularSpeed = 360f;
-    [SerializeField] private Transform orientationTarget;
-    [SerializeField]
-    private OrientationMode orientationMode = OrientationMode.OrientateToMovementForward;
-    
-    [Header("Animation")]
-    [SerializeField] private float transitionVelocity = 1f;
 
-    [Header("Movement Inputs")] [SerializeField] private InputActionReference move;
+    [Header("Orientation Settings")] [SerializeField]
+    float angularSpeed = 360f;
+
+    [SerializeField] private Transform orientationTarget;
+    [SerializeField] private OrientationMode orientationMode = OrientationMode.OrientateToMovementForward;
+
+    [Header("Animation")] [SerializeField] private float transitionVelocity = 1f;
+
+    [Header("Movement Inputs")] [SerializeField]
+    private InputActionReference move;
+
     [SerializeField] private InputActionReference jump;
-    
-    [Header("Weapon Inputs")] [SerializeField] private InputActionReference changeWeapon;
+
+    [Header("Weapon Inputs")] [SerializeField]
+    private InputActionReference changeWeapon;
+
     [SerializeField] private InputActionReference[] selectWeaponInputs;
     [SerializeField] private InputActionReference shotInput;
     [SerializeField] private InputActionReference continuousShot;
@@ -61,6 +65,7 @@ public class PlayerController : MonoBehaviour
         {
             selectWeaponInput.action.Enable();
         }
+
         shotInput.action.Enable();
         continuousShot.action.Enable();
     }
@@ -79,18 +84,20 @@ public class PlayerController : MonoBehaviour
         UpdateAnimation(velocityToApply);
         UpdateWeapons();
     }
-    
+
     private void UpdateWeapons()
     {
         float changeWeaponValue = changeWeapon.action.ReadValue<float>();
         if (changeWeaponValue > 0f)
         {
             entityWeapons.SelectNextWeapon();
-        } 
+        }
+
         if (changeWeaponValue < 0f)
         {
             entityWeapons.SelectPreviousWeapon();
         }
+
         for (int i = 0; i < selectWeaponInputs.Length; i++)
         {
             if (selectWeaponInputs[i].action.WasPerformedThisFrame())
@@ -98,22 +105,33 @@ public class PlayerController : MonoBehaviour
                 entityWeapons.SetCurrentWeapon(i);
             }
         }
-        if (shotInput.action.WasPerformedThisFrame())
+
+        if (entityWeapons.HasCurrentWeapon())
         {
-            entityWeapons.Shot();
-        }
-        
-        if (continuousShot.action.WasPressedThisFrame())
-        {
-            entityWeapons.StartShooting();
-        }
-        
-        if (continuousShot.action.WasReleasedThisFrame())
-        {
-            entityWeapons.StopShooting();
+            switch (entityWeapons.GetCurrentWeapon().shotMode)
+            {
+                case Weapon.ShotMode.ShotByShot:
+                    if (shotInput.action.WasPerformedThisFrame())
+                    {
+                        entityWeapons.Shot();
+                    }
+
+                    break;
+                case Weapon.ShotMode.Continuous:
+                    if (continuousShot.action.WasPressedThisFrame())
+                    {
+                        entityWeapons.StartShooting();
+                    }
+
+                    if (continuousShot.action.WasReleasedThisFrame())
+                    {
+                        entityWeapons.StopShooting();
+                    }
+
+                    break;
+            }
         }
     }
-
 
     private void UpdateMovementOnPlane()
     {
@@ -129,7 +147,7 @@ public class PlayerController : MonoBehaviour
                 UpdateMovementRelativeToCamera(xzMoveValue);
                 break;
         }
-        
+
         void UpdateMovementRelativeToCamera(Vector3 xzMoveValue)
         {
             Transform cameraTransform = Camera.main.transform;
@@ -154,16 +172,18 @@ public class PlayerController : MonoBehaviour
         {
             verticalVelocity = 0f;
         }
+
         verticalVelocity += gravity * Time.deltaTime;
-        
+
         bool mustJump = jump.action.WasPerformedThisFrame();
         if (mustJump && _characterController.isGrounded)
         {
             verticalVelocity = jumpSpeed;
         }
+
         velocityToApply += Vector3.up * verticalVelocity;
     }
-    
+
     private void UpdateOrientation()
     {
         Vector3 desiredDirection = Vector3.zero;
@@ -177,12 +197,13 @@ public class PlayerController : MonoBehaviour
                 {
                     desiredDirection = velocityToApply.normalized;
                 }
+
                 break;
             case OrientationMode.OrientateToTarget:
                 desiredDirection = orientationTarget.transform.position - transform.position;
                 break;
         }
-        
+
         float angularDistance = Vector3.SignedAngle(transform.forward, desiredDirection, Vector3.up);
         float angleToApply = angularSpeed * Time.deltaTime;
         angleToApply = Mathf.Min(angleToApply, Mathf.Abs(angularDistance));
@@ -192,21 +213,22 @@ public class PlayerController : MonoBehaviour
     }
 
     Vector3 smoothedAnimationVelocity = Vector3.zero;
+
     private void UpdateAnimation(Vector3 lastVelocity)
     {
         Vector3 velocityDistance = lastVelocity - smoothedAnimationVelocity;
         float transitionVelocityToApply = transitionVelocity * Time.deltaTime;
         transitionVelocityToApply = Mathf.Min(transitionVelocityToApply, velocityDistance.magnitude);
-        
+
         smoothedAnimationVelocity += velocityDistance.normalized * transitionVelocityToApply;
-        
+
         Vector3 localSmoothedAnimationVelocity = transform.InverseTransformDirection(lastVelocity);
         animator.SetFloat("SidewardVelocity", localSmoothedAnimationVelocity.x);
         animator.SetFloat("ForwardVelocity", localSmoothedAnimationVelocity.z);
-        
+
         float clampedVerticalVelocity = Mathf.Clamp(verticalVelocity, -jumpSpeed, jumpSpeed);
         float normalizedVerticalVelocity = Mathf.InverseLerp(-jumpSpeed, jumpSpeed, clampedVerticalVelocity);
-        
+
         animator.SetFloat("NormalizedVerticalVelocity", normalizedVerticalVelocity);
         animator.SetBool("IsGrounded", _characterController.isGrounded);
     }
@@ -220,6 +242,7 @@ public class PlayerController : MonoBehaviour
         {
             selectWeaponInput.action.Disable();
         }
+
         shotInput.action.Disable();
         continuousShot.action.Disable();
     }
