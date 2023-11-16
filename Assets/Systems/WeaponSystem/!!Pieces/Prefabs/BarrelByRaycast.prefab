@@ -45,11 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShot: 0
+  debugContinuousShot: 0
   shootPoint: {fileID: 0}
   range: 100
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  cadence: 10
+  dispersionAngles: {x: 5, y: 5}
+  tracerPrefab: {fileID: 0}
 --- !u!1 &8389043910860908534
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,8 +100,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugShot: 0
+  debugContinuousShot: 0
   shootPoint: {fileID: 4215063723280308262}
   range: 100
   layerMask:
     serializedVersion: 2
     m_Bits: 51
+  cadence: 10
+  dispersionAngles: {x: 5, y: 5}
+  tracerPrefab: {fileID: 2426512050557189280, guid: 6d5406cf8a6f2244b8ac08777919f016,
+    type: 3}

@@ -9,6 +9,8 @@ public class BarrelByRaycast : Barrel
     [SerializeField] private LayerMask layerMask = Physics.DefaultRaycastLayers;
     [SerializeField] float cadence = 10f; //Shots/s
     [SerializeField] Vector2 dispersionAngles = new Vector2(5f, 5f);
+
+    [SerializeField] private GameObject tracerPrefab;
     // [SerializeField] private LayerMask layerMask;
 
     private bool isContinuousShooting;
@@ -33,19 +35,27 @@ public class BarrelByRaycast : Barrel
 
     public override void Shot()
     {
+        Vector3 dispersedForward = DispersedForward();
+        Vector3 finalShotPosition = shootPoint.position + (dispersedForward.normalized * range);
+
         if (Physics.Raycast(shootPoint.position,
-                DispersedForward(),
+                dispersedForward,
                 out RaycastHit hit,
                 range,
                 layerMask
             ))
         {
+            finalShotPosition = hit.point;
             hit.collider.GetComponent<HurtBox>()?.NotifyHit(this);
             // if (hit.collider.TryGetComponent(out HurtBox hurtBox))
             // {
             //     hurtBox.NotifyHit(null);
             // }
         }
+
+        GameObject tracerGo = Instantiate(tracerPrefab);
+        Tracer tracer = tracerGo.GetComponent<Tracer>();
+        tracer.Init(shootPoint.position, finalShotPosition);
     }
 
     private Vector3 DispersedForward()

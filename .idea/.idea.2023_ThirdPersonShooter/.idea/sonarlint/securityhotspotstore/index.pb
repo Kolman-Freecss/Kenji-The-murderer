@@ -23,3 +23,5 @@ h
 8Assets/Systems/WeaponSystem/Scripts/BarrelByParticles.cs,e\4\e4ff233f21a7f47433e0573a7e86d94b474fd99e
 c
 3Assets/Systems/HitHurtSystem/Scripts/ParticleHit.cs,8\0\8069d2efaddff5f35c4fe1ff057dddf0fe2c94c3
+]
+-Assets/Systems/WeaponSystem/Scripts/Tracer.cs,a\9\a9b518996baee3e33f9d8269e5ddffc70d840d2f
