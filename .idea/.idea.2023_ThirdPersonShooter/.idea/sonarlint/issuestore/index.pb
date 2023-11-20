@@ -25,3 +25,11 @@ c
 3Assets/Systems/HitHurtSystem/Scripts/ParticleHit.cs,8\0\8069d2efaddff5f35c4fe1ff057dddf0fe2c94c3
 ]
 -Assets/Systems/WeaponSystem/Scripts/Tracer.cs,a\9\a9b518996baee3e33f9d8269e5ddffc70d840d2f
+E
+Assets/Enemy/Enemy.cs,c\0\c0e1589bb7cae4c33c4137a6ae924c1b12eff777
+X
+(Assets/Entity/Scripts/EntityAnimation.cs,4\6\46bf38bd07d468b252bac904ab7a92b42388acc3
+X
+(Assets/Entity/Scripts/IEntityAnimable.cs,0\9\09af066dee70e68b3c805bca881b61ddbd22f7b0
+a
+1Assets/Player/Script/MoveToAimingPlanePosition.cs,b\f\bf112b12c28c709453b5106b984e4b25bd27cd02

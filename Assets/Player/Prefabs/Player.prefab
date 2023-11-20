@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1370125514112313846}
   - component: {fileID: 7603890370698172795}
   - component: {fileID: 8169819350246628453}
+  - component: {fileID: 3244569663892858941}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -80,7 +81,6 @@ MonoBehaviour:
   angularSpeed: 360
   orientationTarget: {fileID: 0}
   orientationMode: 0
-  transitionVelocity: 10
   move: {fileID: 1300974572743492584, guid: 3fb20003132972e4f9dcd090eea67072, type: 3}
   jump: {fileID: -4409044468524779882, guid: 3fb20003132972e4f9dcd090eea67072, type: 3}
   changeWeapon: {fileID: -2572612928464678229, guid: 3fb20003132972e4f9dcd090eea67072,
@@ -107,6 +107,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponsParent: {fileID: 0}
+--- !u!114 &3244569663892858941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122173887601756650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78afdb473fdf45189cf2cf37f3e8f285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionVelocity: 20
 --- !u!1 &5059966877583089336
 GameObject:
   m_ObjectHideFlags: 0

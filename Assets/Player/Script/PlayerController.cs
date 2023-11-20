@@ -1,7 +1,12 @@
+#region
+
+using Entity.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+#endregion
+
+public class PlayerController : MonoBehaviour, IEntityAnimable
 {
     public enum MovementMode
     {
@@ -29,8 +34,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform orientationTarget;
     [SerializeField] private OrientationMode orientationMode = OrientationMode.OrientateToMovementForward;
 
-    [Header("Animation")] [SerializeField] private float transitionVelocity = 1f;
-
     [Header("Movement Inputs")] [SerializeField]
     private InputActionReference move;
 
@@ -44,7 +47,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference continuousShot;
 
     CharacterController _characterController;
-    private Animator animator;
     EntityWeapons entityWeapons;
     private float verticalVelocity = 0f;
     private Vector3 velocityToApply = Vector3.zero; // World
@@ -52,7 +54,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
-        animator = GetComponentInChildren<Animator>();
         entityWeapons = GetComponent<EntityWeapons>();
     }
 
@@ -81,7 +82,6 @@ public class PlayerController : MonoBehaviour
         UpdateVerticalMovement();
         _characterController.Move(velocityToApply * Time.deltaTime);
         UpdateOrientation();
-        UpdateAnimation(velocityToApply);
         UpdateWeapons();
     }
 
@@ -212,27 +212,6 @@ public class PlayerController : MonoBehaviour
         transform.rotation = transform.rotation * rotationToApply;
     }
 
-    Vector3 smoothedAnimationVelocity = Vector3.zero;
-
-    private void UpdateAnimation(Vector3 lastVelocity)
-    {
-        Vector3 velocityDistance = lastVelocity - smoothedAnimationVelocity;
-        float transitionVelocityToApply = transitionVelocity * Time.deltaTime;
-        transitionVelocityToApply = Mathf.Min(transitionVelocityToApply, velocityDistance.magnitude);
-
-        smoothedAnimationVelocity += velocityDistance.normalized * transitionVelocityToApply;
-
-        Vector3 localSmoothedAnimationVelocity = transform.InverseTransformDirection(lastVelocity);
-        animator.SetFloat("SidewardVelocity", localSmoothedAnimationVelocity.x);
-        animator.SetFloat("ForwardVelocity", localSmoothedAnimationVelocity.z);
-
-        float clampedVerticalVelocity = Mathf.Clamp(verticalVelocity, -jumpSpeed, jumpSpeed);
-        float normalizedVerticalVelocity = Mathf.InverseLerp(-jumpSpeed, jumpSpeed, clampedVerticalVelocity);
-
-        animator.SetFloat("NormalizedVerticalVelocity", normalizedVerticalVelocity);
-        animator.SetBool("IsGrounded", _characterController.isGrounded);
-    }
-
     private void OnDisable()
     {
         move.action.Disable();
@@ -246,4 +225,28 @@ public class PlayerController : MonoBehaviour
         shotInput.action.Disable();
         continuousShot.action.Disable();
     }
+
+    #region IEntityAnimable Implementation
+
+    public Vector3 GetLastVelocity()
+    {
+        return velocityToApply;
+    }
+
+    public float GetVerticalVelocity()
+    {
+        return verticalVelocity;
+    }
+
+    public float GetJumpSpeed()
+    {
+        return jumpSpeed;
+    }
+
+    public bool IsGrounded()
+    {
+        return _characterController.isGrounded;
+    }
+
+    #endregion
 }
