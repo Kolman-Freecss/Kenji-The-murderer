@@ -25,11 +25,15 @@ c
 3Assets/Systems/HitHurtSystem/Scripts/ParticleHit.cs,8\0\8069d2efaddff5f35c4fe1ff057dddf0fe2c94c3
 ]
 -Assets/Systems/WeaponSystem/Scripts/Tracer.cs,a\9\a9b518996baee3e33f9d8269e5ddffc70d840d2f
-E
-Assets/Enemy/Enemy.cs,c\0\c0e1589bb7cae4c33c4137a6ae924c1b12eff777
 X
 (Assets/Entity/Scripts/EntityAnimation.cs,4\6\46bf38bd07d468b252bac904ab7a92b42388acc3
 X
 (Assets/Entity/Scripts/IEntityAnimable.cs,0\9\09af066dee70e68b3c805bca881b61ddbd22f7b0
 a
 1Assets/Player/Script/MoveToAimingPlanePosition.cs,b\f\bf112b12c28c709453b5106b984e4b25bd27cd02
+Z
+*Assets/Entity/Scripts/EntityRagdollizer.cs,d\f\df331dfcced2e4dfbbddd92e0cff5fe13d29f570
+S
+#Assets/Entity/Scripts/EntityLife.cs,4\d\4d64b6ab2416c24f097321302d6ce4770e0720c9
+g
+7Assets/{Utilities}/LookAtCamera/Scripts/LookAtCamera.cs,1\9\19551b4a99d03f318f035b4550d0351be2007c10

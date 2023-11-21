@@ -1,25 +1,26 @@
-using System;
+#region
+
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
+
+#endregion
 
 public class HurtBox : MonoBehaviour
 {
+    [SerializeField] public UnityEvent onHitNotified;
+    [SerializeField] public UnityEvent<Transform> onHitNotifiedWithOffender;
+    [SerializeField] public UnityEvent<HitBox> onHitNotifiedWithHitBox;
+    [SerializeField] public UnityEvent<Barrel> onHitNotifiedWithBarrel;
+    [SerializeField] public UnityEvent<Explosion> onHitNotifiedWithExplosion;
+    [SerializeField] public UnityEvent<ParticleHit> onHitNotifiedWithParticleHit;
 
-    [SerializeField] private UnityEvent onHitNotified;
-    [SerializeField] private UnityEvent <Transform> onHitNotifiedWithOffender;
-    [SerializeField] private UnityEvent <HitBox> onHitNotifiedWithHitBox;
-    [SerializeField] private UnityEvent <Barrel> onHitNotifiedWithBarrel;
-    [SerializeField] private UnityEvent <Explosion> onHitNotifiedWithExplosion;
-    [SerializeField] private UnityEvent <ParticleHit> onHitNotifiedWithParticleHit;
-    
     internal virtual void NotifyHit(HitBox hitBox)
     {
         onHitNotified?.Invoke();
         onHitNotifiedWithOffender?.Invoke(hitBox.transform);
         onHitNotifiedWithHitBox?.Invoke(hitBox);
     }
-    
+
     internal virtual void NotifyHit(Barrel barrelByRaycast)
     {
         onHitNotified?.Invoke();
@@ -33,7 +34,7 @@ public class HurtBox : MonoBehaviour
         onHitNotifiedWithOffender?.Invoke(barrelByRaycast.transform);
         onHitNotifiedWithExplosion?.Invoke(barrelByRaycast);
     }
-    
+
     internal void NotifyHit(ParticleHit particleHit)
     {
         onHitNotified?.Invoke();

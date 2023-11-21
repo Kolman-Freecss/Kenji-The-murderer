@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 290052851412331397}
   - component: {fileID: 1901594171768116098}
   - component: {fileID: 4182553162755213429}
+  - component: {fileID: 6361352054474597439}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Untagged
@@ -131,19 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onHitNotified:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8059383071621953401}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onHitNotifiedWithOffender:
     m_PersistentCalls:
       m_Calls: []
@@ -182,6 +171,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6361352054474597439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059383071621953401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5756655cefaf8844ab7348a459df13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDeathPushForce: 2000
+  maxDeathPushForce: 3000
+  maxLife: 3
 --- !u!1001 &9213071743787646994
 PrefabInstance:
   m_ObjectHideFlags: 0

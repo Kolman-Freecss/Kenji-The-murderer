@@ -1,10 +1,15 @@
+#region
+
 using DG.Tweening;
 using UnityEngine;
+
+#endregion
 
 public class Tracer : MonoBehaviour
 {
     [SerializeField] private float lifeTime = 0.2f;
     private LineRenderer lineRenderer;
+    private Tween tween;
 
     private void Awake()
     {

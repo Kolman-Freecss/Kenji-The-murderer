@@ -1,10 +1,14 @@
+#region
+
 using UnityEngine;
+
+#endregion
 
 public class ExplodeOnEvent : MonoBehaviour
 {
     [SerializeField] GameObject explosionPrefab;
     HitBox hitBox;
-    
+
     private void Awake()
     {
         hitBox = GetComponent<HitBox>();
@@ -15,7 +19,7 @@ public class ExplodeOnEvent : MonoBehaviour
         hitBox.onHit.AddListener(Explode);
         hitBox.onCollisionWithoutHit.AddListener(Explode);
     }
-    
+
     void Explode()
     {
         Destroy(gameObject);
