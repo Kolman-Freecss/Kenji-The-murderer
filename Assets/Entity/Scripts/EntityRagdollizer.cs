@@ -84,7 +84,7 @@ public class EntityRagdollizer : MonoBehaviour
     {
         foreach (Rigidbody rigidbody in rigidbodies)
         {
-            rigidbody.AddForce(direction * Random.Range(minForce, maxForce), ForceMode.Impulse);
+            rigidbody.AddForce(direction.normalized * Random.Range(minForce, maxForce), ForceMode.Impulse);
         }
     }
 }

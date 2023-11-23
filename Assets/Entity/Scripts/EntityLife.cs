@@ -1,9 +1,7 @@
 #region
 
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 
 #endregion
 
@@ -12,7 +10,9 @@ public class EntityLife : MonoBehaviour
     [SerializeField] private float minDeathPushForce = 3000f;
     [SerializeField] private float maxDeathPushForce = 4500f;
     [SerializeField] float maxLife = 3f;
-    [SerializeField] Image lifeBar;
+
+    [Header("Debug")] [SerializeField] private bool debugHit;
+    [SerializeField] Transform debugOffender;
 
     HurtBox hurtBox;
     private EntityRagdollizer entityRagdollizer;
@@ -21,7 +21,17 @@ public class EntityLife : MonoBehaviour
     NavMeshAgent navMeshAgent;
     PlayerController playerController;
     CharacterController characterController;
+    LifeBar lifeBar;
     private Enemy enemy;
+
+    private void OnValidate()
+    {
+        if (debugHit)
+        {
+            debugHit = false;
+            OnHitNotifiedWithOffender(debugOffender ? debugOffender : transform);
+        }
+    }
 
     private void Awake()
     {
@@ -33,6 +43,7 @@ public class EntityLife : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         characterController = GetComponent<CharacterController>();
         enemy = GetComponent<Enemy>();
+        lifeBar = GetComponentInChildren<LifeBar>();
     }
 
     private void OnEnable()
@@ -50,7 +61,7 @@ public class EntityLife : MonoBehaviour
         if (currentLife > 0f)
         {
             currentLife -= 1f;
-            lifeBar.DOFillAmount(currentLife / maxLife, 0.25f);
+            lifeBar.SetNormalizedValue(Mathf.Clamp01(currentLife / maxLife));
             if (currentLife <= 0f)
             {
                 animator.enabled = false;

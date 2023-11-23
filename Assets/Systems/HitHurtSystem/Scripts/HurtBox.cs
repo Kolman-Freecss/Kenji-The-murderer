@@ -13,6 +13,7 @@ public class HurtBox : MonoBehaviour
     [SerializeField] public UnityEvent<Barrel> onHitNotifiedWithBarrel;
     [SerializeField] public UnityEvent<Explosion> onHitNotifiedWithExplosion;
     [SerializeField] public UnityEvent<ParticleHit> onHitNotifiedWithParticleHit;
+    [SerializeField] public UnityEvent<EntityMeleeAttack> onHitNotifiedWithEntityMeleeAttack;
 
     internal virtual void NotifyHit(HitBox hitBox)
     {
@@ -40,5 +41,12 @@ public class HurtBox : MonoBehaviour
         onHitNotified?.Invoke();
         onHitNotifiedWithOffender?.Invoke(particleHit.transform);
         onHitNotifiedWithParticleHit?.Invoke(particleHit);
+    }
+
+    internal void NotifyHit(EntityMeleeAttack entityMeleeAttack)
+    {
+        onHitNotified?.Invoke();
+        onHitNotifiedWithOffender?.Invoke(entityMeleeAttack.transform);
+        onHitNotifiedWithEntityMeleeAttack?.Invoke(entityMeleeAttack);
     }
 }

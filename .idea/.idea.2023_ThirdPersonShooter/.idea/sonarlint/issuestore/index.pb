@@ -37,3 +37,11 @@ S
 #Assets/Entity/Scripts/EntityLife.cs,4\d\4d64b6ab2416c24f097321302d6ce4770e0720c9
 g
 7Assets/{Utilities}/LookAtCamera/Scripts/LookAtCamera.cs,1\9\19551b4a99d03f318f035b4550d0351be2007c10
+[
++Assets/!Commons!/LifeBar/Scripts/LifeBar.cs,4\4\44b10527032442c5b5ea329764199d4fb222b1e7
+Z
+*Assets/Entity/Scripts/EntityMeleeAttack.cs,b\0\b000b13d7e8e49abd153a8f71c882277fad3a94b
+M
+Assets/Enemy/Scripts/Enemy.cs,7\e\7ea7ec46ec6c345a150a7bf48f585da03de2c876
+h
+8Assets/Entity/Scripts/EntityMeleeAttackEventForwarder.cs,2\0\204f5702e156d95bc6b5ca0d34fe7e2fddb2e508
