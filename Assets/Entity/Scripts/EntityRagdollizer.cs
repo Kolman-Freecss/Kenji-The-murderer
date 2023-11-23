@@ -6,17 +6,16 @@ using UnityEngine;
 
 public class EntityRagdollizer : MonoBehaviour
 {
-    [SerializeField] bool startAsRagdoll = false;
-
+    [SerializeField] bool startAsRagdoll;
     Collider[] colliders;
     Rigidbody[] rigidbodies;
+    [Header("Debug")] [SerializeField] bool debugRagdollize;
+    [SerializeField] bool debugDeragdollize;
+    [SerializeField] Vector3 debugDirection;
+    [SerializeField] bool debugPush;
+    [SerializeField] float debugMinForce;
+    [SerializeField] float debugMaxForce;
 
-    [Header("Debug")] [SerializeField] private bool debugRagdollize = false;
-    [SerializeField] private bool debugDeragdollize = false;
-    [SerializeField] private Vector3 direction;
-    [SerializeField] private bool debugPush;
-    [SerializeField] private float debugMinForce;
-    [SerializeField] private float debugMaxForce;
 
     private void OnValidate()
     {
@@ -29,16 +28,15 @@ public class EntityRagdollizer : MonoBehaviour
         if (debugDeragdollize)
         {
             debugDeragdollize = false;
-            DeRagdollize();
+            Deragdollize();
         }
 
         if (debugPush)
         {
             debugPush = false;
-            Push(direction.normalized, debugMinForce, debugMaxForce);
+            Push(debugDirection.normalized, debugMinForce, debugMaxForce);
         }
     }
-
 
     private void Awake()
     {
@@ -50,41 +48,41 @@ public class EntityRagdollizer : MonoBehaviour
     {
         if (!startAsRagdoll)
         {
-            DeRagdollize();
+            Deragdollize();
         }
     }
 
     public void Ragdollize()
     {
-        foreach (Collider collider in colliders)
+        foreach (Collider c in colliders)
         {
-            collider.enabled = true;
+            c.enabled = true;
         }
 
-        foreach (Rigidbody rigidbody in rigidbodies)
+        foreach (Rigidbody r in rigidbodies)
         {
-            rigidbody.isKinematic = false;
+            r.isKinematic = false;
         }
     }
 
-    public void DeRagdollize()
+    public void Deragdollize()
     {
-        foreach (Collider collider in colliders)
+        foreach (Collider c in colliders)
         {
-            collider.enabled = false;
+            c.enabled = false;
         }
 
-        foreach (Rigidbody rigidbody in rigidbodies)
+        foreach (Rigidbody r in rigidbodies)
         {
-            rigidbody.isKinematic = true;
+            r.isKinematic = true;
         }
     }
 
     public void Push(Vector3 direction, float minForce, float maxForce)
     {
-        foreach (Rigidbody rigidbody in rigidbodies)
+        foreach (Rigidbody r in rigidbodies)
         {
-            rigidbody.AddForce(direction.normalized * Random.Range(minForce, maxForce), ForceMode.Impulse);
+            r.AddForce(direction.normalized * Random.Range(minForce, maxForce));
         }
     }
 }

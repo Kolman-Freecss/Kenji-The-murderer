@@ -45,3 +45,9 @@ M
 Assets/Enemy/Scripts/Enemy.cs,7\e\7ea7ec46ec6c345a150a7bf48f585da03de2c876
 h
 8Assets/Entity/Scripts/EntityMeleeAttackEventForwarder.cs,2\0\204f5702e156d95bc6b5ca0d34fe7e2fddb2e508
+^
+.Assets/Systems/EncounterSystem/Scripts/Wave.cs,6\b\6be0f86af53e09e3f2ac821dda88fb9ffe441f3d
+c
+3Assets/Systems/EncounterSystem/Scripts/Encounter.cs,d\e\de0623a61a2c8d03608968b43427bc9ce65e6772
+j
+:Assets/Systems/EncounterSystem/Scripts/EncounterTrigger.cs,1\1\11b616b87b0e5ca70ac98bfa33879794483aa4b7

@@ -254,10 +254,10 @@ MonoBehaviour:
   startAsRagdoll: 0
   debugRagdollize: 0
   debugDeragdollize: 0
-  direction: {x: 0, y: 5, z: 1}
+  debugDirection: {x: 0, y: 5, z: 1}
   debugPush: 0
-  debugMinForce: 5000
-  debugMaxForce: 7000
+  debugMinForce: 500
+  debugMaxForce: 1000
 --- !u!114 &1853279705898360901
 MonoBehaviour:
   m_ObjectHideFlags: 0

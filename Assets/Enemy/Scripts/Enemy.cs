@@ -8,7 +8,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour, IEntityAnimable
 {
-    [SerializeField] private Transform target;
+    [SerializeField] public Transform target;
     [SerializeField] private float attackDistance = 1f;
 
     private NavMeshAgent agent;

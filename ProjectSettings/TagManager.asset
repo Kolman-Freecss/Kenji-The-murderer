@@ -12,6 +12,7 @@ TagManager:
   - AimingPlane
   - Water
   - UI
+  - Projectile
   - 
   - 
   - 
@@ -36,8 +37,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - EncounterLimits
   m_SortingLayers:
   - name: Default
     uniqueID: 0
