@@ -87,13 +87,13 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
 
     private void UpdateWeapons()
     {
-        float changeWeaponValue = changeWeapon.action.ReadValue<float>();
-        if (changeWeaponValue > 0f)
+        Vector2 changeWeaponValue = changeWeapon.action.ReadValue<Vector2>();
+        Debug.Log(changeWeaponValue.y);
+        if (changeWeaponValue.y > 0f)
         {
             entityWeapons.SelectNextWeapon();
         }
-
-        if (changeWeaponValue < 0f)
+        else if (changeWeaponValue.y < 0f)
         {
             entityWeapons.SelectPreviousWeapon();
         }

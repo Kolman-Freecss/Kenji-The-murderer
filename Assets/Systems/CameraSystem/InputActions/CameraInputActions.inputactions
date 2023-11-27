@@ -1,0 +1,54 @@
+{
+    "name": "CameraInputActions",
+    "maps": [
+        {
+            "name": "RotationCamera",
+            "id": "850f4307-4f25-4f80-b62e-6cb2e439d01a",
+            "actions": [
+                {
+                    "name": "RotateCameraToLeft",
+                    "type": "Button",
+                    "id": "e2dde049-f80a-48c6-9c27-6ffffffa2fc6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RotateCameraToRight",
+                    "type": "Button",
+                    "id": "570929fe-8752-4bc8-89e1-569a83db567a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "97cedf8d-7bdc-4c8e-9bda-97fe8f41a173",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCameraToLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39c6acb9-17b2-41ea-8567-48799e917d0b",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCameraToRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -51,3 +51,7 @@ c
 3Assets/Systems/EncounterSystem/Scripts/Encounter.cs,d\e\de0623a61a2c8d03608968b43427bc9ce65e6772
 j
 :Assets/Systems/EncounterSystem/Scripts/EncounterTrigger.cs,1\1\11b616b87b0e5ca70ac98bfa33879794483aa4b7
+c
+3Assets/Systems/CameraSystem/Scripts/RotateCamera.cs,1\5\15c67d025af63c072ebc501913b5ab8b05baaba5
+i
+9Assets/Systems/CameraSystem/Scripts/RotateAroundCamera.cs,b\9\b9c959c86ac6d650f41e817f0534a28190a7131b

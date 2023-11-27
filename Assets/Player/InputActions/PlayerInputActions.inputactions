@@ -36,7 +36,7 @@
                     "name": "WeaponChange",
                     "type": "Value",
                     "id": "3af7aed1-f906-4c1f-bb35-7c58d973a22e",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Delta",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -221,7 +221,7 @@
                 {
                     "name": "",
                     "id": "0bb22a00-f2be-436e-b853-00048ebb83b7",
-                    "path": "<Mouse>/scroll/y",
+                    "path": "<Mouse>/scroll",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

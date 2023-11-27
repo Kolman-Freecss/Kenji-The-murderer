@@ -1,6 +1,8 @@
-using System;
+#region
+
 using UnityEngine;
-using Random = UnityEngine.Random;
+
+#endregion
 
 public class BarrelByRaycast : Barrel
 {
@@ -11,7 +13,9 @@ public class BarrelByRaycast : Barrel
     [SerializeField] Vector2 dispersionAngles = new Vector2(5f, 5f);
 
     [SerializeField] private GameObject tracerPrefab;
+
     // [SerializeField] private LayerMask layerMask;
+    [SerializeField] float damage = 5f;
 
     private bool isContinuousShooting;
 
@@ -46,7 +50,7 @@ public class BarrelByRaycast : Barrel
             ))
         {
             finalShotPosition = hit.point;
-            hit.collider.GetComponent<HurtBox>()?.NotifyHit(this);
+            hit.collider.GetComponent<HurtBox>()?.NotifyHit(this, damage);
             // if (hit.collider.TryGetComponent(out HurtBox hurtBox))
             // {
             //     hurtBox.NotifyHit(null);

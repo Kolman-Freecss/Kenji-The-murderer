@@ -1,9 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+#region
+
 using UnityEngine;
 using UnityEngine.Events;
+
+#endregion
 
 /// <summary>
 /// Notifies the HurtBox when a HitBox collides with it
@@ -11,9 +11,10 @@ using UnityEngine.Events;
 public class HitBox : MonoBehaviour
 {
     [SerializeField] public UnityEvent onHit;
-    [SerializeField] public UnityEvent <Collider> onHitWithCollider;
+    [SerializeField] public UnityEvent<Collider> onHitWithCollider;
     [SerializeField] public UnityEvent onCollisionWithoutHit;
-    
+    [SerializeField] private float damage = 1f;
+
     private void OnTriggerEnter(Collider other)
     {
         CheckCollider(other);
@@ -23,13 +24,13 @@ public class HitBox : MonoBehaviour
     {
         CheckCollider(other.collider);
     }
-    
+
     private void CheckCollider(Collider collider)
     {
         HurtBox hurtBox = collider.GetComponent<HurtBox>();
         if (hurtBox)
         {
-            hurtBox.NotifyHit(this);
+            hurtBox.NotifyHit(this, damage);
             onHit.Invoke();
             onHitWithCollider.Invoke(collider);
         }

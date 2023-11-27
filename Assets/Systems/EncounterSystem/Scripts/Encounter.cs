@@ -1,6 +1,7 @@
 #region
 
 using UnityEngine;
+using UnityEngine.Events;
 
 #endregion
 
@@ -9,6 +10,8 @@ public class Encounter : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] private Transform encounterDoorsParent;
     [SerializeField] private Transform encounterLimitsParent;
+
+    [SerializeField] UnityEvent onEncounterFinished;
 
     Wave[] waves;
     private int currentWave = 0;
@@ -59,6 +62,7 @@ public class Encounter : MonoBehaviour
                 else
                 {
                     SetDoorsActivation(false);
+                    onEncounterFinished.Invoke();
                 }
 
                 debugHasFinished = HasFinished();

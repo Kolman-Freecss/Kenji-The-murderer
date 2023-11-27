@@ -18,6 +18,8 @@ public class EntityMeleeAttack : MonoBehaviour
 
     [Header("Debug")] [SerializeField] private bool debugAttack;
 
+    private float damage = 1f;
+
     private void OnValidate()
     {
         if (debugAttack)
@@ -35,7 +37,7 @@ public class EntityMeleeAttack : MonoBehaviour
             if (affectedTags.Contains(collider.tag))
             {
                 HurtBox hurtBox = collider.GetComponent<HurtBox>();
-                hurtBox?.NotifyHit(this);
+                hurtBox?.NotifyHit(this, damage);
             }
         }
     }
