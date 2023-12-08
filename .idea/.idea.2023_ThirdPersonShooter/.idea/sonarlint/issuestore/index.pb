@@ -47,3 +47,5 @@ q
 AAssets/Gameplay/GameplayObjects/Player/Script/PlayerController.cs,9\d\9da97a94a96eca960923816a17fd3d2a14373618
 |
 LAssets/Systems/WeaponSystem/!Projectiles/TestProjectiles/SetStartVelocity.cs,b\6\b6bd2bc63678998eb8a812c214f23aa0b430e568
+_
+/Assets/Gameplay/Entity/Scripts/EntityWeapons.cs,0\c\0c7ccddecc734ccfc69759b234992b672d073485

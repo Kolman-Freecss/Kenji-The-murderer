@@ -32,8 +32,8 @@ public class EntityWeapons : MonoBehaviour
 
     internal void SelectPreviousWeapon()
     {
-        int prevWeapon = --currentWeapon;
-        if (prevWeapon < weapons.Length)
+        int prevWeapon = currentWeapon - 1;
+        if (prevWeapon < 0)
         {
             prevWeapon = weapons.Length - 1;
         }
