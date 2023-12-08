@@ -22,8 +22,8 @@ public class ExplodeOnEvent : MonoBehaviour
 
     void Explode()
     {
-        Instantiate(explosionPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
     }
 
     private void OnDisable()
