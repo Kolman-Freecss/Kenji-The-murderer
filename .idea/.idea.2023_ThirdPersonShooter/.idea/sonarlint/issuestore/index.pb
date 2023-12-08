@@ -45,3 +45,5 @@ z
 JAssets/Gameplay/GameplayObjects/Player/Script/MoveToAimingPlanePosition.cs,0\b\0b54fcfd119f4d8ada70fbc869978e990496bb90
 q
 AAssets/Gameplay/GameplayObjects/Player/Script/PlayerController.cs,9\d\9da97a94a96eca960923816a17fd3d2a14373618
+|
+LAssets/Systems/WeaponSystem/!Projectiles/TestProjectiles/SetStartVelocity.cs,b\6\b6bd2bc63678998eb8a812c214f23aa0b430e568
