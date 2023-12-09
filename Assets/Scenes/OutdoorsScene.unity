@@ -74420,12 +74420,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1567435920}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1567446407 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5120301852695492692, guid: 0574e0a21823f444fa93792d1360feaa,
-    type: 3}
-  m_PrefabInstance: {fileID: 1235107557854394272}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1569702454
 GameObject:
   m_ObjectHideFlags: 0
@@ -101484,88 +101478,43 @@ PrefabInstance:
     - target: {fileID: 236703972117882569, guid: 0574e0a21823f444fa93792d1360feaa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000023841838
+      value: -0.02784723
+      objectReference: {fileID: 0}
+    - target: {fileID: 236703972117882569, guid: 0574e0a21823f444fa93792d1360feaa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6625013
       objectReference: {fileID: 0}
     - target: {fileID: 236703972117882569, guid: 0574e0a21823f444fa93792d1360feaa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0000019073489
+      value: -0.8829824
       objectReference: {fileID: 0}
     - target: {fileID: 236703972117882569, guid: 0574e0a21823f444fa93792d1360feaa,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70710677
+      value: 0.0007227745
       objectReference: {fileID: 0}
     - target: {fileID: 236703972117882569, guid: 0574e0a21823f444fa93792d1360feaa,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.00000006620411
+      value: -0.70713514
+      objectReference: {fileID: 0}
+    - target: {fileID: 236703972117882569, guid: 0574e0a21823f444fa93792d1360feaa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7070778
       objectReference: {fileID: 0}
     - target: {fileID: 236703972117882569, guid: 0574e0a21823f444fa93792d1360feaa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000066204116
+      value: -0.00060236186
       objectReference: {fileID: 0}
     - target: {fileID: 649274449466152199, guid: 0574e0a21823f444fa93792d1360feaa,
         type: 3}
       propertyPath: m_Name
       value: PlayerGroup
       objectReference: {fileID: 0}
-    - target: {fileID: 3162950077052772245, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_Active
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3162950077052772245, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_IsLocked
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3162950077052772245, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_RotationAtRest.y
-      value: 90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3162950077052772245, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_TranslationAtRest.z
-      value: 0.0000019073489
-      objectReference: {fileID: 0}
-    - target: {fileID: 3162950077052772245, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_RotationOffsets.Array.data[0].x
-      value: 0.00975692
-      objectReference: {fileID: 0}
-    - target: {fileID: 3162950077052772245, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_RotationOffsets.Array.data[0].y
-      value: -90.00463
-      objectReference: {fileID: 0}
-    - target: {fileID: 3162950077052772245, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_RotationOffsets.Array.data[0].z
-      value: 89.89262
-      objectReference: {fileID: 0}
-    - target: {fileID: 3162950077052772245, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_TranslationOffsets.Array.data[0].x
-      value: -0.13783151
-      objectReference: {fileID: 0}
-    - target: {fileID: 3162950077052772245, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_TranslationOffsets.Array.data[0].y
-      value: -0.79610443
-      objectReference: {fileID: 0}
-    - target: {fileID: 3162950077052772245, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_TranslationOffsets.Array.data[0].z
-      value: 1.660841
-      objectReference: {fileID: 0}
-    - target: {fileID: 3162950077052772245, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_Sources.Array.data[0].sourceTransform
-      value: 
-      objectReference: {fileID: 1567446407}
     - target: {fileID: 6048806458230329331, guid: 0574e0a21823f444fa93792d1360feaa,
         type: 3}
       propertyPath: debugOffender
