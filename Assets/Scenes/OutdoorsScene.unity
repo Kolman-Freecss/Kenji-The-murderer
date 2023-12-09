@@ -101258,6 +101258,11 @@ PrefabInstance:
       propertyPath: debugOffender
       value: 
       objectReference: {fileID: 1953004199}
+    - target: {fileID: 7983574575519982353, guid: 0574e0a21823f444fa93792d1360feaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8221706774357023999, guid: 0574e0a21823f444fa93792d1360feaa,
         type: 3}
       propertyPath: m_TranslationOffsets.Array.data[0].y
@@ -101312,11 +101317,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8788883246092928789, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_CameraDistance
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
