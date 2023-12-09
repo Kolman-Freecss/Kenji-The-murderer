@@ -8,10 +8,13 @@ using UnityEngine.Events;
 public class Encounter : MonoBehaviour
 {
     [SerializeField] Transform target;
-    [SerializeField] private Transform encounterDoorsParent;
+
+    [SerializeField] private Transform encounterLeftDoor;
+    [SerializeField] private Transform encounterRightDoor;
     [SerializeField] private Transform encounterLimitsParent;
 
     [SerializeField] UnityEvent onEncounterFinished;
+    private bool hasFinished;
 
     Wave[] waves;
     private int currentWave = 0;
@@ -30,6 +33,7 @@ public class Encounter : MonoBehaviour
 
     private void Awake()
     {
+        hasFinished = false;
         SetDoorsActivation(false);
 
         waves = GetComponentsInChildren<Wave>();
@@ -62,6 +66,7 @@ public class Encounter : MonoBehaviour
                 else
                 {
                     SetDoorsActivation(false);
+                    hasFinished = true;
                     onEncounterFinished.Invoke();
                 }
 
@@ -72,9 +77,24 @@ public class Encounter : MonoBehaviour
 
     private void SetDoorsActivation(bool activation)
     {
-        foreach (Transform child in encounterDoorsParent)
+        // Rotate left door
+        if (activation)
         {
-            child.gameObject.SetActive(activation);
+            encounterLeftDoor.localEulerAngles = Vector3.up * 90f;
+        }
+        else
+        {
+            encounterLeftDoor.localEulerAngles = Vector3.zero;
+        }
+
+        // Rotate right door
+        if (activation)
+        {
+            encounterRightDoor.localEulerAngles = Vector3.up * -90f;
+        }
+        else
+        {
+            encounterRightDoor.localEulerAngles = Vector3.zero;
         }
     }
 
@@ -85,6 +105,9 @@ public class Encounter : MonoBehaviour
 
     public void NotifyTriggered()
     {
-        StartEncounter();
+        if (!hasFinished)
+        {
+            StartEncounter();
+        }
     }
 }

@@ -185,7 +185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8223613863324990744
 Transform:
   m_ObjectHideFlags: 0
@@ -253,6 +253,9 @@ MonoBehaviour:
   target: {fileID: 0}
   encounterDoorsParent: {fileID: 8223613863324990744}
   encounterLimitsParent: {fileID: 7373789261067435750}
+  onEncounterFinished:
+    m_PersistentCalls:
+      m_Calls: []
   debugStartEncounter: 0
   debugHasFinished: 0
 --- !u!1 &3654882738549165993
