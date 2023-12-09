@@ -1062,7 +1062,7 @@ Transform:
   m_GameObject: {fileID: 5226628437868636880}
   serializedVersion: 2
   m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: -0.000010013581, y: 15.288805, z: -11.570181}
+  m_LocalPosition: {x: -0.0000028610234, y: 9.160457, z: -6.4279013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1133,7 +1133,7 @@ MonoBehaviour:
     type: 3}
   acceleration: 1440
   maxSpeed: 720
-  deceleration: 0
+  deceleration: 1440
 --- !u!1 &8619307755284265990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,7 +1606,7 @@ PrefabInstance:
     - target: {fileID: 7603890370698172795, guid: 7e9f20c025d3edb4abbb27d60eb41f00,
         type: 3}
       propertyPath: orientationMode
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7603890370698172795, guid: 7e9f20c025d3edb4abbb27d60eb41f00,
         type: 3}
@@ -1641,6 +1641,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FlameThrower
+      objectReference: {fileID: 0}
+    - target: {fileID: 914499507009987251, guid: 987e9b479ff2f01479b4c91249eda876,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3400433516171153981, guid: 987e9b479ff2f01479b4c91249eda876,
         type: 3}

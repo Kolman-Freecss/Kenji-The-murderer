@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f961300c28d408d40a7e95052ce02b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 4
   force: 1000
   upwardsModifier: 1000
   layerMask:
@@ -52,3 +52,4 @@ MonoBehaviour:
     m_Bits: 51
   visualExplosionPrefab: {fileID: 1293539085626319713, guid: 43567513ecba57d459b8dd2d1d8b527d,
     type: 3}
+  damage: 5

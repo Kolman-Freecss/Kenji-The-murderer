@@ -39,6 +39,7 @@ public class BarrelByRaycast : Barrel
 
     public override void Shot()
     {
+        base.Shot();
         Vector3 dispersedForward = DispersedForward();
         Vector3 finalShotPosition = shootPoint.position + (dispersedForward.normalized * range);
 

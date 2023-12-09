@@ -20,8 +20,15 @@ public class ExplodeOnEvent : MonoBehaviour
         hitBox.onCollisionWithoutHit.AddListener(Explode);
     }
 
-    void Explode()
+    void Explode(Collider collider)
     {
+        if (collider.gameObject.layer == LayerMask.NameToLayer("NoShootable")
+            || collider.gameObject.layer == LayerMask.NameToLayer("AimingPlane")
+            || collider.gameObject.tag == "NoShootable")
+        {
+            return;
+        }
+
         Destroy(gameObject);
         Instantiate(explosionPrefab, transform.position, transform.rotation);
     }

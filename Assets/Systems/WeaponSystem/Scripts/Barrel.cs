@@ -10,6 +10,8 @@ public abstract class Barrel : MonoBehaviour
 
     [Header("Debug")] [SerializeField] private bool debugContinuousShot;
 
+    private Weapon weapon;
+
     // void OnValidate()
     // {
     //     if (debugShot)
@@ -27,8 +29,14 @@ public abstract class Barrel : MonoBehaviour
     //     }
     // }
 
+    private void Awake()
+    {
+        weapon = GetComponentInParent<Weapon>();
+    }
+
     public virtual void Shot()
     {
+        weapon.PlaySound();
     }
 
     public virtual void StartShooting()

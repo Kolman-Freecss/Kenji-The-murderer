@@ -49,3 +49,11 @@ AAssets/Gameplay/GameplayObjects/Player/Script/PlayerController.cs,9\d\9da97a94
 LAssets/Systems/WeaponSystem/!Projectiles/TestProjectiles/SetStartVelocity.cs,b\6\b6bd2bc63678998eb8a812c214f23aa0b430e568
 _
 /Assets/Gameplay/Entity/Scripts/EntityWeapons.cs,0\c\0c7ccddecc734ccfc69759b234992b672d073485
+a
+1Assets/Gameplay/Entity/Scripts/EntityAnimation.cs,3\6\36059d2d54c47bf868c10fe4925697a7cd77cd81
+c
+3Assets/Gameplay/Entity/Scripts/EntityMeleeAttack.cs,7\8\785ef1cf91a421f207042bf31bd0abee0107972f
+f
+6Assets/Gameplay/GameplayObjects/Enemy/Scripts/Enemy.cs,e\1\e1ae0af1e51231a48049ef24e992f8648a052e48
+a
+1Assets/Gameplay/Entity/Scripts/IEntityAnimable.cs,3\5\353b88df115727d54f21ee7bc71ec9f868c78b9d

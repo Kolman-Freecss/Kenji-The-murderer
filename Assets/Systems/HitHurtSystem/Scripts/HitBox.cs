@@ -10,9 +10,9 @@ using UnityEngine.Events;
 /// </summary>
 public class HitBox : MonoBehaviour
 {
-    [SerializeField] public UnityEvent onHit;
+    [SerializeField] public UnityEvent<Collider> onHit;
     [SerializeField] public UnityEvent<Collider> onHitWithCollider;
-    [SerializeField] public UnityEvent onCollisionWithoutHit;
+    [SerializeField] public UnityEvent<Collider> onCollisionWithoutHit;
     [SerializeField] private float damage = 1f;
 
     private void OnTriggerEnter(Collider other)
@@ -31,12 +31,12 @@ public class HitBox : MonoBehaviour
         if (hurtBox)
         {
             hurtBox.NotifyHit(this, damage);
-            onHit.Invoke();
+            onHit.Invoke(collider);
             onHitWithCollider.Invoke(collider);
         }
         else
         {
-            onCollisionWithoutHit.Invoke();
+            onCollisionWithoutHit.Invoke(collider);
         }
     }
 }

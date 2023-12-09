@@ -1,7 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+#region
+
 using UnityEngine;
+
+#endregion
 
 public class Weapon : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class Weapon : MonoBehaviour
         Continuous
     };
 
+    [Header("Weapon Settings")] [SerializeField]
+    private AudioSource shootAudioSource;
+
+    [SerializeField] private AudioClip shootAudioClip;
+
     public ShotMode shotMode;
 
     Barrel[] barrels;
@@ -18,6 +24,22 @@ public class Weapon : MonoBehaviour
     private void Awake()
     {
         barrels = GetComponentsInChildren<Barrel>();
+        shootAudioSource.clip = shootAudioClip;
+    }
+
+    private void SetSoundVolume()
+    {
+        shootAudioSource.volume = SoundManager.Instance.EffectsAudioVolume;
+    }
+
+    private void Start()
+    {
+        SetSoundVolume();
+    }
+
+    public void PlaySound()
+    {
+        shootAudioSource.Play();
     }
 
     public void Shot()
