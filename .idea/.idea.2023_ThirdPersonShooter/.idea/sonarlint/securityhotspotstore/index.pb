@@ -57,3 +57,5 @@ f
 6Assets/Gameplay/GameplayObjects/Enemy/Scripts/Enemy.cs,e\1\e1ae0af1e51231a48049ef24e992f8648a052e48
 a
 1Assets/Gameplay/Entity/Scripts/IEntityAnimable.cs,3\5\353b88df115727d54f21ee7bc71ec9f868c78b9d
+q
+AAssets/Gameplay/Entity/Scripts/EntityMeleeAttackEventForwarder.cs,c\7\c7c6cd78a3f5be92b6bc2639fd4448bf1b7a5cf4

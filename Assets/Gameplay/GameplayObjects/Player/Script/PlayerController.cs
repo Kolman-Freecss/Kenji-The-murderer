@@ -249,5 +249,10 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
         return _characterController.isGrounded;
     }
 
+    public bool haveWeapon()
+    {
+        return entityWeapons.HasCurrentWeapon();
+    }
+
     #endregion
 }

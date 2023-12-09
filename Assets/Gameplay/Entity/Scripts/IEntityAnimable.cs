@@ -15,5 +15,7 @@ namespace Entity.Scripts
         public float GetJumpSpeed();
 
         public bool IsGrounded();
+
+        public bool haveWeapon();
     }
 }

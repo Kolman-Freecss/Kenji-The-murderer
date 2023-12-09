@@ -25,11 +25,12 @@ namespace Entity.Scripts
             UpdateAnimation(entityAnimable.GetLastVelocity(),
                 entityAnimable.GetVerticalVelocity(),
                 entityAnimable.GetJumpSpeed(),
-                entityAnimable.IsGrounded()
-            );
+                entityAnimable.IsGrounded(),
+                entityAnimable.haveWeapon());
         }
 
-        private void UpdateAnimation(Vector3 lastVelocity, float verticalVelocity, float jumpSpeed, bool isGrounded)
+        private void UpdateAnimation(Vector3 lastVelocity, float verticalVelocity,
+            float jumpSpeed, bool isGrounded, bool haveWeapon)
         {
             Vector3 velocityDistance = lastVelocity - smoothedAnimationVelocity;
             float transitionVelocityToApply = transitionVelocity * Time.deltaTime;
@@ -46,6 +47,7 @@ namespace Entity.Scripts
 
             animator.SetFloat("NormalizedVerticalVelocity", normalizedVerticalVelocity);
             animator.SetBool("IsGrounded", isGrounded);
+            animator.SetBool("HaveWeapon", haveWeapon);
         }
     }
 }

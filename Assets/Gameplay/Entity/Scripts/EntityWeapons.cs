@@ -10,11 +10,13 @@ public class EntityWeapons : MonoBehaviour
 
     Weapon[] weapons;
     private int currentWeapon = -1;
+    private bool haveWeapon = false;
 
     private void Awake()
     {
         weapons = weaponsParent.GetComponentsInChildren<Weapon>();
         currentWeapon = weapons.Length > 0 ? 0 : -1;
+
 
         SetCurrentWeapon(currentWeapon);
     }
@@ -24,7 +26,7 @@ public class EntityWeapons : MonoBehaviour
         int nextWeapon = ++currentWeapon;
         if (nextWeapon >= weapons.Length)
         {
-            nextWeapon = 0;
+            nextWeapon = -1;
         }
 
         SetCurrentWeapon(nextWeapon);
@@ -33,7 +35,7 @@ public class EntityWeapons : MonoBehaviour
     internal void SelectPreviousWeapon()
     {
         int prevWeapon = currentWeapon - 1;
-        if (prevWeapon < 0)
+        if (prevWeapon < -1)
         {
             prevWeapon = weapons.Length - 1;
         }
@@ -49,6 +51,7 @@ public class EntityWeapons : MonoBehaviour
         }
 
         currentWeapon = selectedWeapon;
+        haveWeapon = currentWeapon != -1;
     }
 
     public void Shot()

@@ -53,5 +53,10 @@ public class Enemy : MonoBehaviour, IEntityAnimable
         return true;
     }
 
+    public bool haveWeapon()
+    {
+        return false;
+    }
+
     #endregion
 }
