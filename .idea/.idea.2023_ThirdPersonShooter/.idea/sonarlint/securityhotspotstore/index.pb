@@ -81,3 +81,7 @@ c
 -Assets/Gameplay/Config/Scripts/HomeManager.cs,2\3\234bf87d5044a10f440c8c55a4f7cfd6e0be0ec9
 c
 3Assets/Gameplay/{Utilities}/Scripts/LoadingScene.cs,b\a\ba870edcea24a19da24fed2227430513e5eb0064
+x
+HAssets/Systems/NarrationSystem/Dialogue/Components/DialogueInstigator.cs,4\8\489e89bdc4721a0a0ef40960a462c4e50a84f6e4
+n
+>Assets/Gameplay/GameplayObjects/Interactables/IInteractable.cs,6\b\6b7528010ac4e3c61e3cb409d7dd036f5323d8db

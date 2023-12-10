@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public enum RoundTypes
     {
+        None,
         InGame_Init,
         InGame_Second
     }

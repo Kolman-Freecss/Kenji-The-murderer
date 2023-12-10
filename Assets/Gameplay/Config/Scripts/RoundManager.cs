@@ -33,6 +33,12 @@ namespace Gameplay.Config.Scripts
             m_CurrentRoundState = RoundState.NotStarted;
         }
 
+        private void Start()
+        {
+            m_roundPortals.ForEach(portal =>
+                portal.Value.OnInteraction.AddListener(UsePortal));
+        }
+
         public virtual void UsePortal(PortalInteractable portalInteractable)
         {
             GameManager.Instance.OnPlayerEndRound(roundType, portalInteractable);
