@@ -9903,6 +9903,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4803180171100894742, guid: 303507e93b93ed346ab79be9951467cb,
+        type: 3}
+      propertyPath: debug
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5976633032997507657, guid: 303507e93b93ed346ab79be9951467cb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58328,6 +58333,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1225759595}
+    - targetCorrespondingSourceObject: {fileID: 516168718587668166, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1225759596}
   m_SourcePrefab: {fileID: 100100000, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d, type: 3}
 --- !u!4 &1225759594 stripped
 Transform:
@@ -58353,6 +58362,27 @@ MonoBehaviour:
   m_IsInteractable: 1
   m_PortalInteraction: {fileID: 0}
   m_NextRoundType: 1
+--- !u!65 &1225759596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96044145}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.3361244, y: 3.8397932, z: 3.0651665}
+  m_Center: {x: -0.22887802, y: 1.4198966, z: 0.0986042}
 --- !u!1001 &1226879275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94606,6 +94636,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2034519644}
+    - targetCorrespondingSourceObject: {fileID: 8918175083306843877, guid: f546e48c3995d33479c34ed605db241c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2034519645}
   m_SourcePrefab: {fileID: 100100000, guid: f546e48c3995d33479c34ed605db241c, type: 3}
 --- !u!4 &1978461976 stripped
 Transform:
@@ -96968,6 +97002,27 @@ MonoBehaviour:
   m_IsInteractable: 1
   m_PortalInteraction: {fileID: 0}
   m_NextRoundType: 0
+--- !u!65 &2034519645
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034519643}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.3361244, y: 3.8397932, z: 3.0651665}
+  m_Center: {x: -0.22887802, y: 1.4198966, z: 0.0986042}
 --- !u!1001 &2035230370
 PrefabInstance:
   m_ObjectHideFlags: 0

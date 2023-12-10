@@ -33,6 +33,8 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioSource uiAudioSource;
 
+    public bool debug;
+
     #endregion
 
     #region Member Variables
@@ -68,7 +70,10 @@ public class SoundManager : MonoBehaviour
             BackgroundMusicClips = new List<SerializableDictionaryEntry<BackgroundMusic, AudioClip>>();
         SetEffectsVolume(EffectsAudioVolume);
         SetMusicVolume(MusicAudioVolume);
-        StartBackgroundMusic(BackgroundMusic.Intro);
+        if (debug)
+            StartBackgroundMusic(BackgroundMusic.InGameInit);
+        else
+            StartBackgroundMusic(BackgroundMusic.Intro);
     }
 
     #endregion

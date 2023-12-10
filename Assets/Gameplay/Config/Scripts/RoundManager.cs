@@ -36,7 +36,10 @@ namespace Gameplay.Config.Scripts
         private void Start()
         {
             m_roundPortals.ForEach(portal =>
-                portal.Value.OnInteraction.AddListener(UsePortal));
+            {
+                portal.Value.gameObject.SetActive(false);
+                portal.Value.OnInteraction.AddListener(UsePortal);
+            });
         }
 
         public virtual void UsePortal(object portalInteractable)
