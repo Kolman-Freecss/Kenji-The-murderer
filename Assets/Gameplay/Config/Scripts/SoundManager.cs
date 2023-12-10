@@ -12,7 +12,8 @@ public class SoundManager : MonoBehaviour
     public enum BackgroundMusic
     {
         Intro,
-        InGame,
+        InGameInit,
+        InGameSecond,
         WinGame,
         LostGame
     }

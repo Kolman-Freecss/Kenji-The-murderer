@@ -1,18 +1,41 @@
-using System.Collections;
+﻿#region
+
+using System;
 using System.Collections.Generic;
+using Gameplay.GameplayObjects.Interactables._derivatives;
 using UnityEngine;
 
-public class RoundManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+#endregion
 
-    // Update is called once per frame
-    void Update()
+namespace Gameplay.Config.Scripts
+{
+    public abstract class RoundManager : MonoBehaviour
     {
-        
+        public enum RoundState
+        {
+            NotStarted,
+            Starting,
+            Started,
+            Ended
+        }
+
+        [Header("Round Settings")] public GameManager.RoundTypes roundType = GameManager.RoundTypes.InGame_Init;
+
+        [SerializeField]
+        protected List<SerializableDictionaryEntry<GameManager.RoundTypes, PortalInteractable>> m_roundPortals;
+
+        // Round Settings
+        protected RoundState m_CurrentRoundState;
+        public Action OnRoundStarted;
+
+        protected void Awake()
+        {
+            m_CurrentRoundState = RoundState.NotStarted;
+        }
+
+        public virtual void UsePortal(PortalInteractable portalInteractable)
+        {
+            GameManager.Instance.OnPlayerEndRound(roundType, portalInteractable);
+        }
     }
 }

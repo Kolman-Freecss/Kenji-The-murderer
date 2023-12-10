@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/OutdoorsScene.unity
+    path: Assets/Scenes/InitBootstrap.unity
+    guid: 78d990f045ec2fa4790f9e889edf74d5
+  - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: c1a6f69272deaba409d341d86b4c9250
+  - enabled: 1
+    path: Assets/Scenes/InGameInit.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
+    path: Assets/Scenes/InGameSecond.unity
+    guid: 18c21b2fc7922e546a7e5b28bbc5caab
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 63f26c454a0069348b69fa40fd912c4a
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: bad970a5ca39afb4c989b350fa95848a
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 83ea06a0ca220964a81a798fa1886d3b
   m_configObjects: {}

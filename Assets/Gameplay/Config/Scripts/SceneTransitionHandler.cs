@@ -33,7 +33,10 @@ public class SceneTransitionHandler : MonoBehaviour
     {
         InitBootstrap,
         Home,
-        InGame,
+        Settings,
+        Credits,
+        InGameInit,
+        InGameSecond,
         EndGame
     }
 

@@ -13,7 +13,7 @@ public class Encounter : MonoBehaviour
     [SerializeField] private Transform encounterRightDoor;
     [SerializeField] private Transform encounterLimitsParent;
 
-    [SerializeField] UnityEvent onEncounterFinished;
+    public UnityEvent onEncounterFinished;
     private bool hasFinished;
 
     Wave[] waves;
