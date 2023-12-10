@@ -2459,6 +2459,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8711576699123484476, guid: f388cfbeee43b6c43b5fa274bc305707,
+        type: 3}
+      propertyPath: quitButton
+      value: 
+      objectReference: {fileID: 586549809}
+    - target: {fileID: 8711576699123484476, guid: f388cfbeee43b6c43b5fa274bc305707,
+        type: 3}
+      propertyPath: startButton
+      value: 
+      objectReference: {fileID: 1892234590}
+    - target: {fileID: 8711576699123484476, guid: f388cfbeee43b6c43b5fa274bc305707,
+        type: 3}
+      propertyPath: creditsButton
+      value: 
+      objectReference: {fileID: 151373310}
+    - target: {fileID: 8711576699123484476, guid: f388cfbeee43b6c43b5fa274bc305707,
+        type: 3}
+      propertyPath: settingsButton
+      value: 
+      objectReference: {fileID: 865101165}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

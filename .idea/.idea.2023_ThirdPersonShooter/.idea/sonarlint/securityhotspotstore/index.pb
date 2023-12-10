@@ -77,3 +77,5 @@ b
 2Assets/Gameplay/Config/Scripts/CreditsUIManager.cs,1\b\1b3d0c96fb94d6319dbfb9994fe61915728dd276
 c
 3Assets/Gameplay/Config/Scripts/SettingsUIManager.cs,b\b\bba315ee4ff29edbb3b3933466e2a0e3fe1eb1c5
+]
+-Assets/Gameplay/Config/Scripts/HomeManager.cs,2\3\234bf87d5044a10f440c8c55a4f7cfd6e0be0ec9
