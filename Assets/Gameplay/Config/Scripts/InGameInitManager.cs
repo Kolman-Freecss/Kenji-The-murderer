@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using Gameplay.Config.Scripts;
-using Gameplay.GameplayObjects.Interactables._derivatives;
 using Systems.NarrationSystem.Dialogue.Components;
 using Systems.NarrationSystem.Dialogue.Data;
 using Systems.NarrationSystem.Flow;
@@ -106,15 +105,25 @@ public class InGameInitManager : RoundManager
 
     public void DialogueStarted()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        if (GameManager.Instance.m_player == null)
+        {
+            Debug.LogError("RoundManager: No player found");
+            return;
+        }
+
         GameManager.Instance.m_player.enabled = false;
     }
 
     public void DialogueEnded()
     {
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         if (GameManager.Instance.m_player == null)
+        {
+            Debug.LogError("RoundManager: No player found");
             return;
+        }
+
         GameManager.Instance.m_player.enabled = true;
     }
 
@@ -143,7 +152,7 @@ public class InGameInitManager : RoundManager
             portal.Value.gameObject.SetActive(true));
     }
 
-    public override void UsePortal(PortalInteractable portalInteractable)
+    public override void UsePortal(object portalInteractable)
     {
         //TODO: Add logic for concrete portal usage
         base.UsePortal(portalInteractable);

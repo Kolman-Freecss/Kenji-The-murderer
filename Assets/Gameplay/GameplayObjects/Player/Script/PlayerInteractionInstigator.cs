@@ -52,7 +52,7 @@ public class PlayerInteractionInstigator : MonoBehaviour
         if (HasNearbyInteractables())
         {
             //Ideally, we'd want to find the best possible interaction (ex: by distance & orientation).
-            m_NearbyInteractables[0].DoInteraction(m_NearbyInteractables[0]);
+            m_NearbyInteractables[0].DoInteraction();
             m_InteractText.enabled = false;
         }
     }

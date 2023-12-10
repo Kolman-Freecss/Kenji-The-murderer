@@ -10,7 +10,7 @@ namespace Gameplay.GameplayObjects.Interactables
     /// <summary>
     /// Base class for all interactable objects.
     /// </summary>
-    public abstract class Interactable : MonoBehaviour, IInteractable
+    public abstract class BaseInteractable<TData> : MonoBehaviour, IBaseInteractable<TData> where TData : IInteractable
     {
         #region Member Variables
 
@@ -20,10 +20,9 @@ namespace Gameplay.GameplayObjects.Interactables
 
         #endregion
 
-        public virtual void DoInteraction<TObject>(TObject obj)
-            where TObject : IInteractable
+        public virtual void DoInteraction()
         {
-            m_OnInteraction.Invoke(obj);
+            m_OnInteraction.Invoke(this);
         }
 
         private void OnDestroy()
@@ -35,5 +34,7 @@ namespace Gameplay.GameplayObjects.Interactables
         {
             // RemoveFromAnyList that contains this interactable
         }
+
+        public UnityEvent<object> OnInteraction => m_OnInteraction;
     }
 }

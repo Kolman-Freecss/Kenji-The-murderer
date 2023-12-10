@@ -39,9 +39,9 @@ namespace Gameplay.Config.Scripts
                 portal.Value.OnInteraction.AddListener(UsePortal));
         }
 
-        public virtual void UsePortal(PortalInteractable portalInteractable)
+        public virtual void UsePortal(object portalInteractable)
         {
-            GameManager.Instance.OnPlayerEndRound(roundType, portalInteractable);
+            GameManager.Instance.OnPlayerEndRound(roundType, (PortalInteractable)portalInteractable);
         }
     }
 }

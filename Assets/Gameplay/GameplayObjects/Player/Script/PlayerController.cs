@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
 
     void Start()
     {
+        GameManager.Instance.m_player = this;
     }
 
     void Update()
