@@ -1,15 +1,25 @@
 #region
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 #endregion
 
+/// <summary>
+/// @Author: Kolman-Freecss (Sergio Martínez Román)
+/// </summary>
 public class SceneTransitionHandler : MonoBehaviour
 {
     #region Inspector Variables
 
     [SerializeField] public SceneStates DefaultScene = SceneStates.Home;
+
+    [Header("Loading Screen")] [SerializeField]
+    private GameObject LoadingScreen;
+
+    [SerializeField] private Image loadingBarFill;
 
     #endregion
 
@@ -76,8 +86,27 @@ public class SceneTransitionHandler : MonoBehaviour
 
     public void LoadScene(SceneStates sceneState)
     {
-        SceneManager.LoadSceneAsync(sceneState.ToString());
-        SetSceneState(sceneState);
+        StartCoroutine(LoadingSceneAsync(sceneState));
+
+        IEnumerator LoadingSceneAsync(SceneStates sceneState)
+        {
+            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneState.ToString());
+            operation.completed += (op) =>
+            {
+                SetSceneState(sceneState);
+                LoadingScreen.SetActive(false);
+                operation.completed -= (op1) => { };
+            };
+
+            LoadingScreen.SetActive(true);
+
+            while (!operation.isDone)
+            {
+                float progress = Mathf.Clamp01(operation.progress / .9f);
+                loadingBarFill.fillAmount = progress;
+                yield return null;
+            }
+        }
     }
 
     private void SetSceneState(SceneStates sceneState)

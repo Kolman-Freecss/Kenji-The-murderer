@@ -79,3 +79,5 @@ c
 3Assets/Gameplay/Config/Scripts/SettingsUIManager.cs,b\b\bba315ee4ff29edbb3b3933466e2a0e3fe1eb1c5
 ]
 -Assets/Gameplay/Config/Scripts/HomeManager.cs,2\3\234bf87d5044a10f440c8c55a4f7cfd6e0be0ec9
+c
+3Assets/Gameplay/{Utilities}/Scripts/LoadingScene.cs,b\a\ba870edcea24a19da24fed2227430513e5eb0064

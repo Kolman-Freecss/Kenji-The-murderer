@@ -44,3 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27aba6b10aa1d7643b37896a15f77c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newFont: {fileID: 11400000, guid: b60f95f3a2835494ba19a49e999b44d2, type: 2}
+  backgroundButton: {fileID: 0}
+  sliderWidthSize: 500
+  sliderHeightSize: 30
+  buttonFontSize: 24
+  buttonWidthSize: 200
+  buttonHeightSize: 50
+  buttonHighlightColor: {r: 1, g: 0, b: 0, a: 1}
+  textFontSize: 20
+  changeTextFormat: 0
+  changeTextBoxSize: 0
+  textWidthSize: 200
+  textHeightSize: 50
+  textColor: {r: 0, g: 0, b: 0, a: 1}
