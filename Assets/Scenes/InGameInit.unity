@@ -44783,7 +44783,7 @@ Transform:
   m_GameObject: {fileID: 952628019}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.14, y: 7.66, z: -10.67}
+  m_LocalPosition: {x: -15.14, y: 14.85, z: -10.67}
   m_LocalScale: {x: 2.8031, y: 2.8031, z: 4.741561}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74121,7 +74121,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -3.8282533, y: -3.3663363, z: -5.203716}
+  m_ConnectedAnchor: {x: -3.8282537, y: -3.3663368, z: -5.203716}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -76051,6 +76051,11 @@ PrefabInstance:
     - target: {fileID: 1972201279848601458, guid: e7b7b1fed929ac748a28032a22a0a6e2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381914267813207914, guid: e7b7b1fed929ac748a28032a22a0a6e2,
+        type: 3}
+      propertyPath: debugAttack
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8059383071621953401, guid: e7b7b1fed929ac748a28032a22a0a6e2,
@@ -102216,16 +102221,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerGroup
-      objectReference: {fileID: 0}
-    - target: {fileID: 955144602873507195, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 955144602873507195, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2910037882911326240, guid: 0574e0a21823f444fa93792d1360feaa,
         type: 3}

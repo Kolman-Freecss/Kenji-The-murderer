@@ -86,7 +86,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  attackDistance: 1
+  attackDistance: 2
 --- !u!114 &290052851412331397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,8 +192,10 @@ MonoBehaviour:
   minDeathPushForce: 2000
   maxDeathPushForce: 3000
   maxLife: 3
+  timeToDestroyAfterDeath: 2
   debugHit: 0
   debugOffender: {fileID: 0}
+  damage: 1
 --- !u!114 &7381914267813207914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,11 +330,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LifeBar
       objectReference: {fileID: 0}
-    - target: {fileID: 5359076137058043675, guid: 59c4b30c08546f745ba161f61077b071,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -352,6 +349,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4114919166069161163}
     m_Modifications:
+    - target: {fileID: 4853962020487096901, guid: 70829487bdf25cf4cad208f877241362,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6108673423554032599, guid: 70829487bdf25cf4cad208f877241362,
         type: 3}
       propertyPath: m_Name
