@@ -99,3 +99,7 @@ c
 3Assets/Gameplay/Entity/Scripts/EntityRagdollizer.cs,7\a\7a0cf5edf372bda73ba75875ca84ef1528b5a00c
 ^
 .Assets/Gameplay/GameplayObjects/UI/WeaponUI.cs,0\9\0907d52a61bb09b158c08679d7be01452088bf17
+`
+0Assets/Gameplay/Config/Scripts/EndGameManager.cs,e\6\e67ee91cd8c7e58c86a74ea5ad175464aab1682e
+\
+,Assets/Gameplay/Entity/Scripts/EntityLife.cs,0\9\09fb6a2a0d9bc40aef3f36c6716356d680a92f38

@@ -158,6 +158,7 @@ MonoBehaviour:
   DefaultScene: 1
   LoadingScreen: {fileID: 1098727091367498925}
   loadingBarFill: {fileID: 451724449133973865}
+  debug: 0
 --- !u!1 &4049897627719421480
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5237118240783650421
 RectTransform:
   m_ObjectHideFlags: 0

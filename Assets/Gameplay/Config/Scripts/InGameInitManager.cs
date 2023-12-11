@@ -52,9 +52,10 @@ public class InGameInitManager : RoundManager
         }
     }
 
-    private void Start()
+    protected new void Start()
     {
-        m_encounters.ForEach(encounter => encounter.onEncounterFinished.AddListener(OnEncounterEnded));
+        base.Start();
+        m_encounters.ForEach(encounter => { encounter.onEncounterFinished.AddListener(OnEncounterEnded); });
         m_CurrentRoundState = RoundState.Starting;
         if (m_RoundStartDialogue != null)
         {

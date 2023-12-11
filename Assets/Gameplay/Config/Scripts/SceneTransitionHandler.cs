@@ -21,6 +21,8 @@ public class SceneTransitionHandler : MonoBehaviour
 
     [SerializeField] private Image loadingBarFill;
 
+    public bool debug;
+
     #endregion
 
     #region Member properties
@@ -55,7 +57,14 @@ public class SceneTransitionHandler : MonoBehaviour
     void Awake()
     {
         ManageSingleton();
-        SetSceneState(SceneStates.InitBootstrap);
+        if (debug)
+        {
+            Debug.Log("SceneTransitionHandler Awake");
+        }
+        else
+        {
+            SetSceneState(SceneStates.InitBootstrap);
+        }
     }
 
     private void ManageSingleton()
@@ -74,6 +83,7 @@ public class SceneTransitionHandler : MonoBehaviour
 
     void Start()
     {
+        if (debug) return;
         if (m_SceneState == SceneStates.InitBootstrap)
         {
             LoadScene(DefaultScene);

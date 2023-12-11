@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 #endregion
 
@@ -25,6 +26,8 @@ public class EntityLife : MonoBehaviour
     CharacterController characterController;
     LifeBar lifeBar;
     private Enemy enemy;
+
+    public UnityEvent onDeath = new UnityEvent();
 
     private void OnValidate()
     {
@@ -76,11 +79,13 @@ public class EntityLife : MonoBehaviour
                 if (playerController)
                 {
                     playerController.enabled = false;
+                    onDeath.Invoke();
                 }
 
                 if (characterController)
                 {
                     characterController.enabled = false;
+                    onDeath.Invoke();
                 }
 
                 if (enemy)

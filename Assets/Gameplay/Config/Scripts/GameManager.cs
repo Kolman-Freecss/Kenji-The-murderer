@@ -1,6 +1,7 @@
 #region
 
 using System;
+using System.Collections;
 using Gameplay.GameplayObjects.Interactables._derivatives;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour
         InGame_Second
     }
 
+    public float timeToFinishGame = 5f;
+
     #region Member properties
 
     public static GameManager Instance { get; private set; }
@@ -23,6 +26,8 @@ public class GameManager : MonoBehaviour
     public bool IsGameStarted { get; private set; }
 
     [HideInInspector] public PlayerController m_player;
+
+    [HideInInspector] public bool m_GameWon;
 
     #endregion
 
@@ -64,6 +69,11 @@ public class GameManager : MonoBehaviour
         StartGame();
     }
 
+    public void OnPlayerDeath(RoundTypes roundType)
+    {
+        EndGame(false);
+    }
+
     public void OnPlayerEndRound(RoundTypes roundType, PortalInteractable portalInteractable)
     {
         switch (roundType)
@@ -88,11 +98,18 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(bool isWin)
     {
-        SceneTransitionHandler.Instance.LoadScene(SceneTransitionHandler.SceneStates.EndGame);
+        m_GameWon = isWin;
         SoundManager.Instance.StartBackgroundMusic(isWin
             ? SoundManager.BackgroundMusic.WinGame
             : SoundManager.BackgroundMusic.LostGame);
-        IsGameStarted = false;
+        StartCoroutine(OnEndGame());
+
+        IEnumerator OnEndGame()
+        {
+            yield return new WaitForSeconds(timeToFinishGame);
+            SceneTransitionHandler.Instance.LoadScene(SceneTransitionHandler.SceneStates.EndGame);
+            IsGameStarted = false;
+        }
     }
 
     #endregion

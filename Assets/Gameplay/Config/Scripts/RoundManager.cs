@@ -33,13 +33,18 @@ namespace Gameplay.Config.Scripts
             m_CurrentRoundState = RoundState.NotStarted;
         }
 
-        private void Start()
+        protected void Start()
         {
             m_roundPortals.ForEach(portal =>
             {
                 portal.Value.gameObject.SetActive(false);
                 portal.Value.OnInteraction.AddListener(UsePortal);
             });
+        }
+
+        public virtual void OnPlayerDeath()
+        {
+            GameManager.Instance.OnPlayerDeath(roundType);
         }
 
         public virtual void UsePortal(object portalInteractable)

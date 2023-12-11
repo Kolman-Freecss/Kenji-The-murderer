@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
     private float verticalVelocity = 0f;
     private Vector3 velocityToApply = Vector3.zero; // World
 
+    private EntityLife entityLife;
+
 
     private void Awake()
     {
@@ -75,6 +77,13 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
     void Start()
     {
         GameManager.Instance.m_player = this;
+        entityLife = GetComponent<EntityLife>();
+        entityLife.onDeath.AddListener(OnDeath);
+    }
+
+    void OnDeath()
+    {
+        InGameInitManager.Instance.OnPlayerDeath();
     }
 
     void Update()
