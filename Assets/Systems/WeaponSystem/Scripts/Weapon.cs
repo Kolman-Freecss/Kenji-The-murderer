@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
     private AudioSource shootAudioSource;
 
     [SerializeField] private AudioClip shootAudioClip;
+    public MoveToAimingPlanePosition moveToAimingPlanePosition;
 
     public ShotMode shotMode;
 

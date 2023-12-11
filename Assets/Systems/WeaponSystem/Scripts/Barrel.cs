@@ -10,7 +10,7 @@ public abstract class Barrel : MonoBehaviour
 
     [Header("Debug")] [SerializeField] private bool debugContinuousShot;
 
-    private Weapon weapon;
+    protected Weapon weapon;
 
     // void OnValidate()
     // {

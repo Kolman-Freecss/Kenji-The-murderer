@@ -1831,6 +1831,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3636518674095346332, guid: 7e9f20c025d3edb4abbb27d60eb41f00,
         type: 3}
+      propertyPath: m_text
+      value: INTERACT (F)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636518674095346332, guid: 7e9f20c025d3edb4abbb27d60eb41f00,
+        type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: b60f95f3a2835494ba19a49e999b44d2,

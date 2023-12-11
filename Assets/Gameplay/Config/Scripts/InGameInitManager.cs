@@ -6,6 +6,7 @@ using Gameplay.Config.Scripts;
 using Systems.NarrationSystem.Dialogue.Components;
 using Systems.NarrationSystem.Dialogue.Data;
 using Systems.NarrationSystem.Flow;
+using TMPro;
 using UnityEngine;
 
 #endregion
@@ -15,6 +16,8 @@ public class InGameInitManager : RoundManager
     public static InGameInitManager Instance { get; private set; }
 
     #region Inspector Variables
+
+    [SerializeField] private TextMeshProUGUI m_roundStartText;
 
     [SerializeField] private List<Encounter> m_encounters;
 
@@ -69,6 +72,7 @@ public class InGameInitManager : RoundManager
     private void OnEncounterEnded()
     {
         currentEncountersFinished++;
+        m_roundStartText.text = currentEncountersFinished + "/" + m_encounters.Count + " Waves";
         if (currentEncountersFinished == m_encounters.Count)
         {
             EndRound();
@@ -78,6 +82,7 @@ public class InGameInitManager : RoundManager
     private void InitRoundData()
     {
         currentEncountersFinished = 0;
+        m_roundStartText.text = currentEncountersFinished + "/" + m_encounters.Count + " Waves";
     }
 
     #endregion
