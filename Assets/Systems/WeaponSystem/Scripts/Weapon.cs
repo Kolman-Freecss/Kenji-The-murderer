@@ -37,7 +37,7 @@ public class Weapon : MonoBehaviour
         SetSoundVolume();
     }
 
-    public void PlaySound()
+    public void PlayShotSound()
     {
         shootAudioSource.Play();
     }

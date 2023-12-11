@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootAudioSource: {fileID: 7102879356294743027}
+  weaponAudioSource: {fileID: 0}
   shootAudioClip: {fileID: 8300000, guid: 58440c4125bbb9240a46a2ed470f61d8, type: 3}
   shotMode: 0
 --- !u!82 &7102879356294743027

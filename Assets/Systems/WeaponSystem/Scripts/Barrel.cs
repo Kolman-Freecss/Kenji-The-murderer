@@ -36,7 +36,7 @@ public abstract class Barrel : MonoBehaviour
 
     public virtual void Shot()
     {
-        weapon.PlaySound();
+        weapon.PlayShotSound();
     }
 
     public virtual void StartShooting()

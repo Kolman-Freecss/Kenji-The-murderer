@@ -97,3 +97,5 @@ c
 3Assets/Systems/NarrationSystem/Flow/FlowListener.cs,1\4\1493ac2235178360cf2fd0ee151be4bd7f1c0bbf
 c
 3Assets/Gameplay/Entity/Scripts/EntityRagdollizer.cs,7\a\7a0cf5edf372bda73ba75875ca84ef1528b5a00c
+^
+.Assets/Gameplay/GameplayObjects/UI/WeaponUI.cs,0\9\0907d52a61bb09b158c08679d7be01452088bf17

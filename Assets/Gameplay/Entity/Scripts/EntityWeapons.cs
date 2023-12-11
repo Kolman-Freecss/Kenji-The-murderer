@@ -1,5 +1,6 @@
 #region
 
+using Gameplay.GameplayObjects.UI;
 using UnityEngine;
 
 #endregion
@@ -7,23 +8,28 @@ using UnityEngine;
 public class EntityWeapons : MonoBehaviour
 {
     [SerializeField] private Transform weaponsParent;
+    [SerializeField] private Transform weaponUIParent;
 
     Weapon[] weapons;
+    WeaponUI[] weaponsUI = new WeaponUI[4];
     private int currentWeapon = -1;
     private bool haveWeapon = false;
+    private AudioSource weaponsAudioSource;
+
 
     private void Awake()
     {
         weapons = weaponsParent.GetComponentsInChildren<Weapon>();
+        weaponsUI = weaponUIParent.GetComponentsInChildren<WeaponUI>();
         currentWeapon = weapons.Length > 0 ? 0 : -1;
-
+        weaponsAudioSource = weaponsParent.GetComponent<AudioSource>();
 
         SetCurrentWeapon(currentWeapon);
     }
 
     internal void SelectNextWeapon()
     {
-        int nextWeapon = ++currentWeapon;
+        int nextWeapon = currentWeapon + 1;
         if (nextWeapon >= weapons.Length)
         {
             nextWeapon = -1;
@@ -50,8 +56,20 @@ public class EntityWeapons : MonoBehaviour
             weapons[j].gameObject.SetActive(j == selectedWeapon);
         }
 
+        int prevWeapon = currentWeapon == -1 ? 0 : currentWeapon;
         currentWeapon = selectedWeapon;
         haveWeapon = currentWeapon != -1;
+        if (haveWeapon)
+        {
+            weaponsUI[prevWeapon].SetWeaponSprite(false);
+            weaponsUI[currentWeapon].SetWeaponSprite(true);
+        }
+        else
+        {
+            weaponsUI[prevWeapon].SetWeaponSprite(false);
+        }
+
+        weaponsAudioSource.Play();
     }
 
     public void Shot()

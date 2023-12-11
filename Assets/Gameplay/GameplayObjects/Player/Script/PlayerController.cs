@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
     private float verticalVelocity = 0f;
     private Vector3 velocityToApply = Vector3.zero; // World
 
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
