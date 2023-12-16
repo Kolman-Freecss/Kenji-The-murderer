@@ -29,7 +29,7 @@ public class EntityMeleeAttack : MonoBehaviour
         }
     }
 
-    public void PerformAttack()
+    public virtual void PerformAttack()
     {
         Collider[] colliders = Physics.OverlapSphere(CalculateAttackPosition(), radius, layerMask);
         foreach (Collider collider in colliders)

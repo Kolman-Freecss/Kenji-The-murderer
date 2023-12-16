@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 3244569663892858941}
   - component: {fileID: 7160217826858037796}
   - component: {fileID: 8590392391881834162}
-  - component: {fileID: 8225424063133025320}
   - component: {fileID: 5898967466428026983}
   - component: {fileID: 5774433729323803182}
+  - component: {fileID: 7875302377240619510}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -180,27 +180,9 @@ MonoBehaviour:
   debugHit: 0
   debugOffender: {fileID: 0}
   damage: 1
---- !u!114 &8225424063133025320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122173887601756650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 619b9f7561e9292439858dd196af2582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
-  radius: 0.35
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 59
-  affectedTags:
-  - Untagged
-  - Player
-  debugAttack: 0
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5898967466428026983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +294,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7875302377240619510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122173887601756650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3163c8a4f19541b0b38e12ab03c480b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 1, z: 1}
+  radius: 0.35
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 59
+  affectedTags:
+  - Untagged
+  - Enemy
+  debugAttack: 0
+  meleeAttackInput: {fileID: 5079116986149142641, guid: 3fb20003132972e4f9dcd090eea67072,
+    type: 3}
 --- !u!1 &669311987461309079
 GameObject:
   m_ObjectHideFlags: 0

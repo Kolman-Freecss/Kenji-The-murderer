@@ -20,4 +20,9 @@ public class EntityMeleeAttackEventForwarder : MonoBehaviour
     {
         entityMeleeAttack.PerformAttack();
     }
+
+    public void KatanaSlash()
+    {
+        entityMeleeAttack.PerformAttack();
+    }
 }
