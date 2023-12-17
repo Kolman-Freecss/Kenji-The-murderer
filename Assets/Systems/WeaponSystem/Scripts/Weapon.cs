@@ -30,7 +30,7 @@ public class Weapon : MonoBehaviour
 
     private void SetSoundVolume()
     {
-        shootAudioSource.volume = SoundManager.Instance.EffectsAudioVolume;
+        shootAudioSource.volume = SoundManager.Instance.EffectsAudioVolume / 100f;
     }
 
     private void Start()
@@ -40,6 +40,7 @@ public class Weapon : MonoBehaviour
 
     public void PlayShotSound()
     {
+        SetSoundVolume();
         shootAudioSource.PlayOneShot(shootAudioClip);
     }
 

@@ -73,11 +73,11 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
 
         shotInput.action.Enable();
         continuousShot.action.Enable();
+        GameManager.Instance.m_player = this;
     }
 
     void Start()
     {
-        GameManager.Instance.m_player = this;
         entityLife = GetComponent<EntityLife>();
         entityLife.onDeath.AddListener(OnDeath);
     }

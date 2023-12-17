@@ -1,5 +1,6 @@
 #region
 
+using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class ConfigScene : MonoBehaviour
 {
     public TMP_FontAsset newFont;
     public Sprite backgroundButton;
+
+    public GameObject[] objectsToChange;
 
     [Header("Sliders")] [SerializeField] float sliderWidthSize = 500f;
 
@@ -45,9 +48,20 @@ public class ConfigScene : MonoBehaviour
     [ContextMenu("Change Fonts")]
     void ChangeFonts()
     {
-        TextMeshProUGUI[] textObjects = FindObjectsOfType<TextMeshProUGUI>();
+        List<TextMeshProUGUI> components = new();
+        if (objectsToChange == null || objectsToChange.Length == 0)
+        {
+            components = new List<TextMeshProUGUI>(FindObjectsOfType<TextMeshProUGUI>());
+        }
+        else
+        {
+            for (int i = 0; i < objectsToChange.Length; i++)
+            {
+                components.AddRange(objectsToChange[i].GetComponentsInChildren<TextMeshProUGUI>());
+            }
+        }
 
-        foreach (TextMeshProUGUI textObject in textObjects)
+        foreach (TextMeshProUGUI textObject in components)
         {
             textObject.font = newFont;
             textObject.color = textColor;
@@ -73,9 +87,20 @@ public class ConfigScene : MonoBehaviour
     [ContextMenu("Change Buttons")]
     void ChangeButtons()
     {
-        Button[] buttons = FindObjectsOfType<Button>();
+        List<Button> components = new();
+        if (objectsToChange == null || objectsToChange.Length == 0)
+        {
+            components = new List<Button>(FindObjectsOfType<Button>());
+        }
+        else
+        {
+            for (int i = 0; i < objectsToChange.Length; i++)
+            {
+                components.AddRange(objectsToChange[i].GetComponentsInChildren<Button>());
+            }
+        }
 
-        foreach (Button button in buttons)
+        foreach (Button button in components)
         {
             Undo.RecordObject(button, "Changed Button");
             Image image = button.GetComponent<Image>();
@@ -98,9 +123,20 @@ public class ConfigScene : MonoBehaviour
     [ContextMenu("Change Toogles")]
     void ChangeToogles()
     {
-        Toggle[] toggles = FindObjectsOfType<Toggle>();
+        List<Toggle> components = new();
+        if (objectsToChange == null || objectsToChange.Length == 0)
+        {
+            components = new List<Toggle>(FindObjectsOfType<Toggle>());
+        }
+        else
+        {
+            for (int i = 0; i < objectsToChange.Length; i++)
+            {
+                components.AddRange(objectsToChange[i].GetComponentsInChildren<Toggle>());
+            }
+        }
 
-        foreach (Toggle toggle in toggles)
+        foreach (Toggle toggle in components)
         {
             Undo.RecordObject(toggle, "Changed Toggle");
             ColorBlock colors = toggle.colors;
@@ -113,9 +149,20 @@ public class ConfigScene : MonoBehaviour
     [ContextMenu("Change Sliders")]
     void ChangeSliders()
     {
-        Slider[] sliders = FindObjectsOfType<Slider>();
+        List<Slider> components = new();
+        if (objectsToChange == null || objectsToChange.Length == 0)
+        {
+            components = new List<Slider>(FindObjectsOfType<Slider>());
+        }
+        else
+        {
+            for (int i = 0; i < objectsToChange.Length; i++)
+            {
+                components.AddRange(objectsToChange[i].GetComponentsInChildren<Slider>());
+            }
+        }
 
-        foreach (Slider slider in sliders)
+        foreach (Slider slider in components)
         {
             Undo.RecordObject(slider, "Changed Slider");
             RectTransform rectTransform = slider.GetComponent<RectTransform>();

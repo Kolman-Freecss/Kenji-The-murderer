@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using Gameplay.GameplayObjects.Interactables._derivatives;
+using Gameplay.GameplayObjects.Player.Script;
 using UnityEngine;
 
 #endregion
@@ -67,6 +68,13 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         StartGame();
+    }
+
+    public void PauseGameEvent(bool mIsPaused)
+    {
+        m_player.enabled = !mIsPaused;
+        m_player.GetComponent<PlayerMeleeAttackController>().enabled = !mIsPaused;
+        m_player.GetComponent<PlayerInteractionInstigator>().enabled = !mIsPaused;
     }
 
     public void OnPlayerDeath(RoundTypes roundType)
