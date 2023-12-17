@@ -14,7 +14,8 @@ public class BarrelByRaycast : Barrel
     [SerializeField] Vector2 dispersionAngles = new Vector2(5f, 5f);
 
     [SerializeField] private GameObject tracerPrefab;
-    [SerializeField] private Light light;
+    [SerializeField] private Light pointLight;
+    [SerializeField] private Light spotLight;
     [SerializeField] private GameObject hitPrefab;
     [SerializeField] private GameObject noHitPrefab;
 
@@ -27,8 +28,10 @@ public class BarrelByRaycast : Barrel
 
     private void Update()
     {
-        light.intensity = Mathf.Lerp(light.intensity, 0f, 10f * Time.deltaTime);
-        light.spotAngle = Mathf.Lerp(light.spotAngle, 0f, 10f * Time.deltaTime);
+        pointLight.intensity = Mathf.Lerp(pointLight.intensity, 0f, 10f * Time.deltaTime);
+        pointLight.spotAngle = Mathf.Lerp(pointLight.spotAngle, 0f, 10f * Time.deltaTime);
+        spotLight.intensity = Mathf.Lerp(spotLight.intensity, 0f, 10f * Time.deltaTime);
+        spotLight.spotAngle = Mathf.Lerp(spotLight.spotAngle, 0f, 10f * Time.deltaTime);
         if (isContinuousShooting)
         {
             if (Time.time > nextShotTime)
@@ -69,10 +72,12 @@ public class BarrelByRaycast : Barrel
         }
 
         GameObject tracerGo = Instantiate(tracerPrefab);
-        light.gameObject.SetActive(true);
+        pointLight.gameObject.SetActive(true);
         StartCoroutine(StopMuzzleFlash());
-        light.intensity = 10000000f;
-        light.spotAngle = 255f;
+        pointLight.intensity = 10000f;
+        pointLight.spotAngle = 95f;
+        spotLight.intensity = 10000f;
+        spotLight.spotAngle = 150f;
 
         Tracer tracer = tracerGo.GetComponent<Tracer>();
         tracer.Init(shootPoint.position, finalShotPosition);
@@ -80,7 +85,7 @@ public class BarrelByRaycast : Barrel
         IEnumerator StopMuzzleFlash()
         {
             yield return new WaitForSeconds(0.2f);
-            light.gameObject.SetActive(false);
+            pointLight.gameObject.SetActive(false);
         }
     }
 
