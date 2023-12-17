@@ -40,7 +40,7 @@ public class Weapon : MonoBehaviour
 
     public void PlayShotSound()
     {
-        shootAudioSource.Play();
+        shootAudioSource.PlayOneShot(shootAudioClip);
     }
 
     public void Shot()
