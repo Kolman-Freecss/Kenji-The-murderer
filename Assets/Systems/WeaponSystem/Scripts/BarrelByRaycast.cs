@@ -1,5 +1,6 @@
 #region
 
+using System.Collections;
 using UnityEngine;
 
 #endregion
@@ -13,6 +14,9 @@ public class BarrelByRaycast : Barrel
     [SerializeField] Vector2 dispersionAngles = new Vector2(5f, 5f);
 
     [SerializeField] private GameObject tracerPrefab;
+    [SerializeField] private Light light;
+    [SerializeField] private GameObject hitPrefab;
+    [SerializeField] private GameObject noHitPrefab;
 
     // [SerializeField] private LayerMask layerMask;
     [SerializeField] float damage = 5f;
@@ -23,6 +27,8 @@ public class BarrelByRaycast : Barrel
 
     private void Update()
     {
+        light.intensity = Mathf.Lerp(light.intensity, 0f, 10f * Time.deltaTime);
+        light.spotAngle = Mathf.Lerp(light.spotAngle, 0f, 10f * Time.deltaTime);
         if (isContinuousShooting)
         {
             if (Time.time > nextShotTime)
@@ -51,16 +57,31 @@ public class BarrelByRaycast : Barrel
             ))
         {
             finalShotPosition = hit.point;
-            hit.collider.GetComponent<HurtBox>()?.NotifyHit(this, damage);
-            // if (hit.collider.TryGetComponent(out HurtBox hurtBox))
-            // {
-            //     hurtBox.NotifyHit(null);
-            // }
+            if (hit.collider.TryGetComponent(out HurtBox hurtBox))
+            {
+                Instantiate(hitPrefab, hit.point, Quaternion.Euler(hit.normal.x - 90, hit.normal.y, hit.normal.z));
+                hurtBox.NotifyHit(this, damage);
+            }
+            else
+            {
+                Instantiate(noHitPrefab, hit.point, Quaternion.Euler(hit.normal.x - 90, hit.normal.y, hit.normal.z));
+            }
         }
 
         GameObject tracerGo = Instantiate(tracerPrefab);
+        light.gameObject.SetActive(true);
+        StartCoroutine(StopMuzzleFlash());
+        light.intensity = 10000000f;
+        light.spotAngle = 255f;
+
         Tracer tracer = tracerGo.GetComponent<Tracer>();
         tracer.Init(shootPoint.position, finalShotPosition);
+
+        IEnumerator StopMuzzleFlash()
+        {
+            yield return new WaitForSeconds(0.2f);
+            light.gameObject.SetActive(false);
+        }
     }
 
     private Vector3 DispersedForward()
