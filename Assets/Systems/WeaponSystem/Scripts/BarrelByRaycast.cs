@@ -25,6 +25,7 @@ public class BarrelByRaycast : Barrel
     private bool isContinuousShooting;
 
     private float nextShotTime = 0f;
+    private bool shooting = false;
 
     private void Update()
     {
@@ -34,53 +35,52 @@ public class BarrelByRaycast : Barrel
         spotLight.spotAngle = Mathf.Lerp(spotLight.spotAngle, 0f, 10f * Time.deltaTime);
         if (isContinuousShooting)
         {
-            if (Time.time > nextShotTime)
-            {
-                nextShotTime += 1f / cadence;
-                Shot();
-            }
-        }
-        else
-        {
-            nextShotTime = Time.time;
+            Shot();
         }
     }
 
     public override void Shot()
     {
-        base.Shot();
-        Vector3 dispersedForward = DispersedForward();
-        Vector3 finalShotPosition = shootPoint.position + (dispersedForward.normalized * range);
-
-        if (Physics.Raycast(shootPoint.position,
-                dispersedForward,
-                out RaycastHit hit,
-                range,
-                layerMask
-            ))
+        if (Time.time > nextShotTime && !shooting)
         {
-            finalShotPosition = hit.point;
-            if (hit.collider.TryGetComponent(out HurtBox hurtBox))
+            nextShotTime = Time.time + 1f / cadence;
+            shooting = true;
+            base.Shot();
+            Vector3 dispersedForward = DispersedForward();
+            Vector3 finalShotPosition = shootPoint.position + (dispersedForward.normalized * range);
+
+            if (Physics.Raycast(shootPoint.position,
+                    dispersedForward,
+                    out RaycastHit hit,
+                    range,
+                    layerMask
+                ))
             {
-                Instantiate(hitPrefab, hit.point, Quaternion.Euler(hit.normal.x - 90, hit.normal.y, hit.normal.z));
-                hurtBox.NotifyHit(this, damage);
+                finalShotPosition = hit.point;
+                if (hit.collider.TryGetComponent(out HurtBox hurtBox))
+                {
+                    Instantiate(hitPrefab, hit.point, Quaternion.Euler(hit.normal.x - 90, hit.normal.y, hit.normal.z));
+                    hurtBox.NotifyHit(this, damage);
+                }
+                else
+                {
+                    Instantiate(noHitPrefab, hit.point,
+                        Quaternion.Euler(hit.normal.x - 90, hit.normal.y, hit.normal.z));
+                }
             }
-            else
-            {
-                Instantiate(noHitPrefab, hit.point, Quaternion.Euler(hit.normal.x - 90, hit.normal.y, hit.normal.z));
-            }
+
+            GameObject tracerGo = Instantiate(tracerPrefab);
+            pointLight.gameObject.SetActive(true);
+            StartCoroutine(StopMuzzleFlash());
+            pointLight.intensity = 10000f;
+            pointLight.spotAngle = 95f;
+            spotLight.intensity = 10000f;
+            spotLight.spotAngle = 150f;
+
+            Tracer tracer = tracerGo.GetComponent<Tracer>();
+            tracer.Init(shootPoint.position, finalShotPosition);
+            shooting = false;
         }
-
-        GameObject tracerGo = Instantiate(tracerPrefab);
-        pointLight.gameObject.SetActive(true);
-        StartCoroutine(StopMuzzleFlash());
-        pointLight.intensity = 10000f;
-        pointLight.spotAngle = 95f;
-        spotLight.intensity = 10000f;
-        spotLight.spotAngle = 150f;
-
-        Tracer tracer = tracerGo.GetComponent<Tracer>();
-        tracer.Init(shootPoint.position, finalShotPosition);
 
         IEnumerator StopMuzzleFlash()
         {

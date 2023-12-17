@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootAudioSource: {fileID: 6598998841178358002}
   shootAudioClip: {fileID: 8300000, guid: 37829d7bf348bd940acb4e6eede63d22, type: 3}
+  moveToAimingPlanePosition: {fileID: 0}
   shotMode: 1
 --- !u!82 &6598998841178358002
 AudioSource:

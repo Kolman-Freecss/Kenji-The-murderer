@@ -68,8 +68,7 @@ namespace Gameplay.GameplayObjects.Player.Script
         {
             if (Time.time > nextSlashTime)
             {
-                Debug.Log("Time.time > nextSlashTime " + Time.time + ", nextSlashTime " + nextSlashTime);
-                nextSlashTime += 1f / cadence;
+                nextSlashTime = Time.time + 1f / cadence;
                 if (entityAnimation != null)
                 {
                     if (entityWeapons.HasCurrentWeapon())

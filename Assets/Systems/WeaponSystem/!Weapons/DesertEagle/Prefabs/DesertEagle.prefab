@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootAudioSource: {fileID: 7102879356294743027}
-  weaponAudioSource: {fileID: 0}
   shootAudioClip: {fileID: 8300000, guid: 58440c4125bbb9240a46a2ed470f61d8, type: 3}
+  moveToAimingPlanePosition: {fileID: 0}
   shotMode: 0
 --- !u!82 &7102879356294743027
 AudioSource:
@@ -268,6 +268,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991205553133692687, guid: 2d11ba18711115640a7318196e751df7,
+        type: 3}
+      propertyPath: cadence
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8389043910860908534, guid: 2d11ba18711115640a7318196e751df7,
         type: 3}

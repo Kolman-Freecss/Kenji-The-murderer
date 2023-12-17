@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootAudioSource: {fileID: 5892347336935551094}
   shootAudioClip: {fileID: 8300000, guid: e5d538f0500d2a040a0231a340c7792b, type: 3}
+  moveToAimingPlanePosition: {fileID: 0}
   shotMode: 0
 --- !u!82 &5892347336935551094
 AudioSource:
@@ -455,6 +456,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -528,6 +539,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -603,6 +624,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun
       objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -676,6 +707,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -751,6 +792,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -824,6 +875,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -899,6 +960,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -972,6 +1043,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1047,6 +1128,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1120,6 +1211,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1195,6 +1296,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1268,6 +1379,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1343,6 +1464,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1416,6 +1547,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1491,6 +1632,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1564,6 +1715,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1639,6 +1800,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1712,6 +1883,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1787,6 +1968,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1860,6 +2051,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarrelByRaycastForShotgun (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843855811205081607, guid: 9a721b7a03858324a8052f407f91c269,
+        type: 3}
+      propertyPath: cadence
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

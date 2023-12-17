@@ -80,8 +80,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootAudioSource: {fileID: 8463485117045432399}
-  weaponAudioSource: {fileID: 0}
   shootAudioClip: {fileID: 8300000, guid: 966cfc8a202bd904d85dc85c5d70e280, type: 3}
+  moveToAimingPlanePosition: {fileID: 0}
   shotMode: 0
 --- !u!82 &8463485117045432399
 AudioSource:
@@ -187,6 +187,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3433358392346999592}
     m_Modifications:
+    - target: {fileID: 3412322950034011584, guid: 13688a0c11663bc4c872819b852300b8,
+        type: 3}
+      propertyPath: cadence
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3412322950034011584, guid: 13688a0c11663bc4c872819b852300b8,
         type: 3}
       propertyPath: projectilePrefab
