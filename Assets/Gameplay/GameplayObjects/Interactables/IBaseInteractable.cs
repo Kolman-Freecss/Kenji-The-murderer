@@ -5,6 +5,6 @@
     /// </summary>
     public interface IBaseInteractable<TData> : IInteractable where TData : IInteractable
     {
-        void DoInteraction();
+        new void DoInteraction();
     }
 }
