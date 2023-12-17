@@ -28,6 +28,8 @@ namespace Gameplay.Config.Scripts
 
         [Header("SFX")] [SerializeField] private AudioClip m_portalsOpened;
 
+        private bool m_encounterInCourse = false;
+
         // Round Settings
         protected RoundState m_CurrentRoundState;
         public Action OnRoundStarted;
@@ -47,6 +49,18 @@ namespace Gameplay.Config.Scripts
             });
         }
 
+        public void StartEncounter()
+        {
+            SoundManager.Instance.StartTemporalBackground(SoundManager.BackgroundMusic.StartEncounter);
+            m_encounterInCourse = true;
+        }
+
+        public void EndEncounter()
+        {
+            SoundManager.Instance.StartPreviousBackground();
+            m_encounterInCourse = false;
+        }
+
         public virtual void OnPlayerDeath()
         {
             GameManager.Instance.OnPlayerDeath(roundType);
@@ -55,6 +69,11 @@ namespace Gameplay.Config.Scripts
         public virtual void UsePortal(object portalInteractable)
         {
             GameManager.Instance.OnPlayerEndRound(roundType, (PortalInteractable)portalInteractable);
+        }
+
+        public bool IsEncounterInCourse()
+        {
+            return m_encounterInCourse;
         }
     }
 }

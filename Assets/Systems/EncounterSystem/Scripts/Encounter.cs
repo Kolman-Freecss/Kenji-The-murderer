@@ -48,6 +48,7 @@ public class Encounter : MonoBehaviour
     void StartEncounter()
     {
         SetDoorsActivation(true);
+        InGameInitManager.Instance.StartEncounter();
 
         waves[currentWave].StartWave();
     }
@@ -67,6 +68,7 @@ public class Encounter : MonoBehaviour
                 {
                     SetDoorsActivation(false);
                     hasFinished = true;
+                    InGameInitManager.Instance.EndEncounter();
                     onEncounterFinished.Invoke();
                 }
 
@@ -105,7 +107,7 @@ public class Encounter : MonoBehaviour
 
     public void NotifyTriggered()
     {
-        if (!hasFinished)
+        if (!hasFinished && !InGameInitManager.Instance.IsEncounterInCourse())
         {
             StartEncounter();
         }

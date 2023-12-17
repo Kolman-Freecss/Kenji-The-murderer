@@ -60,6 +60,8 @@ MonoBehaviour:
     Value: {fileID: 8300000, guid: f4a5e3194a88bbc4495ce43379f9e053, type: 3}
   - Key: 4
     Value: {fileID: 8300000, guid: f4a5e3194a88bbc4495ce43379f9e053, type: 3}
+  - Key: 5
+    Value: {fileID: 8300000, guid: 4230c27b270c9e14e8556c49b62ceabf, type: 3}
   ButtonClickSound: {fileID: 8300000, guid: 2654aaac4566d56478ba1e9697e5c109, type: 3}
   backgroundAudioSources: {fileID: 8226461579078740960}
   uiAudioSource: {fileID: 2633133480923136145}

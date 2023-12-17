@@ -15,7 +15,8 @@ public class SoundManager : MonoBehaviour
         InGameInit,
         InGameSecond,
         WinGame,
-        LostGame
+        LostGame,
+        StartEncounter
     }
 
     #region Inspector Variables
@@ -40,6 +41,9 @@ public class SoundManager : MonoBehaviour
     #region Member Variables
 
     public static SoundManager Instance { get; private set; }
+
+    private BackgroundMusic currentBackgroundClip;
+    private BackgroundMusic previousBackgroundClip;
 
     #endregion
 
@@ -80,6 +84,17 @@ public class SoundManager : MonoBehaviour
 
     #region Logic
 
+    public void StartTemporalBackground(BackgroundMusic backgroundMusic)
+    {
+        previousBackgroundClip = currentBackgroundClip;
+        StartBackgroundMusic(backgroundMusic);
+    }
+
+    public void StartPreviousBackground()
+    {
+        StartBackgroundMusic(previousBackgroundClip);
+    }
+
     public void StartBackgroundMusic(BackgroundMusic backgroundMusic)
     {
         AudioClip clip = BackgroundMusicClips.Find(x => x.Key == backgroundMusic).Value;
@@ -89,6 +104,7 @@ public class SoundManager : MonoBehaviour
                 backgroundAudioSources.Stop();
             backgroundAudioSources.clip = clip;
             backgroundAudioSources.Play();
+            currentBackgroundClip = backgroundMusic;
         }
         else
         {

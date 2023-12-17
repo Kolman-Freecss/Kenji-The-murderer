@@ -251,7 +251,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  encounterDoorsParent: {fileID: 8223613863324990744}
+  encounterLeftDoor: {fileID: 0}
+  encounterRightDoor: {fileID: 0}
   encounterLimitsParent: {fileID: 7373789261067435750}
   onEncounterFinished:
     m_PersistentCalls:
@@ -562,10 +563,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8691363457985646075}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5128645530745021619
 CanvasRenderer:
@@ -595,18 +596,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Won
+  m_text: Last wave passed
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fdb0d88effae97544a8ff4a1a15d3688, type: 2}
-  m_sharedMaterial: {fileID: -6413604581825807265, guid: fdb0d88effae97544a8ff4a1a15d3688,
+  m_fontAsset: {fileID: 11400000, guid: 1843e33727295ec47ab566edc3542ca7, type: 2}
+  m_sharedMaterial: {fileID: -1828379547144565821, guid: 1843e33727295ec47ab566edc3542ca7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190241
+  m_fontColor: {r: 0.6320754, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -623,8 +624,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
