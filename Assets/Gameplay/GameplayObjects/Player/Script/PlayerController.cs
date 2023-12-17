@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
     private Vector3 velocityToApply = Vector3.zero; // World
 
     private EntityLife entityLife;
+    public bool meleeAttacking = false;
 
 
     private void Awake()
@@ -98,6 +99,11 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
 
     private void UpdateWeapons()
     {
+        if (meleeAttacking)
+        {
+            return;
+        }
+
         Vector2 changeWeaponValue = changeWeapon.action.ReadValue<Vector2>();
         if (changeWeaponValue.y > 0f)
         {

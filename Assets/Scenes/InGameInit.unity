@@ -4878,12 +4878,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 95209386}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &96044145 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 516168718587668166, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1225759593}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &96809787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58214,11 +58208,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalNextInGameSecond
       objectReference: {fileID: 0}
-    - target: {fileID: 516168718587668166, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 892306575797419132, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58272,15 +58261,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 516168718587668166, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1225759595}
-    - targetCorrespondingSourceObject: {fileID: 516168718587668166, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1225759596}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d, type: 3}
 --- !u!4 &1225759594 stripped
 Transform:
@@ -58288,45 +58269,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1225759593}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1225759595
+--- !u!114 &1225759595 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1477598840906970514, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1225759593}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96044145}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a22777d19422f4b428ec4358467b7c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OnInteraction:
-    m_PersistentCalls:
-      m_Calls: []
-  m_IsInteractable: 1
-  m_PortalInteraction: {fileID: 0}
-  m_NextRoundType: 1
---- !u!65 &1225759596
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96044145}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.3361244, y: 3.8397932, z: 3.0651665}
-  m_Center: {x: -0.22887802, y: 1.4198966, z: 0.0986042}
 --- !u!1001 &1226879275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94823,23 +94777,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalNone
       objectReference: {fileID: 0}
-    - target: {fileID: 8918175083306843877, guid: f546e48c3995d33479c34ed605db241c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8918175083306843877, guid: f546e48c3995d33479c34ed605db241c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2034519644}
-    - targetCorrespondingSourceObject: {fileID: 8918175083306843877, guid: f546e48c3995d33479c34ed605db241c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2034519645}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f546e48c3995d33479c34ed605db241c, type: 3}
 --- !u!4 &1978461976 stripped
 Transform:
@@ -97178,51 +97119,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2034422563}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2034519643 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8918175083306843877, guid: f546e48c3995d33479c34ed605db241c,
+--- !u!114 &2034519644 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8991966070048757083, guid: f546e48c3995d33479c34ed605db241c,
     type: 3}
   m_PrefabInstance: {fileID: 1978461975}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2034519644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034519643}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a22777d19422f4b428ec4358467b7c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OnInteraction:
-    m_PersistentCalls:
-      m_Calls: []
-  m_IsInteractable: 1
-  m_PortalInteraction: {fileID: 0}
-  m_NextRoundType: 0
---- !u!65 &2034519645
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034519643}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.3361244, y: 3.8397932, z: 3.0651665}
-  m_Center: {x: -0.22887802, y: 1.4198966, z: 0.0986042}
 --- !u!1001 &2035230370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102362,6 +102270,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 341030746607145338, guid: 0574e0a21823f444fa93792d1360feaa,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 649274449466152199, guid: 0574e0a21823f444fa93792d1360feaa,
         type: 3}
       propertyPath: m_Name

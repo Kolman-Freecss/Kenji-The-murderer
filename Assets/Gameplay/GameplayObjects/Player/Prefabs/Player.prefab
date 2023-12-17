@@ -317,6 +317,8 @@ MonoBehaviour:
   debugAttack: 0
   meleeAttackInput: {fileID: 5079116986149142641, guid: 3fb20003132972e4f9dcd090eea67072,
     type: 3}
+  meleeWeapon: {fileID: 0}
+  cadence: 0.3
 --- !u!1 &669311987461309079
 GameObject:
   m_ObjectHideFlags: 0

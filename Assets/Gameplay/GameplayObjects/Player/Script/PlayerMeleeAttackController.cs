@@ -10,15 +10,23 @@ using AnimationEvent = Gameplay.Events.AnimationEvent;
 
 namespace Gameplay.GameplayObjects.Player.Script
 {
+    /// <summary>
+    /// @author: Kolman Freecss
+    /// </summary>
     public class PlayerMeleeAttackController : EntityMeleeAttack
     {
-        [SerializeField] private InputActionReference meleeAttackInput;
+        [Header("Player Settings")] [SerializeField]
+        private InputActionReference meleeAttackInput;
 
         [SerializeField] private MeleeWeapon meleeWeapon;
+        [SerializeField] float cadence = 0.3f; // Slash/s | 1 slash - 3s
 
         private EntityAnimation entityAnimation;
         private EntityWeapons entityWeapons;
         private AnimationEvent animationEvent;
+        private PlayerController playerController;
+
+        private float nextSlashTime = 0f;
 
         private void Awake()
         {
@@ -30,6 +38,7 @@ namespace Gameplay.GameplayObjects.Player.Script
             entityAnimation = GetComponent<EntityAnimation>();
             entityWeapons = GetComponent<EntityWeapons>();
             animationEvent = GetComponentInChildren<AnimationEvent>();
+            playerController = GetComponent<PlayerController>();
         }
 
         private void OnEnable()
@@ -51,26 +60,33 @@ namespace Gameplay.GameplayObjects.Player.Script
                 entityWeapons.GetCurrentWeapon().gameObject.SetActive(true);
             }
 
+            playerController.meleeAttacking = false;
             meleeWeapon.gameObject.SetActive(false);
         }
 
         public void PerformInitAttack()
         {
-            if (entityAnimation != null)
+            if (Time.time > nextSlashTime)
             {
-                if (entityWeapons.HasCurrentWeapon())
+                Debug.Log("Time.time > nextSlashTime " + Time.time + ", nextSlashTime " + nextSlashTime);
+                nextSlashTime += 1f / cadence;
+                if (entityAnimation != null)
                 {
-                    entityWeapons.GetCurrentWeapon().gameObject.SetActive(false);
-                }
+                    if (entityWeapons.HasCurrentWeapon())
+                    {
+                        entityWeapons.GetCurrentWeapon().gameObject.SetActive(false);
+                    }
 
-                meleeWeapon.gameObject.SetActive(true);
-                entityAnimation.GetAnimator().SetTrigger("KatanaSlash");
+                    playerController.meleeAttacking = true;
+                    meleeWeapon.gameObject.SetActive(true);
+                    meleeWeapon.Hit();
+                    entityAnimation.GetAnimator().SetTrigger("KatanaSlash");
+                }
             }
         }
 
         public override void PerformAttack()
         {
-            meleeWeapon.Hit();
             base.PerformAttack();
         }
 
