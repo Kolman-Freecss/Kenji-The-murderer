@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6.031043, g: 7.724017, b: 12.166355, a: 1}
+  m_IndirectSpecularColor: {r: 6.0411596, g: 7.71704, b: 12.146381, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -44649,6 +44649,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 901871486}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &904825229 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4991194219846132559, guid: e97f42e330cbf6646b73ae389efca796,
+    type: 3}
+  m_PrefabInstance: {fileID: 768613962}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9bf7ccb6a277a41b89148cf37f8fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &904912139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81035,6 +81047,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1633761682}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1635936803 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4991194219846132559, guid: e97f42e330cbf6646b73ae389efca796,
+    type: 3}
+  m_PrefabInstance: {fileID: 2146248966}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9bf7ccb6a277a41b89148cf37f8fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1636467685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86223,7 +86247,7 @@ PrefabInstance:
     - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
         type: 3}
       propertyPath: m_encounters.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
         type: 3}
@@ -86235,6 +86259,16 @@ PrefabInstance:
       propertyPath: m_encounters.Array.data[0]
       value: 
       objectReference: {fileID: 1924749654}
+    - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
+        type: 3}
+      propertyPath: m_encounters.Array.data[1]
+      value: 
+      objectReference: {fileID: 904825229}
+    - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
+        type: 3}
+      propertyPath: m_encounters.Array.data[2]
+      value: 
+      objectReference: {fileID: 1635936803}
     - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
         type: 3}
       propertyPath: m_roundPortals.Array.data[0].Key
@@ -107646,6 +107680,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cadence
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048806458230329331, guid: 0574e0a21823f444fa93792d1360feaa,
+        type: 3}
+      propertyPath: maxLife
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6048806458230329331, guid: 0574e0a21823f444fa93792d1360feaa,
         type: 3}

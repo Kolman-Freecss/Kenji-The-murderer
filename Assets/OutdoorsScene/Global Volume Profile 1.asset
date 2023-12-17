@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   tint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.7783019, b: 0.7783019, a: 1}
+    m_Value: {r: 1, g: 0.5801887, b: 0.5801887, a: 1}
   maxFogDistance:
     m_OverrideState: 0
     m_Value: 5000
@@ -42,7 +42,7 @@ MonoBehaviour:
     m_Value: 1000
   baseHeight:
     m_OverrideState: 1
-    m_Value: 0.36
+    m_Value: 0.89
   maximumHeight:
     m_OverrideState: 1
     m_Value: 3
@@ -246,10 +246,10 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   skyIntensityMode:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   exposure:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   multiplier:
     m_OverrideState: 0
@@ -277,10 +277,10 @@ MonoBehaviour:
     m_Value: {r: 0, g: 0, b: 0, a: 1}
   middle:
     m_OverrideState: 1
-    m_Value: {r: 0.22886258, g: 0.29735303, b: 0.3490566, a: 1}
+    m_Value: {r: 0.89579296, g: 0.9150943, b: 0.8935119, a: 1}
   bottom:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0.0754717, g: 0.003203986, b: 0.003203986, a: 1}
   gradientDiffusion:
     m_OverrideState: 0
     m_Value: 1

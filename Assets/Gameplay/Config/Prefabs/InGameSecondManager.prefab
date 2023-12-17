@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3229782432165258387}
-  - component: {fileID: 2809819577264765923}
+  - component: {fileID: 2476672955584968966}
   m_Layer: 0
   m_Name: InGameSecondManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2809819577264765923
+--- !u!114 &2476672955584968966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +41,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2389289650607459111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 550af8f0b80d5c24baccec2a60d3cc74, type: 3}
+  m_Script: {fileID: 11500000, guid: 30ce02cac26765747afe33ff2a0b87c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundType: 0
+  roundType: 1
   m_roundPortals: []
+  portalsWrapper: {fileID: 0}
+  m_portalsOpened: {fileID: 0}
+  m_roundStartText: {fileID: 0}
   m_encounters: []
   m_RoundStartDialogue: {fileID: 0}
