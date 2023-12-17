@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: InitRound_DialogueBasicNode_2
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 6eda096e94d8a6543a0f9938846698bb, type: 2}
-  m_NextNode: {fileID: 0}
+  m_NextNode: {fileID: 11400000, guid: c3476993256b6984b9b0b68f4c13b6db, type: 2}

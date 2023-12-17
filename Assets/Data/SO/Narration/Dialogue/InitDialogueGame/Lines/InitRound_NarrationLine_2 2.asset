@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd6dadd4e8a64bec9deb5b8d079ec80b, type: 3}
-  m_Name: InitRound_NarrationLine_1
+  m_Name: InitRound_NarrationLine_2 2
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: 62df607dd4cb5284e81ccac9ccba2b0c, type: 2}
-  m_Text: Hello Kenji, so much time without see your face...
+  m_Text: He need your murdered skills to exterminate the enemies

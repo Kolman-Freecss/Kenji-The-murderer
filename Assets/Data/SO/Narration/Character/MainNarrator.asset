@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67cd3d278902462aa7db13c2826114c4, type: 3}
   m_Name: MainNarrator
   m_EditorClassIdentifier: 
-  m_CharacterName: Kenji
+  m_CharacterName: Takeda (Shogun helper)

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: InitRound_NarrationLine_2
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: 62df607dd4cb5284e81ccac9ccba2b0c, type: 2}
-  m_Text: Good luck!
+  m_Text: We've had a lot of problems since you left
