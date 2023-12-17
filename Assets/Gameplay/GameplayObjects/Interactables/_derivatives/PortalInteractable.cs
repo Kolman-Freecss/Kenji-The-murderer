@@ -14,7 +14,13 @@ namespace Gameplay.GameplayObjects.Interactables._derivatives
 
         public override void DoInteraction()
         {
-            // Audio.PlaySound("PortalInteraction");
+            if (m_AudioSource != null)
+                m_AudioSource.PlayOneShot(m_PortalInteraction);
+            else
+            {
+                Debug.LogWarning("No audio source attached to portal interactable");
+            }
+
             base.DoInteraction();
         }
 

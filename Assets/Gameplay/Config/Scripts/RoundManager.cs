@@ -24,6 +24,10 @@ namespace Gameplay.Config.Scripts
         [SerializeField]
         protected List<SerializableDictionaryEntry<GameManager.RoundTypes, PortalInteractable>> m_roundPortals;
 
+        [SerializeField] protected GameObject portalsWrapper;
+
+        [Header("SFX")] [SerializeField] private AudioClip m_portalsOpened;
+
         // Round Settings
         protected RoundState m_CurrentRoundState;
         public Action OnRoundStarted;
@@ -35,9 +39,10 @@ namespace Gameplay.Config.Scripts
 
         protected void Start()
         {
+            portalsWrapper.SetActive(false);
             m_roundPortals.ForEach(portal =>
             {
-                portal.Value.gameObject.SetActive(false);
+                //portal.Value.gameObject.SetActive(false);
                 portal.Value.OnInteraction.AddListener(UsePortal);
             });
         }

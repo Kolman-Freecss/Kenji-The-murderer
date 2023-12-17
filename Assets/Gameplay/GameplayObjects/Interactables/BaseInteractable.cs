@@ -18,7 +18,14 @@ namespace Gameplay.GameplayObjects.Interactables
 
         [HideInInspector] public bool m_IsInteractable = true;
 
+        protected AudioSource m_AudioSource;
+
         #endregion
+
+        private void Awake()
+        {
+            m_AudioSource = GetComponent<AudioSource>();
+        }
 
         public virtual void DoInteraction()
         {
@@ -36,5 +43,6 @@ namespace Gameplay.GameplayObjects.Interactables
         }
 
         public UnityEvent<object> OnInteraction => m_OnInteraction;
+        public AudioSource AudioSource => m_AudioSource;
     }
 }

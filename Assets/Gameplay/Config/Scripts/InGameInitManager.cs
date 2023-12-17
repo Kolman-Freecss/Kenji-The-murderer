@@ -154,8 +154,10 @@ public class InGameInitManager : RoundManager
     public void EndRound()
     {
         m_CurrentRoundState = RoundState.Ended;
-        m_roundPortals.ForEach(portal =>
-            portal.Value.gameObject.SetActive(true));
+        portalsWrapper.SetActive(true);
+        portalsWrapper.GetComponent<AudioSource>()?.Play();
+        // m_roundPortals.ForEach(portal =>
+        //     portal.Value.gameObject.SetActive(true));
     }
 
     public override void UsePortal(object portalInteractable)
