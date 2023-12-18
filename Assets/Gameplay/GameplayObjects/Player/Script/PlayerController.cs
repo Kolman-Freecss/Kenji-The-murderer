@@ -22,7 +22,10 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
     };
 
     [Header("Movement Settings")] [SerializeField]
-    private float planeSpeed = 3f; // m/s
+    private float planeSpeed = 6f; // m/s
+
+
+    [SerializeField] private float planeSpeedStairs = 4f; // m/s
 
     [SerializeField] private MovementMode movementMode = MovementMode.RelativeToCamera;
     [SerializeField] private float gravity = -9.8f; // m/s^2
@@ -55,6 +58,7 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
     public bool meleeAttacking = false;
 
     private bool previousFrameGroundCheck = false;
+    private float currentPlaneSpeed = 6f; // m/s
 
 
     private void Awake()
@@ -81,6 +85,7 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
 
     void Start()
     {
+        currentPlaneSpeed = planeSpeed;
         entityLife = GetComponent<EntityLife>();
         entityLife.onDeath.AddListener(OnDeath);
     }
@@ -174,13 +179,13 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
             float originalMagnitude = xzMoveValueFromCamera.magnitude;
             xzMoveValueFromCamera = Vector3.ProjectOnPlane(xzMoveValueFromCamera, Vector3.up).normalized *
                                     originalMagnitude;
-            Vector3 velocity = xzMoveValueFromCamera * planeSpeed;
+            Vector3 velocity = xzMoveValueFromCamera * currentPlaneSpeed;
             velocityToApply += velocity;
         }
 
         void UpdateMovementRelativeToCharacter(Vector3 xzMoveValue)
         {
-            Vector3 velocity = xzMoveValue * planeSpeed;
+            Vector3 velocity = xzMoveValue * currentPlaneSpeed;
             velocityToApply += velocity;
         }
     }
@@ -271,7 +276,24 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
             previousFrameGroundCheck = _characterController.isGrounded;
         }
 
-        return _characterController.isGrounded || (GameManager.Instance.gamePaused || previousFrameGroundCheck);
+        return IsDescendingStairs() || _characterController.isGrounded ||
+               (GameManager.Instance.gamePaused || previousFrameGroundCheck);
+
+        bool IsDescendingStairs()
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, _characterController.height / 2f + 0.1f))
+            {
+                if (hit.collider.gameObject.CompareTag("Stairs"))
+                {
+                    currentPlaneSpeed = planeSpeedStairs;
+                    return true;
+                }
+            }
+
+            currentPlaneSpeed = planeSpeed;
+            return false;
+        }
     }
 
     public bool haveWeapon()
