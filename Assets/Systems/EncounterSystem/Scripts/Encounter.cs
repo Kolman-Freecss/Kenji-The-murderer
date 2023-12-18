@@ -34,7 +34,10 @@ public class Encounter : MonoBehaviour
     private void Awake()
     {
         hasFinished = false;
-        SetDoorsActivation(false);
+        if (encounterLeftDoor || encounterRightDoor)
+        {
+            SetDoorsActivation(false);
+        }
 
         waves = GetComponentsInChildren<Wave>();
 
@@ -47,7 +50,11 @@ public class Encounter : MonoBehaviour
 
     void StartEncounter()
     {
-        SetDoorsActivation(true);
+        if (encounterLeftDoor || encounterRightDoor)
+        {
+            SetDoorsActivation(true);
+        }
+
         InGameInitManager.Instance.StartEncounter();
 
         waves[currentWave].StartWave();
@@ -66,7 +73,11 @@ public class Encounter : MonoBehaviour
                 }
                 else
                 {
-                    SetDoorsActivation(false);
+                    if (encounterLeftDoor || encounterRightDoor)
+                    {
+                        SetDoorsActivation(false);
+                    }
+
                     hasFinished = true;
                     InGameInitManager.Instance.EndEncounter();
                     onEncounterFinished.Invoke();
@@ -80,23 +91,29 @@ public class Encounter : MonoBehaviour
     private void SetDoorsActivation(bool activation)
     {
         // Rotate left door
-        if (activation)
+        if (encounterLeftDoor != null)
         {
-            encounterLeftDoor.localEulerAngles = Vector3.up * 90f;
-        }
-        else
-        {
-            encounterLeftDoor.localEulerAngles = Vector3.zero;
+            if (activation)
+            {
+                encounterLeftDoor.localEulerAngles = Vector3.up * 90f;
+            }
+            else
+            {
+                encounterLeftDoor.localEulerAngles = Vector3.zero;
+            }
         }
 
-        // Rotate right door
-        if (activation)
+        if (encounterRightDoor != null)
         {
-            encounterRightDoor.localEulerAngles = Vector3.up * -90f;
-        }
-        else
-        {
-            encounterRightDoor.localEulerAngles = Vector3.zero;
+            // Rotate right door
+            if (activation)
+            {
+                encounterRightDoor.localEulerAngles = Vector3.up * -90f;
+            }
+            else
+            {
+                encounterRightDoor.localEulerAngles = Vector3.zero;
+            }
         }
     }
 
