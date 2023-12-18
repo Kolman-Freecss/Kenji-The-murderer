@@ -10,6 +10,8 @@ using UnityEngine.UI;
 
 public class InGameMenu : MonoBehaviour
 {
+    public static InGameMenu Instance { get; private set; }
+
     [SerializeField] private InputActionReference pauseAction;
 
     [Header("Buttons")] [SerializeField] private Button backButton;
@@ -27,30 +29,55 @@ public class InGameMenu : MonoBehaviour
 
     #region InitData
 
+    private void Awake()
+    {
+        ManageSingleton();
+    }
+
+    private void ManageSingleton()
+    {
+        if (Instance != null)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     private void OnEnable()
     {
-        backButton
-            .onClick
-            .AddListener(() => { OnPause(); });
+        try
+        {
+            pauseAction.action.Enable();
+            pauseAction.action.performed += ctx => OnPause();
 
-        menuButton
-            .onClick
-            .AddListener(() => { OnExitMenu(); });
+            backButton
+                .onClick
+                .AddListener(() => { OnPause(); });
 
-        // Note that we initialize the slider BEFORE we listen for changes (so we don't get notified of our own change!)
-        m_MasterVolumeSlider.value = SoundManager.Instance.MasterAudioVolume;
-        m_MasterVolumeSlider.onValueChanged.AddListener(OnMasterVolumeSliderChanged);
+            menuButton
+                .onClick
+                .AddListener(() => { OnExitMenu(); });
 
-        // initialize music slider similarly.
-        m_MusicVolumeSlider.value = SoundManager.Instance.MusicAudioVolume;
-        m_MusicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeSliderChanged);
+            // Note that we initialize the slider BEFORE we listen for changes (so we don't get notified of our own change!)
+            m_MasterVolumeSlider.value = SoundManager.Instance.MasterAudioVolume;
+            m_MasterVolumeSlider.onValueChanged.AddListener(OnMasterVolumeSliderChanged);
 
-        // initialize effects slider similarly.
-        m_EffectsVolumeSlider.value = SoundManager.Instance.EffectsAudioVolume;
-        m_EffectsVolumeSlider.onValueChanged.AddListener(OnEffectsVolumeSliderChanged);
+            // initialize music slider similarly.
+            m_MusicVolumeSlider.value = SoundManager.Instance.MusicAudioVolume;
+            m_MusicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeSliderChanged);
 
-        pauseAction.action.Enable();
-        pauseAction.action.performed += ctx => OnPause();
+            // initialize effects slider similarly.
+            m_EffectsVolumeSlider.value = SoundManager.Instance.EffectsAudioVolume;
+            m_EffectsVolumeSlider.onValueChanged.AddListener(OnEffectsVolumeSliderChanged);
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning(e);
+        }
     }
 
     void Start()
@@ -110,6 +137,11 @@ public class InGameMenu : MonoBehaviour
     {
         SoundManager.Instance.PlayButtonClickSound();
         DisplaySettingsManager.Instance.ToggleWindowed(windowedToggle.isOn);
+    }
+
+    public Boolean IsPaused()
+    {
+        return m_isPaused;
     }
 
     #region Destructor

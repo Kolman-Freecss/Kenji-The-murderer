@@ -54,6 +54,8 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
     private EntityLife entityLife;
     public bool meleeAttacking = false;
 
+    private bool previousFrameGroundCheck = false;
+
 
     private void Awake()
     {
@@ -73,7 +75,8 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
 
         shotInput.action.Enable();
         continuousShot.action.Enable();
-        GameManager.Instance.m_player = this;
+        if (GameManager.Instance != null)
+            GameManager.Instance.m_player = this;
     }
 
     void Start()
@@ -263,7 +266,12 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
 
     public bool IsGrounded()
     {
-        return _characterController.isGrounded;
+        if (GameManager.Instance.gamePaused)
+        {
+            previousFrameGroundCheck = _characterController.isGrounded;
+        }
+
+        return _characterController.isGrounded || (GameManager.Instance.gamePaused || previousFrameGroundCheck);
     }
 
     public bool haveWeapon()

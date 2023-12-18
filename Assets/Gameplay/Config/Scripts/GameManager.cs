@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public bool m_GameWon;
 
+    public bool gamePaused;
+
     #endregion
 
     #region InitData
@@ -72,6 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void PauseGameEvent(bool mIsPaused)
     {
+        gamePaused = mIsPaused;
         m_player.enabled = !mIsPaused;
         m_player.GetComponent<PlayerMeleeAttackController>().enabled = !mIsPaused;
         m_player.GetComponent<PlayerInteractionInstigator>().enabled = !mIsPaused;
