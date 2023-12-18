@@ -69,8 +69,9 @@ public class ConfigScene : MonoBehaviour
             {
                 continue;
             }
-
+#if UNITY_EDITOR
             Undo.RecordObject(textObject, "Changed Font");
+#endif
             if (changeTextFormat)
             {
                 textObject.horizontalAlignment = HorizontalAlignmentOptions.Center;
@@ -102,7 +103,9 @@ public class ConfigScene : MonoBehaviour
 
         foreach (Button button in components)
         {
+#if UNITY_EDITOR
             Undo.RecordObject(button, "Changed Button");
+#endif
             Image image = button.GetComponent<Image>();
             if (backgroundButton)
             {
@@ -138,7 +141,9 @@ public class ConfigScene : MonoBehaviour
 
         foreach (Toggle toggle in components)
         {
+#if UNITY_EDITOR
             Undo.RecordObject(toggle, "Changed Toggle");
+#endif
             ColorBlock colors = toggle.colors;
             colors.normalColor = new Color32(236, 183, 183, 255);
             colors.highlightedColor = new Color32(255, 0, 0, 255);
@@ -164,7 +169,9 @@ public class ConfigScene : MonoBehaviour
 
         foreach (Slider slider in components)
         {
+#if UNITY_EDITOR
             Undo.RecordObject(slider, "Changed Slider");
+#endif
             RectTransform rectTransform = slider.GetComponent<RectTransform>();
             rectTransform.sizeDelta = new Vector2(sliderWidthSize, sliderHeightSize);
 
