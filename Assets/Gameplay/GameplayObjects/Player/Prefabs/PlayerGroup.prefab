@@ -1928,6 +1928,11 @@ PrefabInstance:
       objectReference: {fileID: 2139821280973213731}
     - target: {fileID: 7875302377240619510, guid: 7e9f20c025d3edb4abbb27d60eb41f00,
         type: 3}
+      propertyPath: damage
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7875302377240619510, guid: 7e9f20c025d3edb4abbb27d60eb41f00,
+        type: 3}
       propertyPath: meleeWeapon
       value: 
       objectReference: {fileID: 9109085612727911663}
@@ -1936,6 +1941,11 @@ PrefabInstance:
       propertyPath: weaponsParent
       value: 
       objectReference: {fileID: 236703972117882569}
+    - target: {fileID: 8590392391881834162, guid: 7e9f20c025d3edb4abbb27d60eb41f00,
+        type: 3}
+      propertyPath: maxLife
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

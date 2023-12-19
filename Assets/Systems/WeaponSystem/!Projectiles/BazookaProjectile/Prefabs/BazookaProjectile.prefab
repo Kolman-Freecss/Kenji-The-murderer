@@ -322,6 +322,7 @@ MonoBehaviour:
   onCollisionWithoutHit:
     m_PersistentCalls:
       m_Calls: []
+  damage: 20
 --- !u!114 &4118021129390601099
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -71,12 +71,17 @@ PrefabInstance:
     - target: {fileID: 6361352054474597439, guid: e7b7b1fed929ac748a28032a22a0a6e2,
         type: 3}
       propertyPath: damage
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6361352054474597439, guid: e7b7b1fed929ac748a28032a22a0a6e2,
         type: 3}
       propertyPath: maxLife
-      value: 30
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381914267813207914, guid: e7b7b1fed929ac748a28032a22a0a6e2,
+        type: 3}
+      propertyPath: damage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7381914267813207914, guid: e7b7b1fed929ac748a28032a22a0a6e2,
         type: 3}

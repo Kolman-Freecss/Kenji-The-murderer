@@ -15,7 +15,7 @@ public class EntityLife : MonoBehaviour
 
     [Header("Debug")] [SerializeField] private bool debugHit;
     [SerializeField] Transform debugOffender;
-    [SerializeField] float damage = 1f;
+    [SerializeField] float debugDamage = 1f;
 
     HurtBox hurtBox;
     private EntityRagdollizer entityRagdollizer;
@@ -34,7 +34,7 @@ public class EntityLife : MonoBehaviour
         if (debugHit)
         {
             debugHit = false;
-            OnHitNotifiedWithOffender(damage, debugOffender ? debugOffender : transform);
+            OnHitNotifiedWithOffender(debugDamage, debugOffender ? debugOffender : transform);
         }
     }
 
@@ -65,7 +65,7 @@ public class EntityLife : MonoBehaviour
     {
         if (currentLife > 0f)
         {
-            currentLife -= 1f;
+            currentLife -= damage;
             lifeBar.SetNormalizedValue(Mathf.Clamp01(currentLife / maxLife));
             if (currentLife <= 0f)
             {
@@ -91,6 +91,7 @@ public class EntityLife : MonoBehaviour
                 if (enemy)
                 {
                     enemy.enabled = false;
+                    enemy.GetComponent<CapsuleCollider>().enabled = false;
                 }
 
                 entityRagdollizer.Ragdollize();

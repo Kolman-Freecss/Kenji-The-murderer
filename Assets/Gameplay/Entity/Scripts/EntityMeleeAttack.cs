@@ -18,7 +18,7 @@ public class EntityMeleeAttack : MonoBehaviour
 
     [Header("Debug")] [SerializeField] private bool debugAttack;
 
-    private float damage = 1f;
+    [SerializeField] private float damage = 1f;
 
     private void OnValidate()
     {
