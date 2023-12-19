@@ -86225,40 +86225,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
         type: 3}
-      propertyPath: roundType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
-        type: 3}
       propertyPath: portalsWrapper
       value: 
       objectReference: {fileID: 129958353}
     - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
         type: 3}
-      propertyPath: m_portalsOpened
-      value: 
-      objectReference: {fileID: 8300000, guid: 689ee362f3eaaa8438e8a23e444f611f, type: 3}
-    - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
-        type: 3}
       propertyPath: m_roundStartText
       value: 
       objectReference: {fileID: 1534893616}
-    - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
-        type: 3}
-      propertyPath: m_RoundStartDialogue
-      value: 
-      objectReference: {fileID: 11400000, guid: 585b7550bda047845969783fc0ba69f6,
-        type: 2}
-    - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
-        type: 3}
-      propertyPath: m_encounters.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
-        type: 3}
-      propertyPath: m_roundPortals.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
         type: 3}
       propertyPath: m_encounters.Array.data[0]
@@ -86274,16 +86248,6 @@ PrefabInstance:
       propertyPath: m_encounters.Array.data[2]
       value: 
       objectReference: {fileID: 1635936803}
-    - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
-        type: 3}
-      propertyPath: m_roundPortals.Array.data[0].Key
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
-        type: 3}
-      propertyPath: m_roundPortals.Array.data[1].Key
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2809819577264765923, guid: f4316816a37246e439e40cd4eab707a0,
         type: 3}
       propertyPath: m_roundPortals.Array.data[0].Value
@@ -107705,11 +107669,6 @@ PrefabInstance:
         type: 3}
       propertyPath: cadence
       value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6048806458230329331, guid: 0574e0a21823f444fa93792d1360feaa,
-        type: 3}
-      propertyPath: maxLife
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6048806458230329331, guid: 0574e0a21823f444fa93792d1360feaa,
         type: 3}

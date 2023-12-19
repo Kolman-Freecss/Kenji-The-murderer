@@ -7,16 +7,15 @@ using UnityEngine.Events;
 
 namespace Gameplay.GameplayObjects.Interactables
 {
-    /// <summary>
-    /// Base class for all interactable objects.
-    /// </summary>
-    public abstract class BaseInteractable<TData> : MonoBehaviour, IBaseInteractable<TData> where TData : IInteractable
+    public abstract class BaseInteractable : MonoBehaviour
     {
         #region Member Variables
 
         [SerializeField] protected UnityEvent<object> m_OnInteraction;
 
         [HideInInspector] public bool m_IsInteractable = true;
+
+        [SerializeField] protected AudioClip m_audioInteraction;
 
         protected AudioSource m_AudioSource;
 
@@ -29,18 +28,24 @@ namespace Gameplay.GameplayObjects.Interactables
 
         public virtual void DoInteraction()
         {
+            if (m_AudioSource != null && m_audioInteraction != null)
+            {
+                m_AudioSource.volume = SoundManager.Instance.EffectsAudioVolume / 100f;
+                m_AudioSource.PlayOneShot(m_audioInteraction);
+            }
+            else
+            {
+                Debug.LogWarning("No audio source attached to interactable");
+            }
+
             m_OnInteraction.Invoke(this);
         }
 
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             m_OnInteraction.RemoveAllListeners();
         }
 
-        private void OnDisable()
-        {
-            // RemoveFromAnyList that contains this interactable
-        }
 
         public UnityEvent<object> OnInteraction => m_OnInteraction;
         public AudioSource AudioSource => m_AudioSource;

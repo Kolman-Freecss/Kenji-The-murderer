@@ -7,23 +7,12 @@ using UnityEngine;
 
 namespace Gameplay.GameplayObjects.Interactables._derivatives
 {
-    public class PortalInteractable : BaseInteractableObject<PortalInteractable>
+    public class PortalInteractable : InteractableObject<PortalInteractable>
     {
-        [SerializeField] private AudioClip m_PortalInteraction;
         [SerializeField] private GameManager.RoundTypes m_NextRoundType;
 
         public override void DoInteraction()
         {
-            if (m_AudioSource != null)
-            {
-                m_AudioSource.volume = SoundManager.Instance.EffectsAudioVolume / 100f;
-                m_AudioSource.PlayOneShot(m_PortalInteraction);
-            }
-            else
-            {
-                Debug.LogWarning("No audio source attached to portal interactable");
-            }
-
             base.DoInteraction();
         }
 

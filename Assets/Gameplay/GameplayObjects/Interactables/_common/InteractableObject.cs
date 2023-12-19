@@ -4,11 +4,11 @@
     /// Base class for all interactable objects.
     /// (Any object that can be interacted with by the player)
     /// </summary>
-    public class BaseInteractableObject<TData> : BaseInteractable<TData> where TData : IInteractable
+    public class InteractableObject<TData> : Interactable<TData> where TData : IInteractable
     {
         public override void DoInteraction()
         {
-            if (this is BaseInteractableObject<TData> obj)
+            if (this is InteractableObject<TData> obj)
             {
                 // Do something
             }

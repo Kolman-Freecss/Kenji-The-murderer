@@ -1,5 +1,6 @@
 #region
 
+using System;
 using Entity.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,8 +9,17 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour, IEntityAnimable
 {
+    [Serializable]
+    public enum EnemyType
+    {
+        Ninja,
+        Archer,
+        Giant
+    }
+
     [SerializeField] public Transform target;
     [SerializeField] private float attackDistance = 1f;
+    [SerializeField] EnemyType enemyType;
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -56,6 +66,15 @@ public class Enemy : MonoBehaviour, IEntityAnimable
     public bool haveWeapon()
     {
         return false;
+    }
+
+    #endregion
+
+    #region Getter & Setters
+
+    public EnemyType GetEnemyType()
+    {
+        return enemyType;
     }
 
     #endregion

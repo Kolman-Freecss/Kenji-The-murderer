@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5898967466428026983}
   - component: {fileID: 5774433729323803182}
   - component: {fileID: 7875302377240619510}
+  - component: {fileID: 6385572614141128923}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -82,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeSpeed: 6
+  planeSpeedStairs: 4
   movementMode: 1
   gravity: -9.8
   jumpSpeed: 5
@@ -180,7 +182,7 @@ MonoBehaviour:
   timeToDestroyAfterDeath: 2
   debugHit: 0
   debugOffender: {fileID: 0}
-  damage: 1
+  debugDamage: 1
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -316,10 +318,24 @@ MonoBehaviour:
   - Untagged
   - Enemy
   debugAttack: 0
+  damage: 1
   meleeAttackInput: {fileID: 5079116986149142641, guid: 3fb20003132972e4f9dcd090eea67072,
     type: 3}
   meleeWeapon: {fileID: 0}
   cadence: 0.5
+--- !u!114 &6385572614141128923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122173887601756650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631a755cc4ee468ca6f4ed761bf25b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OnMeatingClip: {fileID: 8300000, guid: 11dbb262bd3f82140a02839c55f37665, type: 3}
 --- !u!1 &669311987461309079
 GameObject:
   m_ObjectHideFlags: 0

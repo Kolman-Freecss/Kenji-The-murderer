@@ -1,5 +1,9 @@
 #region
 
+using System;
+using Gameplay.Config.Scripts;
+using Gameplay.GameplayObjects.Interactables;
+using Gameplay.GameplayObjects.Interactables._derivatives;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -92,6 +96,23 @@ public class EntityLife : MonoBehaviour
                 {
                     enemy.enabled = false;
                     enemy.GetComponent<CapsuleCollider>().enabled = false;
+                    MeatInteractable meat = null;
+                    try
+                    {
+                        meat = Instantiate(
+                                ((Interactable<MeatInteractable>)RoundManager.Instance.GetDynamicAsset(RoundManager
+                                    .DynamicAssets.Meat)).gameObject, transform.position, Quaternion.identity)
+                            .GetComponent<MeatInteractable>();
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogError("No meat interactable found in the scene");
+                    }
+
+                    if (meat != null)
+                    {
+                        meat.meatRecovery = GetMeatRecoveryByEnemy(enemy.GetEnemyType());
+                    }
                 }
 
                 entityRagdollizer.Ragdollize();
@@ -99,6 +120,26 @@ public class EntityLife : MonoBehaviour
 
                 Destroy(gameObject, timeToDestroyAfterDeath);
             }
+        }
+    }
+
+    public void Heal(float amount)
+    {
+        currentLife += amount;
+    }
+
+    private float GetMeatRecoveryByEnemy(Enemy.EnemyType enemyType)
+    {
+        switch (enemyType)
+        {
+            case Enemy.EnemyType.Ninja:
+                return 5f;
+            case Enemy.EnemyType.Archer:
+                return 2f;
+            case Enemy.EnemyType.Giant:
+                return 10f;
+            default:
+                return 0f;
         }
     }
 }

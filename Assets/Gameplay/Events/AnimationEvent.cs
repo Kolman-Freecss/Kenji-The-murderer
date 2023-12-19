@@ -12,16 +12,16 @@ namespace Gameplay.Events
     /// </summary>
     public class AnimationEvent : MonoBehaviour
     {
-        public delegate void AnimationEventDelegate();
+        public delegate void AnimationEventDelegate<T>(T handleAnimationId);
 
-        public event AnimationEventDelegate OnAnimationFinish;
+        public event AnimationEventDelegate<int> OnAnimationFinish;
 
         /// <summary>
         /// Called from Animation Event.
         /// </summary>
-        public void AnimationFinished()
+        public void AnimationFinished(int handleAnimationId)
         {
-            OnAnimationFinish?.Invoke();
+            OnAnimationFinish?.Invoke(handleAnimationId);
         }
     }
 }

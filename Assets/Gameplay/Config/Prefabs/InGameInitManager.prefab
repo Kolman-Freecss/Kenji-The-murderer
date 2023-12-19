@@ -44,7 +44,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550af8f0b80d5c24baccec2a60d3cc74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundType: 0
-  m_roundPortals: []
-  m_encounters: []
-  m_RoundStartDialogue: {fileID: 0}
+  roundType: 1
+  m_RoundStartDialogue: {fileID: 11400000, guid: 585b7550bda047845969783fc0ba69f6,
+    type: 2}
+  m_roundPortals:
+  - Key: 1
+    Value: {fileID: 0}
+  - Key: 2
+    Value: {fileID: 0}
+  portalsWrapper: {fileID: 0}
+  m_portalsOpened: {fileID: 8300000, guid: 689ee362f3eaaa8438e8a23e444f611f, type: 3}
+  m_roundStartText: {fileID: 0}
+  m_encounters:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_dynamicAssets:
+  - Key: 0
+    Value: {fileID: 4508070200628618176, guid: 6fcf88e81fe10e84b846c6546666f89c, type: 3}

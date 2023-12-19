@@ -1,5 +1,6 @@
 #region
 
+using Gameplay.Config.Scripts;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -55,7 +56,7 @@ public class Encounter : MonoBehaviour
             SetDoorsActivation(true);
         }
 
-        InGameInitManager.Instance.StartEncounter();
+        RoundManager.Instance.StartEncounter();
 
         waves[currentWave].StartWave();
     }
@@ -79,7 +80,7 @@ public class Encounter : MonoBehaviour
                     }
 
                     hasFinished = true;
-                    InGameInitManager.Instance.EndEncounter();
+                    RoundManager.Instance.EndEncounter();
                     onEncounterFinished.Invoke();
                 }
 
@@ -124,7 +125,7 @@ public class Encounter : MonoBehaviour
 
     public void NotifyTriggered()
     {
-        if (!hasFinished && !InGameInitManager.Instance.IsEncounterInCourse())
+        if (!hasFinished && !RoundManager.Instance.IsEncounterInCourse())
         {
             StartEncounter();
         }

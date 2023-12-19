@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using Gameplay.GameplayObjects.Interactables;
 using Gameplay.GameplayObjects.Interactables._derivatives;
 using Systems.NarrationSystem.Dialogue.Components;
 using Systems.NarrationSystem.Dialogue.Data;
@@ -23,6 +24,13 @@ namespace Gameplay.Config.Scripts
             Ended
         }
 
+        public enum DynamicAssets
+        {
+            Meat
+        }
+
+        public static RoundManager Instance { get; private set; }
+
         private bool m_encounterInCourse = false;
 
         #region Inspector Variables
@@ -42,6 +50,8 @@ namespace Gameplay.Config.Scripts
 
         [SerializeField] protected List<Encounter> m_encounters;
 
+        [SerializeField] protected List<SerializableDictionaryEntry<DynamicAssets, BaseInteractable>> m_dynamicAssets;
+
         #endregion
 
         #region Member Variables
@@ -57,6 +67,20 @@ namespace Gameplay.Config.Scripts
         protected void Awake()
         {
             m_CurrentRoundState = RoundState.NotStarted;
+            ManageSingleton();
+        }
+
+        private void ManageSingleton()
+        {
+            if (Instance != null)
+            {
+                gameObject.SetActive(false);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
         }
 
         protected void Start()
@@ -217,6 +241,15 @@ namespace Gameplay.Config.Scripts
         private void OnDestroy()
         {
             m_encounters.ForEach(encounter => encounter.onEncounterFinished.RemoveListener(OnEncounterEnded));
+        }
+
+        #endregion
+
+        #region Getters & Setters
+
+        public BaseInteractable GetDynamicAsset(DynamicAssets asset)
+        {
+            return m_dynamicAssets.Find(entry => entry.Key == asset).Value;
         }
 
         #endregion

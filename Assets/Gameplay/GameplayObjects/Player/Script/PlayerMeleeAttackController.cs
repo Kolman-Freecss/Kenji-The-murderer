@@ -53,7 +53,7 @@ namespace Gameplay.GameplayObjects.Player.Script
             animationEvent.OnAnimationFinish += HandleAnimationFinished;
         }
 
-        public void HandleAnimationFinished()
+        public void HandleAnimationFinished(int handleAnimationId)
         {
             if (entityWeapons.HasCurrentWeapon())
             {

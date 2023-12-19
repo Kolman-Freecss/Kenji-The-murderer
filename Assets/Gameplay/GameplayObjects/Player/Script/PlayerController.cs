@@ -1,6 +1,7 @@
 #region
 
 using Entity.Scripts;
+using Gameplay.Config.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour, IEntityAnimable
 
     void OnDeath()
     {
-        InGameInitManager.Instance.OnPlayerDeath();
+        RoundManager.Instance.OnPlayerDeath();
     }
 
     void Update()
