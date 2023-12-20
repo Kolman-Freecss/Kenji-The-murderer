@@ -21,11 +21,11 @@ public class SoundManager : MonoBehaviour
 
     #region Inspector Variables
 
-    [Range(0, 100)] public float EffectsAudioVolume = 50f;
+    [Range(0, 100)] public float EffectsAudioVolume = 100f;
 
-    [Range(0, 100)] public float MusicAudioVolume = 40f;
+    [Range(0, 100)] public float MusicAudioVolume = 100f;
 
-    [Range(0, 100)] public float MasterAudioVolume = 40f;
+    [Range(0, 100)] public float MasterAudioVolume = 100f;
 
     public List<SerializableDictionaryEntry<BackgroundMusic, AudioClip>> BackgroundMusicClips;
     public AudioClip ButtonClickSound;

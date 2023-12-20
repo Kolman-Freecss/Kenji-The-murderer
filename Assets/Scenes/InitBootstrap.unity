@@ -136,6 +136,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4803180171100894742, guid: 303507e93b93ed346ab79be9951467cb,
+        type: 3}
+      propertyPath: MusicAudioVolume
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803180171100894742, guid: 303507e93b93ed346ab79be9951467cb,
+        type: 3}
+      propertyPath: MasterAudioVolume
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803180171100894742, guid: 303507e93b93ed346ab79be9951467cb,
+        type: 3}
+      propertyPath: EffectsAudioVolume
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5976633032997507657, guid: 303507e93b93ed346ab79be9951467cb,
         type: 3}
       propertyPath: m_LocalPosition.x

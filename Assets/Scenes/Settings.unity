@@ -368,7 +368,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 30}
+  m_SizeDelta: {x: 500, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &169715283
 MonoBehaviour:
@@ -534,7 +534,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 30}
+  m_SizeDelta: {x: 500, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &203544952
 MonoBehaviour:
@@ -636,7 +636,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 30}
+  m_SizeDelta: {x: 500, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &209118183
 MonoBehaviour:
@@ -3176,6 +3176,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b60f95f3a2835494ba19a49e999b44d2,
         type: 2}
+    - target: {fileID: 8058366315593991032, guid: 0acaccab109b74f46841edb8b4f6d5dd,
+        type: 3}
+      propertyPath: sliderHeightSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058366315593991032, guid: 0acaccab109b74f46841edb8b4f6d5dd,
+        type: 3}
+      propertyPath: objectsToChange.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058366315593991032, guid: 0acaccab109b74f46841edb8b4f6d5dd,
+        type: 3}
+      propertyPath: objectsToChange.Array.data[0]
+      value: 
+      objectReference: {fileID: 1857080681}
     - target: {fileID: 8502027070407031561, guid: 0acaccab109b74f46841edb8b4f6d5dd,
         type: 3}
       propertyPath: m_LocalPosition.x
