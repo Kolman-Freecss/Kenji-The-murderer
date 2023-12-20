@@ -122,7 +122,7 @@ namespace Gameplay.Config.Scripts
         protected virtual void InitRoundData()
         {
             currentEncountersFinished = 0;
-            m_roundStartText.text = currentEncountersFinished + "/" + m_encounters.Count + " Waves";
+            m_roundStartText.text = currentEncountersFinished + "/" + m_encounters.Count + " Encounters";
         }
 
         #region Encounter Logic
@@ -163,7 +163,7 @@ namespace Gameplay.Config.Scripts
         protected void OnEncounterEnded()
         {
             currentEncountersFinished++;
-            m_roundStartText.text = currentEncountersFinished + "/" + m_encounters.Count + " Waves";
+            m_roundStartText.text = currentEncountersFinished + "/" + m_encounters.Count + " Encounters";
             if (currentEncountersFinished == m_encounters.Count)
             {
                 EndRound();
@@ -211,7 +211,11 @@ namespace Gameplay.Config.Scripts
                 }
             }
 
-            m_roundStartedDialogueInit = true;
+            if (roundType == GameManager.RoundTypes.InGame_Init)
+            {
+                m_roundStartedDialogueInit = true;
+            }
+
             GameManager.Instance.PauseGameEvent(true);
         }
 
@@ -227,7 +231,7 @@ namespace Gameplay.Config.Scripts
                 }
             }
 
-            if (m_roundStartedDialogueInit)
+            if (m_roundStartedDialogueInit && roundType == GameManager.RoundTypes.InGame_Init)
             {
                 InGameMenu.Instance.ActiveTutorialText();
                 m_roundStartedDialogueInit = false;

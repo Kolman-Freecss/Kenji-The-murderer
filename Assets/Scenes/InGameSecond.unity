@@ -31105,40 +31105,14 @@ PrefabInstance:
       objectReference: {fileID: 243310743}
     - target: {fileID: 2476672955584968966, guid: 6ecdbd48d08fa304a8e0a51ed4938d78,
         type: 3}
-      propertyPath: roundType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2476672955584968966, guid: 6ecdbd48d08fa304a8e0a51ed4938d78,
-        type: 3}
       propertyPath: portalsWrapper
       value: 
       objectReference: {fileID: 1224172449}
     - target: {fileID: 2476672955584968966, guid: 6ecdbd48d08fa304a8e0a51ed4938d78,
         type: 3}
-      propertyPath: m_portalsOpened
-      value: 
-      objectReference: {fileID: 8300000, guid: 689ee362f3eaaa8438e8a23e444f611f, type: 3}
-    - target: {fileID: 2476672955584968966, guid: 6ecdbd48d08fa304a8e0a51ed4938d78,
-        type: 3}
       propertyPath: m_roundStartText
       value: 
       objectReference: {fileID: 425204414}
-    - target: {fileID: 2476672955584968966, guid: 6ecdbd48d08fa304a8e0a51ed4938d78,
-        type: 3}
-      propertyPath: m_RoundStartDialogue
-      value: 
-      objectReference: {fileID: 11400000, guid: 4660e1d34e62f2f4797cbc19652fd898,
-        type: 2}
-    - target: {fileID: 2476672955584968966, guid: 6ecdbd48d08fa304a8e0a51ed4938d78,
-        type: 3}
-      propertyPath: m_encounters.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2476672955584968966, guid: 6ecdbd48d08fa304a8e0a51ed4938d78,
-        type: 3}
-      propertyPath: m_roundPortals.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2476672955584968966, guid: 6ecdbd48d08fa304a8e0a51ed4938d78,
         type: 3}
       propertyPath: m_encounters.Array.data[0]
@@ -36889,11 +36863,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Entries.Array.data[0].m_Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1211323895}
     - target: {fileID: 6910760754818688369, guid: 7d11be955d207404c8950c5f8dab80a5,
         type: 3}
       propertyPath: m_Entries.Array.data[1].m_Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1211323895}
+    - target: {fileID: 6910760754818688369, guid: 7d11be955d207404c8950c5f8dab80a5,
+        type: 3}
+      propertyPath: m_Entries.Array.data[0].m_Event.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Gameplay.Config.Scripts.RoundManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910760754818688369, guid: 7d11be955d207404c8950c5f8dab80a5,
+        type: 3}
+      propertyPath: m_Entries.Array.data[1].m_Event.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Gameplay.Config.Scripts.RoundManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7779715866576756943, guid: 7d11be955d207404c8950c5f8dab80a5,
         type: 3}
@@ -60397,6 +60381,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1210973854}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1211323895 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2476672955584968966, guid: 6ecdbd48d08fa304a8e0a51ed4938d78,
+    type: 3}
+  m_PrefabInstance: {fileID: 606393757}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ce02cac26765747afe33ff2a0b87c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1211523128
 GameObject:
   m_ObjectHideFlags: 0
@@ -82052,7 +82048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1671885645
 Transform:
   m_ObjectHideFlags: 0
@@ -103062,9 +103058,9 @@ SceneRoots:
   - {fileID: 950185095}
   - {fileID: 1647663823}
   - {fileID: 695885712}
-  - {fileID: 1787942090}
+  - {fileID: 1378152861}
   - {fileID: 655141622}
-  - {fileID: 1479561152}
+  - {fileID: 425204412}
   - {fileID: 1559302340}
   - {fileID: 1361270009}
   - {fileID: 148467243}
@@ -103073,9 +103069,9 @@ SceneRoots:
   - {fileID: 1358256707}
   - {fileID: 1842361236}
   - {fileID: 758497857}
+  - {fileID: 1787942090}
   - {fileID: 67838184}
   - {fileID: 1534909575}
   - {fileID: 669837624}
+  - {fileID: 1479561152}
   - {fileID: 1191046484}
-  - {fileID: 1378152861}
-  - {fileID: 425204412}

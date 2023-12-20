@@ -44,10 +44,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ce02cac26765747afe33ff2a0b87c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundType: 1
-  m_roundPortals: []
+  roundType: 2
+  m_RoundStartDialogue: {fileID: 11400000, guid: 4660e1d34e62f2f4797cbc19652fd898,
+    type: 2}
+  m_roundPortals:
+  - Key: 0
+    Value: {fileID: 0}
+  m_volume: {fileID: 0}
+  m_maxHeightFogWhenNotEncounter: 3
+  m_maxHeightFogWhenEncounter: 12
+  m_baseHeightFogWhenEncounter: 5
+  m_baseFogWhenNotEncounter: 1
   portalsWrapper: {fileID: 0}
-  m_portalsOpened: {fileID: 0}
+  m_portalsOpened: {fileID: 8300000, guid: 689ee362f3eaaa8438e8a23e444f611f, type: 3}
   m_roundStartText: {fileID: 0}
-  m_encounters: []
-  m_RoundStartDialogue: {fileID: 0}
+  m_encounters:
+  - {fileID: 0}
+  m_dynamicAssets:
+  - Key: 0
+    Value: {fileID: 4508070200628618176, guid: 6fcf88e81fe10e84b846c6546666f89c, type: 3}
