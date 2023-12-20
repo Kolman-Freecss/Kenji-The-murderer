@@ -2,6 +2,7 @@
 
 using System;
 using Gameplay.Config.Scripts;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -12,7 +13,15 @@ public class InGameMenu : MonoBehaviour
 {
     public static InGameMenu Instance { get; private set; }
 
-    [SerializeField] private InputActionReference pauseAction;
+    [Header("Input References")] [SerializeField]
+    private InputActionReference pauseAction;
+
+    [SerializeField] private InputActionReference tutorialAction;
+
+    [Header("Tutorial Settings")] [SerializeField]
+    private GameObject tutorialPanel;
+
+    [SerializeField] private TextMeshProUGUI tutorialText;
 
     [Header("Buttons")] [SerializeField] private Button backButton;
     [SerializeField] private Button menuButton;
@@ -62,6 +71,9 @@ public class InGameMenu : MonoBehaviour
                 .onClick
                 .AddListener(() => { OnExitMenu(); });
 
+            tutorialAction.action.Enable();
+            tutorialAction.action.performed += ctx => OnTutorial();
+
             // Note that we initialize the slider BEFORE we listen for changes (so we don't get notified of our own change!)
             m_MasterVolumeSlider.value = SoundManager.Instance.MasterAudioVolume;
             m_MasterVolumeSlider.onValueChanged.AddListener(OnMasterVolumeSliderChanged);
@@ -87,6 +99,8 @@ public class InGameMenu : MonoBehaviour
 
     void Init()
     {
+        tutorialPanel.SetActive(false);
+        tutorialText.gameObject.SetActive(false);
         m_isPaused = false;
         canvas.gameObject.SetActive(m_isPaused);
         m_MusicVolumeSlider.value = SoundManager.Instance.MusicAudioVolume;
@@ -131,6 +145,20 @@ public class InGameMenu : MonoBehaviour
         }
 
         GameManager.Instance.PauseGameEvent(m_isPaused);
+    }
+
+    public void ActiveTutorialText()
+    {
+        tutorialText.gameObject.SetActive(true);
+    }
+
+    public void OnTutorial()
+    {
+        tutorialPanel.SetActive(!tutorialPanel.activeSelf);
+        if (tutorialText.gameObject.activeSelf)
+        {
+            tutorialText.gameObject.SetActive(false);
+        }
     }
 
     public void OnToggleWindowed()

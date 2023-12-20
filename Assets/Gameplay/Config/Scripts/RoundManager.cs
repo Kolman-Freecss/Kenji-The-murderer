@@ -188,6 +188,7 @@ namespace Gameplay.Config.Scripts
                 }
             }
 
+            InGameMenu.Instance.ActiveTutorialText();
             GameManager.Instance.PauseGameEvent(false);
         }
 
