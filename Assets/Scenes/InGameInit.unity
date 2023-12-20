@@ -100530,7 +100530,7 @@ PrefabInstance:
     - target: {fileID: 5115872217422078472, guid: e97f42e330cbf6646b73ae389efca796,
         type: 3}
       propertyPath: m_text
-      value: Nice Kenroji...
+      value: Nice Kenji...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

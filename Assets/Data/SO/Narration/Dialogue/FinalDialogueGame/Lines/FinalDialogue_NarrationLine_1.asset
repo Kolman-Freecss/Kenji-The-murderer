@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FinalDialogue_NarrationLine_1
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: 62df607dd4cb5284e81ccac9ccba2b0c, type: 2}
-  m_Text: I won't forget this Kenroji!!
+  m_Text: I won't forget this Kenji!!
