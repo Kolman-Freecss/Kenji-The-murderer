@@ -31100,6 +31100,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2476672955584968966, guid: 6ecdbd48d08fa304a8e0a51ed4938d78,
         type: 3}
+      propertyPath: m_volume
+      value: 
+      objectReference: {fileID: 243310743}
+    - target: {fileID: 2476672955584968966, guid: 6ecdbd48d08fa304a8e0a51ed4938d78,
+        type: 3}
       propertyPath: roundType
       value: 2
       objectReference: {fileID: 0}

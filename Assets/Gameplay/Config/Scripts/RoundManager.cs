@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Gameplay.GameplayObjects.Interactables;
 using Gameplay.GameplayObjects.Interactables._derivatives;
@@ -9,6 +10,8 @@ using Systems.NarrationSystem.Dialogue.Data;
 using Systems.NarrationSystem.Flow;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 
 #endregion
 
@@ -42,6 +45,14 @@ namespace Gameplay.Config.Scripts
         [SerializeField]
         protected List<SerializableDictionaryEntry<GameManager.RoundTypes, PortalInteractable>> m_roundPortals;
 
+        [SerializeField] protected Volume m_volume;
+
+        [SerializeField] protected float m_maxHeightFogWhenNotEncounter = 3f;
+        [SerializeField] protected float m_maxHeightFogWhenEncounter = 12f;
+        [SerializeField] protected float m_baseHeightFogWhenEncounter = 5f;
+
+        [SerializeField] protected float m_baseFogWhenNotEncounter = 1f;
+
         [SerializeField] protected GameObject portalsWrapper;
 
         [Header("SFX")] [SerializeField] private AudioClip m_portalsOpened;
@@ -61,6 +72,7 @@ namespace Gameplay.Config.Scripts
         // Round Settings
         protected RoundState m_CurrentRoundState;
         public Action OnRoundStarted;
+        private bool m_roundStartedDialogueInit = false;
 
         #endregion
 
@@ -85,6 +97,7 @@ namespace Gameplay.Config.Scripts
 
         protected void Start()
         {
+            m_roundStartedDialogueInit = false;
             portalsWrapper.SetActive(false);
             m_CurrentRoundState = RoundState.Starting;
             m_roundPortals.ForEach(portal =>
@@ -118,6 +131,33 @@ namespace Gameplay.Config.Scripts
         {
             SoundManager.Instance.StartTemporalBackground(SoundManager.BackgroundMusic.StartEncounter);
             m_encounterInCourse = true;
+            Fog fog = m_volume.profile.TryGet(out fog) ? fog : null;
+            if (fog != null)
+            {
+                fog.maximumHeight.value = m_maxHeightFogWhenEncounter;
+                fog.baseHeight.value = m_baseHeightFogWhenEncounter;
+                StartCoroutine(RemoveFogGradually(fog));
+            }
+
+            IEnumerator RemoveFogGradually(Fog fogComponent)
+            {
+                float elapsedTime = 0f;
+                float durationTime = 4f;
+
+                float fogHeight = fog.maximumHeight.value;
+                float fogBaseHeight = fog.baseHeight.value;
+                while (elapsedTime < durationTime)
+                {
+                    fogHeight = Mathf.Lerp(m_maxHeightFogWhenEncounter, m_maxHeightFogWhenNotEncounter,
+                        elapsedTime / durationTime);
+                    fogBaseHeight = Mathf.Lerp(m_baseHeightFogWhenEncounter, m_baseFogWhenNotEncounter,
+                        elapsedTime / durationTime);
+                    fog.maximumHeight.value = fogHeight;
+                    fog.baseHeight.value = fogBaseHeight;
+                    elapsedTime += Time.deltaTime;
+                    yield return null;
+                }
+            }
         }
 
         protected void OnEncounterEnded()
@@ -161,7 +201,6 @@ namespace Gameplay.Config.Scripts
 
         public void DialogueStarted()
         {
-            //Time.timeScale = 0f;
             if (GameManager.Instance.m_player == null)
             {
                 GameManager.Instance.m_player = FindObjectOfType<PlayerController>();
@@ -172,12 +211,12 @@ namespace Gameplay.Config.Scripts
                 }
             }
 
+            m_roundStartedDialogueInit = true;
             GameManager.Instance.PauseGameEvent(true);
         }
 
         public void DialogueEnded()
         {
-            //Time.timeScale = 1f;
             if (GameManager.Instance.m_player == null)
             {
                 GameManager.Instance.m_player = FindObjectOfType<PlayerController>();
@@ -188,7 +227,12 @@ namespace Gameplay.Config.Scripts
                 }
             }
 
-            InGameMenu.Instance.ActiveTutorialText();
+            if (m_roundStartedDialogueInit)
+            {
+                InGameMenu.Instance.ActiveTutorialText();
+                m_roundStartedDialogueInit = false;
+            }
+
             GameManager.Instance.PauseGameEvent(false);
         }
 
