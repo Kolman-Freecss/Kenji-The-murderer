@@ -14,6 +14,8 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] public bool debug = false;
+
     public enum RoundTypes
     {
         None,
@@ -64,6 +66,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (debug)
+        {
+            SetPlayerDebug();
+        }
+    }
+
+    public void SetPlayerDebug()
+    {
+        m_player = FindObjectOfType<PlayerController>();
+    }
+
     #endregion
 
     #region Logic
@@ -84,9 +99,21 @@ public class GameManager : MonoBehaviour
     public void PauseGameEvent(bool mIsPaused)
     {
         gamePaused = mIsPaused;
-        m_player.enabled = !mIsPaused;
-        m_player.GetComponent<PlayerMeleeAttackController>().enabled = !mIsPaused;
-        m_player.GetComponent<PlayerInteractionInstigator>().enabled = !mIsPaused;
+        DisableOrEnablePlayer(!mIsPaused);
+    }
+
+    /// <summary>
+    /// Disable or enable player movement and interaction
+    /// </summary>
+    /// <param name="disable">
+    /// false = disable
+    /// true = enable
+    /// </param>
+    public void DisableOrEnablePlayer(bool disable)
+    {
+        m_player.enabled = disable;
+        m_player.GetComponent<PlayerMeleeAttackController>().enabled = disable;
+        m_player.GetComponent<PlayerInteractionInstigator>().enabled = disable;
     }
 
     public void OnPlayerDeath(RoundTypes roundType)

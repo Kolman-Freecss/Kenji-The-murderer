@@ -13,6 +13,12 @@ namespace Gameplay.GameplayObjects.Interactables._derivatives
 
         private void Start()
         {
+            //TODO: Remove this
+            if (!GameManager.Instance.m_player && GameManager.Instance.debug)
+            {
+                GameManager.Instance.SetPlayerDebug();
+            }
+
             m_OnInteraction.AddListener(GameManager.Instance.m_player.GetComponent<PlayerStats>()
                 .OnMeatCollected);
         }

@@ -51,6 +51,7 @@ namespace Gameplay.GameplayObjects.Player.Script
             {
                 m_EntityLife.Heal(currentMeatInteraction.meatRecovery);
                 Destroy(currentMeatInteraction.gameObject);
+                GameManager.Instance.DisableOrEnablePlayer(true);
             }
         }
 
@@ -60,6 +61,7 @@ namespace Gameplay.GameplayObjects.Player.Script
             {
                 MeatInteractable meat = obj as MeatInteractable;
                 currentMeatInteraction = meat;
+                GameManager.Instance.DisableOrEnablePlayer(false);
                 if (m_EntityAnimation != null)
                 {
                     StartCoroutine(PlayAnimationWithProgressBar("ParasyteEat", m_OnMeatingClip));

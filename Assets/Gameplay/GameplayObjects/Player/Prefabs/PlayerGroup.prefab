@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 60.000004
     OrthographicSize: 10
-    NearClipPlane: 0.1
+    NearClipPlane: 4.5
     FarClipPlane: 5000
     Dutch: 0
     ModeOverride: 0
@@ -1229,9 +1229,9 @@ MonoBehaviour:
     type: 3}
   rotateRight: {fileID: 7359491616862446123, guid: 6b91a0d4e7ecca24e8bdba694de20afb,
     type: 3}
-  acceleration: 1440
-  maxSpeed: 720
-  deceleration: 1440
+  acceleration: 500
+  maxSpeed: 600
+  deceleration: 800
 --- !u!1 &8160052774894941885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,6 +1787,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2164890834479375300, guid: 7e9f20c025d3edb4abbb27d60eb41f00,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338989180840110879, guid: 7e9f20c025d3edb4abbb27d60eb41f00,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 321.135
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338989180840110879, guid: 7e9f20c025d3edb4abbb27d60eb41f00,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
