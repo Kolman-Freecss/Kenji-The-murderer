@@ -69032,7 +69032,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.6666667
+  m_VoxelSize: 0.26666668
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 8c5ff40aa9cdf9543be672d7df6af2aa, type: 2}
   m_BuildHeightMesh: 0
@@ -70319,6 +70319,11 @@ PrefabInstance:
     - target: {fileID: 4822680830418917269, guid: 0574e0a21823f444fa93792d1360feaa,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947891051330280396, guid: 0574e0a21823f444fa93792d1360feaa,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4977951079050228879, guid: 0574e0a21823f444fa93792d1360feaa,
