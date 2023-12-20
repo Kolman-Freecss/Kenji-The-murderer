@@ -49,7 +49,7 @@ namespace Gameplay.GameplayObjects.Player.Script
         {
             if (handleAnimationId == (int)PlayerAnimationIds.Eat)
             {
-                dm_EntityLife.Heal(currentMeatInteraction.meatRecovery);
+                m_EntityLife.Heal(currentMeatInteraction.meatRecovery);
                 Destroy(currentMeatInteraction.gameObject);
             }
         }

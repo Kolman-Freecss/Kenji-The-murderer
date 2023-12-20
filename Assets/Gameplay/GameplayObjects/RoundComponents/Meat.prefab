@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1755640585521077546}
   - component: {fileID: 4508070200628618176}
   - component: {fileID: 8742637820806405}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Meat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,10 +131,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6872880206725527265, guid: 429ee7bc615d581468446d643ab82674,
+        type: 3}
+      propertyPath: m_Layer
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -2725531677913599191, guid: 429ee7bc615d581468446d643ab82674,
+        type: 3}
+      propertyPath: m_Layer
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 307675982762436526, guid: 429ee7bc615d581468446d643ab82674,
+        type: 3}
+      propertyPath: m_Layer
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 429ee7bc615d581468446d643ab82674,
         type: 3}
       propertyPath: m_Name
       value: meatAndBone
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 429ee7bc615d581468446d643ab82674,
+        type: 3}
+      propertyPath: m_Layer
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524571966470382896, guid: 429ee7bc615d581468446d643ab82674,
+        type: 3}
+      propertyPath: m_Layer
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
