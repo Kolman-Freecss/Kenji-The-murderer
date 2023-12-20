@@ -64,7 +64,7 @@ Transform:
   m_GameObject: {fileID: 8059383071621953401}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 5.58, y: 0, z: 0}
+  m_LocalPosition: {x: 5.58, y: 0.225, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   attackDistance: 2
+  enemyType: 0
 --- !u!114 &290052851412331397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +196,7 @@ MonoBehaviour:
   timeToDestroyAfterDeath: 2
   debugHit: 0
   debugOffender: {fileID: 0}
-  damage: 1
+  debugDamage: 1
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -220,6 +221,7 @@ MonoBehaviour:
   - Untagged
   - Player
   debugAttack: 0
+  damage: 1
 --- !u!1001 &8639433425925478576
 PrefabInstance:
   m_ObjectHideFlags: 0
