@@ -1,7 +1,6 @@
 #region
 
 using System;
-using Gameplay.Config.Scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -38,7 +37,7 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private Slider m_EffectsVolumeSlider;
 
     [SerializeField] private Slider m_MusicVolumeSlider;
-    [SerializeField] private Toggle windowedToggle;
+    // [SerializeField] private Toggle windowedToggle;
 
     [SerializeField] private CanvasRenderer canvas;
 
@@ -115,7 +114,7 @@ public class InGameMenu : MonoBehaviour
         canvas.gameObject.SetActive(m_isPaused);
         m_MusicVolumeSlider.value = SoundManager.Instance.MusicAudioVolume;
         m_EffectsVolumeSlider.value = SoundManager.Instance.EffectsAudioVolume;
-        windowedToggle.isOn = DisplaySettingsManager.Instance.windowed;
+        // windowedToggle.isOn = DisplaySettingsManager.Instance.windowed;
     }
 
     #endregion
@@ -172,11 +171,11 @@ public class InGameMenu : MonoBehaviour
         }
     }
 
-    public void OnToggleWindowed()
-    {
-        SoundManager.Instance.PlayButtonClickSound();
-        DisplaySettingsManager.Instance.ToggleWindowed(windowedToggle.isOn);
-    }
+    // public void OnToggleWindowed()
+    // {
+    //     SoundManager.Instance.PlayButtonClickSound();
+    //     DisplaySettingsManager.Instance.ToggleWindowed(windowedToggle.isOn);
+    // }
 
     public Boolean IsPaused()
     {
