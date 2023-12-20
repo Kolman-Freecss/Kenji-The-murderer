@@ -147,8 +147,15 @@ public class GameManager : MonoBehaviour
     {
         if (m_GameFinalDialogue != null)
         {
-            m_OnLastDialogueFinish += () => FinishGame();
-            InitFinalNarration();
+            try
+            {
+                m_OnLastDialogueFinish += () => FinishGame();
+                InitFinalNarration();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("GameManager: Error while initializing narration round: " + e);
+            }
         }
         else
         {
@@ -157,12 +164,19 @@ public class GameManager : MonoBehaviour
 
         void FinishGame()
         {
-            m_OnLastDialogueFinish -= () => FinishGame();
-            m_GameWon = isWin;
-            SoundManager.Instance.StartBackgroundMusic(isWin
-                ? SoundManager.BackgroundMusic.WinGame
-                : SoundManager.BackgroundMusic.LostGame);
-            StartCoroutine(OnEndGame());
+            try
+            {
+                m_OnLastDialogueFinish -= () => FinishGame();
+                m_GameWon = isWin;
+                SoundManager.Instance.StartBackgroundMusic(isWin
+                    ? SoundManager.BackgroundMusic.WinGame
+                    : SoundManager.BackgroundMusic.LostGame);
+                StartCoroutine(OnEndGame());
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("GameManager: Error while finishing game: " + e);
+            }
         }
 
         IEnumerator OnEndGame()

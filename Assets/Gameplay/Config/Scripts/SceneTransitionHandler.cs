@@ -1,5 +1,6 @@
 #region
 
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -96,7 +97,14 @@ public class SceneTransitionHandler : MonoBehaviour
 
     public void LoadScene(SceneStates sceneState)
     {
-        StartCoroutine(LoadingSceneAsync(sceneState));
+        try
+        {
+            StartCoroutine(LoadingSceneAsync(sceneState));
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e);
+        }
 
         IEnumerator LoadingSceneAsync(SceneStates sceneState)
         {
