@@ -8,6 +8,7 @@ using Systems.NarrationSystem.Dialogue.Components;
 using Systems.NarrationSystem.Dialogue.Data;
 using Systems.NarrationSystem.Flow;
 using UnityEngine;
+using UnityEngine.Events;
 
 #endregion
 
@@ -149,8 +150,13 @@ public class GameManager : MonoBehaviour
     {
         try
         {
-            FlowListener.Instance.Entries[0].m_Event.RemoveAllListeners();
-            FlowListener.Instance.Entries[1].m_Event.RemoveAllListeners();
+            FlowState fs0Aux = FlowListener.Instance.Entries[0].m_State;
+            FlowState fs1Aux = FlowListener.Instance.Entries[1].m_State;
+            FlowListener.Instance.Entries = new[]
+            {
+                new FlowListenerEntry { m_State = fs0Aux, m_Event = new UnityEvent() },
+                new FlowListenerEntry { m_State = fs1Aux, m_Event = new UnityEvent() }
+            };
             FlowListener.Instance.Entries[0].m_Event.AddListener(DialogueStarted);
             FlowListener.Instance.Entries[1].m_Event.AddListener(DialogueEnded);
             DialogueInstigator.Instance.FlowChannel.OnFlowStateChanged += OnFlowStateChanged;

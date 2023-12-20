@@ -6,4 +6,9 @@ using Gameplay.Config.Scripts;
 
 public class InGameSecondManager : RoundManager
 {
+    protected override void StartRound()
+    {
+        base.StartRound();
+        m_currentZone = ZoneType.Second;
+    }
 }

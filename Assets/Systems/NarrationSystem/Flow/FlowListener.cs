@@ -15,6 +15,13 @@ namespace Systems.NarrationSystem.Flow
         public UnityEvent m_Event;
     }
 
+    [Serializable]
+    public enum FlowStateType
+    {
+        InGame,
+        InDialogue
+    }
+
     public class FlowListener : MonoBehaviour
     {
         public static FlowListener Instance { get; private set; }

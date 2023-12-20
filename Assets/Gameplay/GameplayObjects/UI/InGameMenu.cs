@@ -176,7 +176,9 @@ public class InGameMenu : MonoBehaviour
 
     private void OnDisable()
     {
+        tutorialAction.action.performed -= ctx => OnTutorial();
         pauseAction.action.performed -= ctx => OnPause();
+        tutorialAction.action.Disable();
         pauseAction.action.Disable();
         backButton.onClick.RemoveAllListeners();
         m_MasterVolumeSlider.onValueChanged.RemoveListener(OnMasterVolumeSliderChanged);

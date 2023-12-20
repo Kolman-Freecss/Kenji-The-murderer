@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48a47842a781df47829fffaafd291b1, type: 3}
   m_Name: FlowState_InGame
   m_EditorClassIdentifier: 
+  m_StateType: 1

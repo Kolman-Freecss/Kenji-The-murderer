@@ -27,6 +27,13 @@ namespace Gameplay.Config.Scripts
             Ended
         }
 
+        public enum ZoneType
+        {
+            None,
+            Init,
+            Second
+        }
+
         public enum DynamicAssets
         {
             Meat
@@ -73,6 +80,7 @@ namespace Gameplay.Config.Scripts
         protected RoundState m_CurrentRoundState;
         public Action OnRoundStarted;
         private bool m_roundStartedDialogueInit = false;
+        protected ZoneType m_currentZone = ZoneType.None;
 
         #endregion
 
