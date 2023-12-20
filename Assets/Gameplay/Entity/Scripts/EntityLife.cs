@@ -126,6 +126,7 @@ public class EntityLife : MonoBehaviour
     public void Heal(float amount)
     {
         currentLife += amount;
+        lifeBar.SetNormalizedValue(Mathf.Clamp01(currentLife / maxLife));
     }
 
     private float GetMeatRecoveryByEnemy(Enemy.EnemyType enemyType)
