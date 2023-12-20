@@ -27,6 +27,10 @@ public class PlayerInteractionInstigator : MonoBehaviour
     private event Action<IInteractable> m_OnDiscoverInteractable;
     private List<IInteractable> m_NearbyInteractables = new();
 
+    private delegate void InteractActionDelegate(InputAction.CallbackContext context);
+
+    private InteractActionDelegate onInteractAction;
+
     #endregion
 
     #region Init Data
@@ -34,12 +38,13 @@ public class PlayerInteractionInstigator : MonoBehaviour
     private void OnEnable()
     {
         m_InteractAction.action.Enable();
+        onInteractAction = new InteractActionDelegate(OnInteract);
+        m_InteractAction.action.performed += onInteractAction.Invoke;
     }
 
     private void Start()
     {
         m_InteractText.enabled = false;
-        m_InteractAction.action.performed += ctx => OnInteract();
         m_OnDiscoverInteractable += OnDiscoverInteractable;
     }
 
@@ -47,7 +52,7 @@ public class PlayerInteractionInstigator : MonoBehaviour
 
     #region Logic
 
-    private void OnInteract()
+    private void OnInteract(InputAction.CallbackContext context = default)
     {
         if (HasNearbyInteractables())
         {
@@ -106,7 +111,9 @@ public class PlayerInteractionInstigator : MonoBehaviour
 
     private void OnDisable()
     {
-        m_InteractAction.action.performed -= ctx => OnInteract();
+        m_InteractAction.action.performed -= onInteractAction.Invoke;
+        m_InteractAction.action.Disable();
+        m_OnDiscoverInteractable -= OnDiscoverInteractable;
     }
 
     #endregion

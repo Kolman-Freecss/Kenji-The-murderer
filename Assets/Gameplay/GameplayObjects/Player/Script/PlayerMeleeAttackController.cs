@@ -28,6 +28,10 @@ namespace Gameplay.GameplayObjects.Player.Script
 
         private float nextSlashTime = 0f;
 
+        private delegate void MeleeAttackActionDelegate(InputAction.CallbackContext context);
+
+        private MeleeAttackActionDelegate onMeleeAttackAction;
+
         private void Awake()
         {
             if (meleeWeapon == null)
@@ -44,7 +48,8 @@ namespace Gameplay.GameplayObjects.Player.Script
         private void OnEnable()
         {
             meleeAttackInput.action.Enable();
-            meleeAttackInput.action.performed += ctx => PerformInitAttack();
+            onMeleeAttackAction = new MeleeAttackActionDelegate(PerformInitAttack);
+            meleeAttackInput.action.performed += onMeleeAttackAction.Invoke;
         }
 
         private void Start()
@@ -64,7 +69,7 @@ namespace Gameplay.GameplayObjects.Player.Script
             meleeWeapon.gameObject.SetActive(false);
         }
 
-        public void PerformInitAttack()
+        public void PerformInitAttack(InputAction.CallbackContext context = default)
         {
             if (Time.time > nextSlashTime)
             {
@@ -91,8 +96,8 @@ namespace Gameplay.GameplayObjects.Player.Script
 
         private void OnDisable()
         {
+            meleeAttackInput.action.performed -= onMeleeAttackAction.Invoke;
             meleeAttackInput.action.Disable();
-            meleeAttackInput.action.performed -= ctx => PerformInitAttack();
         }
     }
 }

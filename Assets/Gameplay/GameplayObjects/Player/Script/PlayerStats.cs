@@ -108,5 +108,10 @@ namespace Gameplay.GameplayObjects.Player.Script
         {
             ParentActionProgressBar.fillAmount = normalizedProgress;
         }
+
+        private void OnDisable()
+        {
+            animationEvent.OnAnimationFinish -= HandleAnimationFinished;
+        }
     }
 }

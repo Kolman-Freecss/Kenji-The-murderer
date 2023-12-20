@@ -18,6 +18,14 @@ public class InGameMenu : MonoBehaviour
 
     [SerializeField] private InputActionReference tutorialAction;
 
+    private delegate void TutorialActionDelegate(InputAction.CallbackContext context);
+
+    private TutorialActionDelegate onTutorialAction;
+
+    private delegate void PauseActionDelegate(InputAction.CallbackContext context);
+
+    private PauseActionDelegate onPauseAction;
+
     [Header("Tutorial Settings")] [SerializeField]
     private GameObject tutorialPanel;
 
@@ -61,7 +69,8 @@ public class InGameMenu : MonoBehaviour
         try
         {
             pauseAction.action.Enable();
-            pauseAction.action.performed += ctx => OnPause();
+            onPauseAction = new PauseActionDelegate(OnPause);
+            pauseAction.action.performed += onPauseAction.Invoke;
 
             backButton
                 .onClick
@@ -72,7 +81,8 @@ public class InGameMenu : MonoBehaviour
                 .AddListener(() => { OnExitMenu(); });
 
             tutorialAction.action.Enable();
-            tutorialAction.action.performed += ctx => OnTutorial();
+            onTutorialAction = new TutorialActionDelegate(OnTutorial);
+            tutorialAction.action.performed += onTutorialAction.Invoke;
 
             // Note that we initialize the slider BEFORE we listen for changes (so we don't get notified of our own change!)
             m_MasterVolumeSlider.value = SoundManager.Instance.MasterAudioVolume;
@@ -131,7 +141,7 @@ public class InGameMenu : MonoBehaviour
         SoundManager.Instance.SetEffectsVolume(newValue);
     }
 
-    public void OnPause()
+    public void OnPause(InputAction.CallbackContext context = default)
     {
         m_isPaused = !m_isPaused;
         canvas.gameObject.SetActive(m_isPaused);
@@ -152,7 +162,7 @@ public class InGameMenu : MonoBehaviour
         tutorialText.gameObject.SetActive(true);
     }
 
-    public void OnTutorial()
+    public void OnTutorial(InputAction.CallbackContext context = default)
     {
         tutorialPanel.SetActive(!tutorialPanel.activeSelf);
         if (tutorialText.gameObject.activeSelf)
@@ -176,8 +186,8 @@ public class InGameMenu : MonoBehaviour
 
     private void OnDisable()
     {
-        tutorialAction.action.performed -= ctx => OnTutorial();
-        pauseAction.action.performed -= ctx => OnPause();
+        tutorialAction.action.performed -= onTutorialAction.Invoke;
+        pauseAction.action.performed -= onPauseAction.Invoke;
         tutorialAction.action.Disable();
         pauseAction.action.Disable();
         backButton.onClick.RemoveAllListeners();
