@@ -17,13 +17,19 @@ namespace Systems.NarrationSystem.Flow
 
     public class FlowListener : MonoBehaviour
     {
+        public static FlowListener Instance { get; private set; }
+
         #region Inspector Variables
 
-        [SerializeField]
-        private FlowChannel m_Channel;
+        [SerializeField] private FlowChannel m_Channel;
 
-        [SerializeField]
-        private FlowListenerEntry[] m_Entries;
+        [SerializeField] private FlowListenerEntry[] m_Entries;
+
+        public FlowListenerEntry[] Entries
+        {
+            get => m_Entries;
+            set => m_Entries = value;
+        }
 
         #endregion
 
@@ -32,6 +38,20 @@ namespace Systems.NarrationSystem.Flow
         private void Awake()
         {
             m_Channel.OnFlowStateChanged += OnFlowStateChanged;
+            ManageSingleton();
+        }
+
+        private void ManageSingleton()
+        {
+            if (Instance != null)
+            {
+                gameObject.SetActive(false);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
         }
 
         #endregion

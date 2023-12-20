@@ -44,3 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7924a96cebf7e73439215d11055ae84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToFinishGame: 5
+  m_GameFinalDialogue: {fileID: 11400000, guid: 84aa6662aca158a44b9b46592c4fd9c5,
+    type: 2}
+  m_player: {fileID: 0}
+  m_GameWon: 0
+  gamePaused: 0

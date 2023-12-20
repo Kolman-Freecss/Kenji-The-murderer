@@ -4,6 +4,9 @@ using System;
 using System.Collections;
 using Gameplay.GameplayObjects.Interactables._derivatives;
 using Gameplay.GameplayObjects.Player.Script;
+using Systems.NarrationSystem.Dialogue.Components;
+using Systems.NarrationSystem.Dialogue.Data;
+using Systems.NarrationSystem.Flow;
 using UnityEngine;
 
 #endregion
@@ -19,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     public float timeToFinishGame = 5f;
 
+    [SerializeField] private Dialogue m_GameFinalDialogue;
+
     #region Member properties
 
     public static GameManager Instance { get; private set; }
@@ -31,6 +36,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool m_GameWon;
 
     public bool gamePaused;
+
+    private Action m_OnLastDialogueFinish;
+    private bool lastFinalDialogueInit = false;
 
     #endregion
 
@@ -109,11 +117,25 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(bool isWin)
     {
-        m_GameWon = isWin;
-        SoundManager.Instance.StartBackgroundMusic(isWin
-            ? SoundManager.BackgroundMusic.WinGame
-            : SoundManager.BackgroundMusic.LostGame);
-        StartCoroutine(OnEndGame());
+        if (m_GameFinalDialogue != null)
+        {
+            m_OnLastDialogueFinish += () => FinishGame();
+            InitFinalNarration();
+        }
+        else
+        {
+            FinishGame();
+        }
+
+        void FinishGame()
+        {
+            m_OnLastDialogueFinish -= () => FinishGame();
+            m_GameWon = isWin;
+            SoundManager.Instance.StartBackgroundMusic(isWin
+                ? SoundManager.BackgroundMusic.WinGame
+                : SoundManager.BackgroundMusic.LostGame);
+            StartCoroutine(OnEndGame());
+        }
 
         IEnumerator OnEndGame()
         {
@@ -121,6 +143,65 @@ public class GameManager : MonoBehaviour
             SceneTransitionHandler.Instance.LoadScene(SceneTransitionHandler.SceneStates.EndGame);
             IsGameStarted = false;
         }
+    }
+
+    private void InitFinalNarration()
+    {
+        try
+        {
+            FlowListener.Instance.Entries[0].m_Event.RemoveAllListeners();
+            FlowListener.Instance.Entries[1].m_Event.RemoveAllListeners();
+            FlowListener.Instance.Entries[0].m_Event.AddListener(DialogueStarted);
+            FlowListener.Instance.Entries[1].m_Event.AddListener(DialogueEnded);
+            DialogueInstigator.Instance.FlowChannel.OnFlowStateChanged += OnFlowStateChanged;
+            DialogueInstigator.Instance.DialogueChannel.RaiseRequestDialogue(m_GameFinalDialogue);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("GameManager: Error while initializing narration round: " + e);
+        }
+    }
+
+    private void OnFlowStateChanged(FlowState state)
+    {
+        DialogueInstigator.Instance.FlowChannel.OnFlowStateChanged -= OnFlowStateChanged;
+    }
+
+    public void DialogueStarted()
+    {
+        if (Instance.m_player == null)
+        {
+            Instance.m_player = FindObjectOfType<PlayerController>();
+            if (Instance.m_player == null)
+            {
+                Debug.LogError("RoundManager: No player found");
+                return;
+            }
+        }
+
+        lastFinalDialogueInit = true;
+
+        PauseGameEvent(true);
+    }
+
+    public void DialogueEnded()
+    {
+        if (Instance.m_player == null)
+        {
+            Instance.m_player = FindObjectOfType<PlayerController>();
+            if (Instance.m_player == null)
+            {
+                Debug.LogError("RoundManager: No player found");
+                return;
+            }
+        }
+
+        if (lastFinalDialogueInit)
+        {
+            m_OnLastDialogueFinish?.Invoke();
+        }
+
+        PauseGameEvent(false);
     }
 
     #endregion

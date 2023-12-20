@@ -275,6 +275,7 @@ namespace Gameplay.Config.Scripts
 
         public virtual void UsePortal(object portalInteractable)
         {
+            portalsWrapper.GetComponent<AudioSource>()?.Stop();
             GameManager.Instance.OnPlayerEndRound(roundType, (PortalInteractable)portalInteractable);
         }
 
