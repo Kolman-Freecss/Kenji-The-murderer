@@ -146,6 +146,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void FinishGameGoMenu()
+    {
+        SoundManager.Instance.StartBackgroundMusic(SoundManager.BackgroundMusic.Intro);
+        SceneTransitionHandler.Instance.LoadScene(SceneTransitionHandler.SceneStates.Home);
+    }
+
     private void InitFinalNarration()
     {
         try

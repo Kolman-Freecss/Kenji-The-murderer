@@ -49,7 +49,7 @@ public class EndGameManager : MonoBehaviour
     void OnMainMenuButtonClicked()
     {
         SoundManager.Instance.PlayButtonClickSound();
-        SceneTransitionHandler.Instance.LoadScene(SceneTransitionHandler.SceneStates.Home);
+        GameManager.Instance.FinishGameGoMenu();
     }
 
     #endregion

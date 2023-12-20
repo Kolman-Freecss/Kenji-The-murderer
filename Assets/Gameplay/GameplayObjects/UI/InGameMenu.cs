@@ -122,8 +122,9 @@ public class InGameMenu : MonoBehaviour
 
     public void OnExitMenu()
     {
+        Time.timeScale = 1;
         SoundManager.Instance.PlayButtonClickSound();
-        SceneTransitionHandler.Instance.LoadScene(SceneTransitionHandler.SceneStates.Home);
+        GameManager.Instance.FinishGameGoMenu();
     }
 
     private void OnMasterVolumeSliderChanged(float newValue)
