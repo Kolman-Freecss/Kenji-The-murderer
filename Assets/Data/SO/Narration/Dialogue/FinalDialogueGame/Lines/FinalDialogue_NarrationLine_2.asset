@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: FinalDialogue_NarrationLine_2
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: 62df607dd4cb5284e81ccac9ccba2b0c, type: 2}
-  m_Text: You should have die already
+  m_Text: We will see each other again, rest assured. And when you see me again,
+    it will be the last time...
