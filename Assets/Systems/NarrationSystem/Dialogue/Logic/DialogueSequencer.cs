@@ -2,6 +2,7 @@
 
 using System;
 using Systems.NarrationSystem.Dialogue.Data.Nodes;
+using UnityEngine;
 
 #endregion
 
@@ -10,7 +11,9 @@ namespace Systems.NarrationSystem.Dialogue.Logic
     public class DialogueException : Exception
     {
         public DialogueException(string message)
-            : base(message) { }
+            : base(message)
+        {
+        }
     }
 
     public class DialogueSequencer
@@ -29,6 +32,10 @@ namespace Systems.NarrationSystem.Dialogue.Logic
 
         public void StartDialogue(Data.Dialogue dialogue)
         {
+            if (dialogue)
+                Debug.Log("Starting dialogue: " + dialogue.name);
+            else
+                Debug.Log("Ending dialogue: null");
             if (m_CurrentDialogue == null)
             {
                 m_CurrentDialogue = dialogue;
@@ -43,6 +50,10 @@ namespace Systems.NarrationSystem.Dialogue.Logic
 
         public void EndDialogue(Data.Dialogue dialogue)
         {
+            if (dialogue)
+                Debug.Log("Ending dialogue: " + dialogue.name);
+            else
+                Debug.Log("Ending dialogue: null");
             if (m_CurrentDialogue == dialogue)
             {
                 StopDialogueNode(m_CurrentNode);

@@ -65,9 +65,27 @@ namespace Systems.NarrationSystem.Flow
 
         private void OnFlowStateChanged(FlowState state)
         {
-            FlowListenerEntry foundEntry = Array.Find(m_Entries, x => x.m_State == state);
+            FlowListenerEntry foundEntry = Array.Find(m_Entries, x =>
+            {
+                if (state != null && x.m_State != null)
+                {
+                    Debug.Log($"Comparing {x.m_State.m_StateType} with {state.m_StateType}");
+                    return x.m_State.m_StateType == state.m_StateType;
+                }
+                else
+                {
+                    Debug.Log("One of the states is null => " + (state == null ? "state" : "x.m_State"));
+                    return false;
+                }
+            });
             if (foundEntry != null)
             {
+                if (foundEntry.m_Event == null)
+                {
+                    Debug.LogError($"Event for {foundEntry.m_State.m_StateType} is null");
+                    return;
+                }
+
                 foundEntry.m_Event.Invoke();
             }
         }

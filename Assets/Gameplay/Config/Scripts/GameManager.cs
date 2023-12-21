@@ -43,6 +43,10 @@ public class GameManager : MonoBehaviour
     private Action m_OnLastDialogueFinish;
     private bool lastFinalDialogueInit = false;
 
+    private delegate void FinishGameDelegate();
+
+    private FinishGameDelegate m_OnFinishGame;
+
     #endregion
 
     #region InitData
@@ -123,6 +127,7 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerEndRound(RoundTypes roundType, PortalInteractable portalInteractable)
     {
+        Debug.Log("GameManager: Player end round " + roundType);
         switch (roundType)
         {
             case RoundTypes.InGame_Init:
@@ -145,11 +150,15 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(bool isWin)
     {
+        Debug.Log("GameManager: End game " + isWin);
         if (m_GameFinalDialogue != null)
         {
             try
             {
-                m_OnLastDialogueFinish += () => FinishGame();
+                Debug.Log("GameManager: Start final narration1");
+                m_OnFinishGame = new FinishGameDelegate(FinishGame);
+                m_OnLastDialogueFinish += m_OnFinishGame.Invoke;
+                Debug.Log("GameManager: Start final narration2");
                 InitFinalNarration();
             }
             catch (Exception e)
@@ -159,6 +168,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("GameManager: Start final narration3");
             FinishGame();
         }
 
@@ -166,7 +176,8 @@ public class GameManager : MonoBehaviour
         {
             try
             {
-                m_OnLastDialogueFinish -= () => FinishGame();
+                Debug.Log("GameManager: Finish game");
+                m_OnLastDialogueFinish -= m_OnFinishGame.Invoke;
                 m_GameWon = isWin;
                 SoundManager.Instance.StartBackgroundMusic(isWin
                     ? SoundManager.BackgroundMusic.WinGame
@@ -197,6 +208,7 @@ public class GameManager : MonoBehaviour
     {
         try
         {
+            Debug.Log("GameManager: InitFinalNarration()1");
             FlowState fs0Aux = FlowListener.Instance.Entries[0].m_State;
             FlowState fs1Aux = FlowListener.Instance.Entries[1].m_State;
             FlowListener.Instance.Entries = new[]
@@ -206,8 +218,18 @@ public class GameManager : MonoBehaviour
             };
             FlowListener.Instance.Entries[0].m_Event.AddListener(DialogueStarted);
             FlowListener.Instance.Entries[1].m_Event.AddListener(DialogueEnded);
+            for (int i = 0; i < FlowListener.Instance.Entries.Length; i++)
+            {
+                Debug.Log(
+                    "GameManager: InitFinalNarration()1.9 " + FlowListener.Instance.Entries[i].m_State.m_StateType);
+                Debug.Log("GameManager: InitFinalNarration()1.9 " +
+                          FlowListener.Instance.Entries[i].m_Event.ToString());
+            }
+
+            Debug.Log("GameManager: InitFinalNarration()1.9 " + FlowListener.Instance.Entries.Length);
             DialogueInstigator.Instance.FlowChannel.OnFlowStateChanged += OnFlowStateChanged;
             DialogueInstigator.Instance.DialogueChannel.RaiseRequestDialogue(m_GameFinalDialogue);
+            Debug.Log("GameManager: InitFinalNarration()2");
         }
         catch (Exception e)
         {
@@ -217,11 +239,12 @@ public class GameManager : MonoBehaviour
 
     private void OnFlowStateChanged(FlowState state)
     {
-        DialogueInstigator.Instance.FlowChannel.OnFlowStateChanged -= OnFlowStateChanged;
+        Debug.Log("GameManager: OnFlowStateChanged " + state.m_StateType);
     }
 
     public void DialogueStarted()
     {
+        Debug.Log("GameManager: Dialogue started1");
         if (Instance.m_player == null)
         {
             Instance.m_player = FindObjectOfType<PlayerController>();
@@ -232,13 +255,16 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        Debug.Log("GameManager: Dialogue started2");
         lastFinalDialogueInit = true;
+        Debug.Log("GameManager: Dialogue started3 " + lastFinalDialogueInit);
 
         PauseGameEvent(true);
     }
 
     public void DialogueEnded()
     {
+        Debug.Log("GameManager: Dialogue ended1");
         if (Instance.m_player == null)
         {
             Instance.m_player = FindObjectOfType<PlayerController>();
@@ -249,9 +275,12 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        Debug.Log("GameManager: Dialogue ended2 " + lastFinalDialogueInit);
         if (lastFinalDialogueInit)
         {
             m_OnLastDialogueFinish?.Invoke();
+            Debug.Log("GameManager: Dialogue ended3");
+            DialogueInstigator.Instance.FlowChannel.OnFlowStateChanged -= OnFlowStateChanged;
         }
 
         PauseGameEvent(false);
