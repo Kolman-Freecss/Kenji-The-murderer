@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(bool isWin)
     {
-        if (m_GameFinalDialogue != null)
+        if (m_GameFinalDialogue != null && isWin)
         {
             try
             {
@@ -171,7 +171,11 @@ public class GameManager : MonoBehaviour
         {
             try
             {
-                m_OnLastDialogueFinish -= m_OnFinishGame.Invoke;
+                if (isWin)
+                {
+                    m_OnLastDialogueFinish -= m_OnFinishGame.Invoke;
+                }
+
                 m_GameWon = isWin;
                 SoundManager.Instance.StartBackgroundMusic(isWin
                     ? SoundManager.BackgroundMusic.WinGame
