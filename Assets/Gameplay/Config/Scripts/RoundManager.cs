@@ -190,7 +190,6 @@ namespace Gameplay.Config.Scripts
 
         protected virtual void OnFlowStateChanged(FlowState state)
         {
-            DialogueInstigator.Instance.FlowChannel.OnFlowStateChanged -= OnFlowStateChanged;
             OnStartRound();
         }
 
@@ -198,7 +197,6 @@ namespace Gameplay.Config.Scripts
         {
             try
             {
-                DialogueInstigator.Instance.FlowChannel.OnFlowStateChanged += OnFlowStateChanged;
                 DialogueInstigator.Instance.DialogueChannel.RaiseRequestDialogue(m_RoundStartDialogue);
             }
             catch (Exception e)
@@ -243,6 +241,7 @@ namespace Gameplay.Config.Scripts
             {
                 InGameMenu.Instance.ActiveTutorialText();
                 m_roundStartedDialogueInit = false;
+                StartRound();
             }
 
             GameManager.Instance.PauseGameEvent(false);
@@ -296,9 +295,21 @@ namespace Gameplay.Config.Scripts
 
         #region Destructor
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             m_encounters.ForEach(encounter => encounter.onEncounterFinished.RemoveListener(OnEncounterEnded));
+            m_roundPortals.ForEach(portal =>
+            {
+                if (portal.Value != null)
+                {
+                    portal.Value.OnInteraction.RemoveAllListeners();
+                    Debug.Log("RoundManager: Portal " + portal.Value.name + " Remove Listener");
+                }
+                else
+                {
+                    Debug.LogError("RoundManager: Portal " + portal.Key + " is null");
+                }
+            });
         }
 
         #endregion

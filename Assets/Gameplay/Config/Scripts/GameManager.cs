@@ -43,6 +43,10 @@ public class GameManager : MonoBehaviour
     private Action m_OnLastDialogueFinish;
     private bool lastFinalDialogueInit = false;
 
+    private delegate void FinishGameDelegate();
+
+    private FinishGameDelegate m_OnFinishGame;
+
     #endregion
 
     #region InitData
@@ -149,7 +153,8 @@ public class GameManager : MonoBehaviour
         {
             try
             {
-                m_OnLastDialogueFinish += () => FinishGame();
+                m_OnFinishGame = new FinishGameDelegate(FinishGame);
+                m_OnLastDialogueFinish += m_OnFinishGame.Invoke;
                 InitFinalNarration();
             }
             catch (Exception e)
@@ -166,7 +171,7 @@ public class GameManager : MonoBehaviour
         {
             try
             {
-                m_OnLastDialogueFinish -= () => FinishGame();
+                m_OnLastDialogueFinish -= m_OnFinishGame.Invoke;
                 m_GameWon = isWin;
                 SoundManager.Instance.StartBackgroundMusic(isWin
                     ? SoundManager.BackgroundMusic.WinGame
@@ -217,7 +222,6 @@ public class GameManager : MonoBehaviour
 
     private void OnFlowStateChanged(FlowState state)
     {
-        DialogueInstigator.Instance.FlowChannel.OnFlowStateChanged -= OnFlowStateChanged;
     }
 
     public void DialogueStarted()
@@ -252,6 +256,7 @@ public class GameManager : MonoBehaviour
         if (lastFinalDialogueInit)
         {
             m_OnLastDialogueFinish?.Invoke();
+            DialogueInstigator.Instance.FlowChannel.OnFlowStateChanged -= OnFlowStateChanged;
         }
 
         PauseGameEvent(false);
