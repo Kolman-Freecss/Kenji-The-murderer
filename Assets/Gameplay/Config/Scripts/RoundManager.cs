@@ -105,7 +105,6 @@ namespace Gameplay.Config.Scripts
 
         protected void Start()
         {
-            Debug.Log("RoundManager: Start");
             m_roundStartedDialogueInit = false;
             portalsWrapper.SetActive(false);
             m_CurrentRoundState = RoundState.Starting;
@@ -113,7 +112,6 @@ namespace Gameplay.Config.Scripts
             {
                 //portal.Value.gameObject.SetActive(false);
                 portal.Value.OnInteraction.AddListener(UsePortal);
-                Debug.Log("RoundManager: Portal " + portal.Value.name + " set Listener");
             });
             if (m_RoundStartDialogue != null)
             {
@@ -192,6 +190,7 @@ namespace Gameplay.Config.Scripts
 
         protected virtual void OnFlowStateChanged(FlowState state)
         {
+            DialogueInstigator.Instance.FlowChannel.OnFlowStateChanged -= OnFlowStateChanged;
             OnStartRound();
         }
 
@@ -199,6 +198,7 @@ namespace Gameplay.Config.Scripts
         {
             try
             {
+                DialogueInstigator.Instance.FlowChannel.OnFlowStateChanged += OnFlowStateChanged;
                 DialogueInstigator.Instance.DialogueChannel.RaiseRequestDialogue(m_RoundStartDialogue);
             }
             catch (Exception e)
@@ -209,7 +209,6 @@ namespace Gameplay.Config.Scripts
 
         public void DialogueStarted()
         {
-            Debug.Log("RoundManager: Dialogue started1");
             if (GameManager.Instance.m_player == null)
             {
                 GameManager.Instance.m_player = FindObjectOfType<PlayerController>();
@@ -230,7 +229,6 @@ namespace Gameplay.Config.Scripts
 
         public void DialogueEnded()
         {
-            Debug.Log("RoundManager: Dialogue ended1");
             if (GameManager.Instance.m_player == null)
             {
                 GameManager.Instance.m_player = FindObjectOfType<PlayerController>();
@@ -245,7 +243,6 @@ namespace Gameplay.Config.Scripts
             {
                 InGameMenu.Instance.ActiveTutorialText();
                 m_roundStartedDialogueInit = false;
-                StartRound();
             }
 
             GameManager.Instance.PauseGameEvent(false);
@@ -286,7 +283,6 @@ namespace Gameplay.Config.Scripts
 
         public virtual void UsePortal(object portalInteractable)
         {
-            Debug.Log("RoundManager: Portal used " + portalInteractable);
             portalsWrapper.GetComponent<AudioSource>()?.Stop();
             GameManager.Instance.OnPlayerEndRound(roundType, (PortalInteractable)portalInteractable);
         }
@@ -300,21 +296,9 @@ namespace Gameplay.Config.Scripts
 
         #region Destructor
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             m_encounters.ForEach(encounter => encounter.onEncounterFinished.RemoveListener(OnEncounterEnded));
-            m_roundPortals.ForEach(portal =>
-            {
-                if (portal.Value != null)
-                {
-                    portal.Value.OnInteraction.RemoveAllListeners();
-                    Debug.Log("RoundManager: Portal " + portal.Value.name + " Remove Listener");
-                }
-                else
-                {
-                    Debug.LogError("RoundManager: Portal " + portal.Key + " is null");
-                }
-            });
         }
 
         #endregion

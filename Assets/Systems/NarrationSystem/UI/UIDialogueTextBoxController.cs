@@ -13,19 +13,26 @@ namespace Systems.NarrationSystem.UI
 {
     public class UIDialogueTextBoxController : MonoBehaviour, IDialogueNodeVisitor
     {
-        [SerializeField] private TextMeshProUGUI m_SpeakerText;
+        [SerializeField]
+        private TextMeshProUGUI m_SpeakerText;
 
-        [SerializeField] private TextMeshProUGUI m_DialogueText;
+        [SerializeField]
+        private TextMeshProUGUI m_DialogueText;
 
-        [SerializeField] private RectTransform m_ChoicesBoxTransform;
+        [SerializeField]
+        private RectTransform m_ChoicesBoxTransform;
 
-        [SerializeField] private UIDialogueChoiceController m_ChoiceControllerPrefab;
+        [SerializeField]
+        private UIDialogueChoiceController m_ChoiceControllerPrefab;
 
-        [SerializeField] private DialogueChannel m_DialogueChannel;
+        [SerializeField]
+        private DialogueChannel m_DialogueChannel;
 
-        [SerializeField] private TextMeshProUGUI m_ContinueText;
+        [SerializeField]
+        private TextMeshProUGUI m_ContinueText;
 
-        [Header("Input Actions")] [SerializeField]
+        [Header("Input Actions")]
+        [SerializeField]
         private InputActionReference m_SubmitAction;
 
         private bool m_ListenToInput = false;
@@ -54,7 +61,6 @@ namespace Systems.NarrationSystem.UI
 
         private void OnSubmitAction(InputAction.CallbackContext context)
         {
-            Debug.Log("Submit action");
             if (m_ListenToInput)
             {
                 m_DialogueChannel.RaiseRequestDialogueNode(m_NextNode);
@@ -71,7 +77,6 @@ namespace Systems.NarrationSystem.UI
             {
                 m_ContinueText.text = "Press Enter to continue";
             }
-
             m_ContinueText.gameObject.SetActive(true);
             gameObject.SetActive(true);
 

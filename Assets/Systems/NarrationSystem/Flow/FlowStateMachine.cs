@@ -10,9 +10,11 @@ namespace Systems.NarrationSystem.Flow
     {
         #region Inspector Variables
 
-        [SerializeField] private FlowChannel m_Channel;
+        [SerializeField]
+        private FlowChannel m_Channel;
 
-        [SerializeField] private FlowState m_StartupState;
+        [SerializeField]
+        private FlowState m_StartupState;
 
         #endregion
 
@@ -30,17 +32,14 @@ namespace Systems.NarrationSystem.Flow
 
         private void Awake()
         {
-            Debug.Log("FlowStateMachine Awake");
             ms_Instance = this;
-            m_CurrentState = m_StartupState;
+
             m_Channel.OnFlowStateRequested += SetFlowState;
         }
 
         private void Start()
         {
-            // SetFlowState(m_StartupState);
-
-            Debug.Log("FlowStateMachine Start m_CurrentState: " + m_CurrentState);
+            SetFlowState(m_StartupState);
         }
 
         #endregion
@@ -57,13 +56,6 @@ namespace Systems.NarrationSystem.Flow
         #region Destructor
 
         private void OnDestroy()
-        {
-            m_Channel.OnFlowStateRequested -= SetFlowState;
-
-            ms_Instance = null;
-        }
-
-        private void OnDisable()
         {
             m_Channel.OnFlowStateRequested -= SetFlowState;
 
