@@ -1,6 +1,6 @@
 # Kenji The Murderer
 
-Project built with the Master degree in Video Game Programming on The Core School. 
+Master degree project on The Core School. 
 
 TPS (Third person shooter) built with Unity HDRP pipeline.
 
